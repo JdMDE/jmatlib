@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['fullmatrix_129',['FullMatrix',['../classFullMatrix.html#a04853b7b5eee4ca6e0bb8f3361a825c9',1,'FullMatrix::FullMatrix()'],['../classFullMatrix.html#a8d59b4f814abdb2c587578dbddb99b1b',1,'FullMatrix::FullMatrix(indextype nrows, indextype ncols)'],['../classFullMatrix.html#af6f94df0df8d12ee622d0ac297fc4a1f',1,'FullMatrix::FullMatrix(indextype nrows, indextype ncols, bool warn)'],['../classFullMatrix.html#a84f9e813203e0d03fecfe06df5190300',1,'FullMatrix::FullMatrix(const FullMatrix&lt; T &gt; &amp;other)'],['../classFullMatrix.html#aef057d791501ad53ed010f9461a51152',1,'FullMatrix::FullMatrix(std::string fname)'],['../classFullMatrix.html#a7f75d9c7f41e2faf3e78ee1cedc60b6e',1,'FullMatrix::FullMatrix(std::string fname, bool warn)'],['../classFullMatrix.html#a59b14ff9145094eace78166ecef078d0',1,'FullMatrix::FullMatrix(std::string fname, unsigned char vtype, char csep)']]]
+];
