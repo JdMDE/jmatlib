@@ -1,0 +1,464 @@
+\hypertarget{jmatrix_8h}{}\doxysection{src/headers/jmatrix.h File Reference}
+\label{jmatrix_8h}\index{src/headers/jmatrix.h@{src/headers/jmatrix.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}debugpar.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}indextype.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}matinfo.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classJMatrix}{JMatrix$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{jmatrix_8h_ae1b305d2831d68d4b2c10aeb44d7f323}\label{jmatrix_8h_ae1b305d2831d68d4b2c10aeb44d7f323}} 
+\#define {\bfseries WITH\+\_\+\+CHECKS\+\_\+\+MATRIXSP}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{jmatrix_8h_a2032586e9a37ffd54642b6c38bd28df3}{This\+Machine\+Endianness}} ()
+\item 
+unsigned long long \mbox{\hyperlink{jmatrix_8h_adb15bedb25060aa5bcfcd70099c82651}{Get\+File\+Size}} (std\+::string fname)
+\item 
+void \mbox{\hyperlink{jmatrix_8h_a9c125c4421c20c40710c2144f8fa9e46}{Positions\+In\+File}} (std\+::string fname, unsigned long long $\ast$start\+\_\+of\+\_\+metadata, unsigned long long $\ast$start\+\_\+of\+\_\+comment)
+\item 
+std\+::string \mbox{\hyperlink{jmatrix_8h_a04a8c96d8ec80d6576b71ceea0de4840}{Matrix\+Type\+Name}} (unsigned char matrixtypeident)
+\begin{DoxyCompactList}\small\item\em Auxiliary functions to be used for error printing. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}{Data\+Type\+Name}} (unsigned char datatypeident)
+\item 
+std\+::string \mbox{\hyperlink{jmatrix_8h_a85bbfe9fcc560cba3e2c55e10895f22b}{Metadata\+Info}} (unsigned char metadatainfo)
+\item 
+int \mbox{\hyperlink{jmatrix_8h_a8fcc857f86fde14239ca10bfc994f564}{Size\+Of\+Type}} (unsigned char datatypeident)
+\item 
+\mbox{\Hypertarget{jmatrix_8h_a4a71f448b535e412921383b710bcbb4b}\label{jmatrix_8h_a4a71f448b535e412921383b710bcbb4b}} 
+std\+::string {\bfseries Fix\+Quotes} (std\+::string s, bool withquotes)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned short \mbox{\hyperlink{jmatrix_8h_a3377e92254d72a25f88baee5233b60f5}{HEADER\+\_\+\+SIZE}} =128
+\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_af8fd011df2f028118128a2e5b1b1c48d}{MTYPENOTYPE}} =0x0F
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_ae9169e39e51d4c75b617ba273aa9523e}{MTYPEFULL}} =0x00
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}{MTYPESPARSE}} =0x01
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a8e8918060e564b35b393d763b3b67727}{MTYPESYMMETRIC}} =0x02
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_adbb2b052e4fb52c701458a8878f8b260}{NOTYPE}} =0x0F
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a4752e6be4f53d96f7c6546b08ee3e2b2}{UCTYPE}} =0x00
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a2e4c0d4077d0fe4cbccb0c44b72f9887}{SCTYPE}} =0x01
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a625523e1ea61196ad09c2dcd181805f8}{USTYPE}} =0x02
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a9f7d0baba9ede7bf58fe22679f3dcc47}{SSTYPE}} =0x03
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a17ca12dce776c0a2845867e03ec46258}{UITYPE}} =0x04
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a12f08476807fb95bd69151800e00feba}{SITYPE}} =0x05
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a2598f25841688752345c51fe7f920636}{ULTYPE}} =0x06
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a45967bf99dc3bc3776ca197022f54512}{SLTYPE}} =0x07
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a9c4c4773ae0b55725dfbc8219af7deac}{ULLTYPE}} =0x08
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_ad5a44fbbc1fa98e6f9e1b7108bc7109b}{SLLTYPE}} =0x09
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a2a1d58d0fc5d08a57a8235308cf52d8e}{FTYPE}} =0x0A
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a019db3f3e8c984733859d791966d988c}{DTYPE}} =0x0B
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a6d5b3f04cce9d89e4dd3e18bc5dd1033}{LDTYPE}} =0x0C
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a4c4b9485db5b795c8d8bd4a2bf56cb50}{BIGEND}} =0x00
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_ad9454de5731c590331a137ea0b535740}{LITEND}} =0x\+F0
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{jmatrix_8h_a2d6e5dd2d8171091ae718c2ef73371b0}{READ\+\_\+\+OK}} =0
+\item 
+const int \mbox{\hyperlink{jmatrix_8h_abc1429268c3c8deadc92a7c3fb0d309b}{ERROR\+\_\+\+READING\+\_\+\+STRINGS}} =1
+\item 
+const int \mbox{\hyperlink{jmatrix_8h_a72ae2ba5f367a865b3f2520b9189023a}{ERROR\+\_\+\+READING\+\_\+\+ROW\+\_\+\+NAMES}} =2
+\item 
+const int \mbox{\hyperlink{jmatrix_8h_a5b744953bfad2c959be6b58495d74156}{ERROR\+\_\+\+READING\+\_\+\+COL\+\_\+\+NAMES}} =3
+\item 
+const int \mbox{\hyperlink{jmatrix_8h_afc96158344a334ea42b4cd2b94a8595d}{ERROR\+\_\+\+READING\+\_\+\+SEP\+\_\+\+MARK}} =4
+\item 
+const unsigned int \mbox{\hyperlink{jmatrix_8h_a5abdc101f3755235a0ca2cc69fd776f6}{MAX\+\_\+\+LEN\+\_\+\+NAME}} =1023
+\item 
+const unsigned int \mbox{\hyperlink{jmatrix_8h_a74ffd76b8d66d082b6834743018959f1}{COMMENT\+\_\+\+SIZE}} =1024
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a1cab0f33df714958cfad064ba593a06d}{NO\+\_\+\+METADATA}} =0x00
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_af4ae00f22f496cc3531c635796a0df13}{ROW\+\_\+\+NAMES}} =0x01
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_acd76676c01eb6c67ca351a80ffd46d0d}{COL\+\_\+\+NAMES}} =0x02
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a38e7db654cd46fdb941614ab1f3dd439}{COMMENT}} =0x04
+\item 
+const unsigned int \mbox{\hyperlink{jmatrix_8h_a432a8c24c736a31b664b6e140ffadc5d}{BLOCKSEP\+\_\+\+LEN}} =4
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}{BLOCK\+\_\+\+MARK}} =0x\+FF
+\item 
+const unsigned char \mbox{\hyperlink{jmatrix_8h_a25e5e3fc309be8abca75f75ff294d2ae}{BLOCKSEP}} \mbox{[}\mbox{\hyperlink{jmatrix_8h_a432a8c24c736a31b664b6e140ffadc5d}{BLOCKSEP\+\_\+\+LEN}}\mbox{]} =\{\mbox{\hyperlink{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}{BLOCK\+\_\+\+MARK}},0x45,0x42,\mbox{\hyperlink{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}{BLOCK\+\_\+\+MARK}}\}
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}\label{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}} 
+\index{jmatrix.h@{jmatrix.h}!DataTypeName@{DataTypeName}}
+\index{DataTypeName@{DataTypeName}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{DataTypeName()}{DataTypeName()}}
+{\footnotesize\ttfamily std\+::string Data\+Type\+Name (\begin{DoxyParamCaption}\item[{unsigned char}]{datatypeident }\end{DoxyParamCaption})}
+
+Returns the name of the data type whose type (as indentifier) is passed
+
+
+\begin{DoxyParams}{Parameters}
+{\em datatypeident.} & The data type of the data in the matrix (unsigned char, char,...) as defined by the former constants. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A human-\/meaningful string decribing the data type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jmatrix_8h_adb15bedb25060aa5bcfcd70099c82651}\label{jmatrix_8h_adb15bedb25060aa5bcfcd70099c82651}} 
+\index{jmatrix.h@{jmatrix.h}!GetFileSize@{GetFileSize}}
+\index{GetFileSize@{GetFileSize}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{GetFileSize()}{GetFileSize()}}
+{\footnotesize\ttfamily unsigned long long Get\+File\+Size (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Returns the file size of a file in a sufficiently large number (unsigned long long) in a way (hopefully) independent of the operating system and of the architecture
+
+
+\begin{DoxyParams}{Parameters}
+{\em File} & path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jmatrix_8h_a04a8c96d8ec80d6576b71ceea0de4840}\label{jmatrix_8h_a04a8c96d8ec80d6576b71ceea0de4840}} 
+\index{jmatrix.h@{jmatrix.h}!MatrixTypeName@{MatrixTypeName}}
+\index{MatrixTypeName@{MatrixTypeName}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MatrixTypeName()}{MatrixTypeName()}}
+{\footnotesize\ttfamily std\+::string Matrix\+Type\+Name (\begin{DoxyParamCaption}\item[{unsigned char}]{matrixtypeident }\end{DoxyParamCaption})}
+
+
+
+Auxiliary functions to be used for error printing. 
+
+Returns the name of the matrix whose type (as indentifier) is passed
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrixtypeident.} & The type of the matrix (full, sparse, symmetric) as defined by the former constants. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A human-\/meaningful string decribing the type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jmatrix_8h_a85bbfe9fcc560cba3e2c55e10895f22b}\label{jmatrix_8h_a85bbfe9fcc560cba3e2c55e10895f22b}} 
+\index{jmatrix.h@{jmatrix.h}!MetadataInfo@{MetadataInfo}}
+\index{MetadataInfo@{MetadataInfo}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MetadataInfo()}{MetadataInfo()}}
+{\footnotesize\ttfamily std\+::string Metadata\+Info (\begin{DoxyParamCaption}\item[{unsigned char}]{metadatainfo }\end{DoxyParamCaption})}
+
+Returns a message to interpret the presence of metadata
+
+
+\begin{DoxyParams}{Parameters}
+{\em metadatainfo.} & The constant for information on which metadata are present as defined by the former constants. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A human-\/meaningful string decribing the present metadata 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jmatrix_8h_a9c125c4421c20c40710c2144f8fa9e46}\label{jmatrix_8h_a9c125c4421c20c40710c2144f8fa9e46}} 
+\index{jmatrix.h@{jmatrix.h}!PositionsInFile@{PositionsInFile}}
+\index{PositionsInFile@{PositionsInFile}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{PositionsInFile()}{PositionsInFile()}}
+{\footnotesize\ttfamily void Positions\+In\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned long long $\ast$}]{start\+\_\+of\+\_\+metadata,  }\item[{unsigned long long $\ast$}]{start\+\_\+of\+\_\+comment }\end{DoxyParamCaption})}
+
+Returns the positions of the start of metadata and start of comments (included inside metadata) as absolute positions measured in bytes from the beginning of the file
+
+
+\begin{DoxyParams}{Parameters}
+{\em File} & path \\
+\hline
+{\em $\ast$start\+\_\+of\+\_\+metadata} & \\
+\hline
+{\em $\ast$start\+\_\+of\+\_\+comment} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jmatrix_8h_a8fcc857f86fde14239ca10bfc994f564}\label{jmatrix_8h_a8fcc857f86fde14239ca10bfc994f564}} 
+\index{jmatrix.h@{jmatrix.h}!SizeOfType@{SizeOfType}}
+\index{SizeOfType@{SizeOfType}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{SizeOfType()}{SizeOfType()}}
+{\footnotesize\ttfamily int Size\+Of\+Type (\begin{DoxyParamCaption}\item[{unsigned char}]{datatypeident }\end{DoxyParamCaption})}
+
+Returns the size in bytes of the data type whose type (as indentifier) is passed
+
+
+\begin{DoxyParams}{Parameters}
+{\em datatypeident.} & The data type of the data in the matrix (unsigned char, char,...) as defined by the former constants. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The size in bytes of one element of the passed data type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jmatrix_8h_a2032586e9a37ffd54642b6c38bd28df3}\label{jmatrix_8h_a2032586e9a37ffd54642b6c38bd28df3}} 
+\index{jmatrix.h@{jmatrix.h}!ThisMachineEndianness@{ThisMachineEndianness}}
+\index{ThisMachineEndianness@{ThisMachineEndianness}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ThisMachineEndianness()}{ThisMachineEndianness()}}
+{\footnotesize\ttfamily unsigned char This\+Machine\+Endianness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the endianness of the machine where this function is called
+
+\begin{DoxyReturn}{Returns}
+Either the constant BIGEND or the constant LITEND 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{jmatrix_8h_a4c4b9485db5b795c8d8bd4a2bf56cb50}\label{jmatrix_8h_a4c4b9485db5b795c8d8bd4a2bf56cb50}} 
+\index{jmatrix.h@{jmatrix.h}!BIGEND@{BIGEND}}
+\index{BIGEND@{BIGEND}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{BIGEND}{BIGEND}}
+{\footnotesize\ttfamily const unsigned char BIGEND =0x00}
+
+Constants for the possible endianness of a machine Only two values allowed for big and little endian Big endian \mbox{\Hypertarget{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}\label{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}} 
+\index{jmatrix.h@{jmatrix.h}!BLOCK\_MARK@{BLOCK\_MARK}}
+\index{BLOCK\_MARK@{BLOCK\_MARK}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_MARK}{BLOCK\_MARK}}
+{\footnotesize\ttfamily const unsigned char BLOCK\+\_\+\+MARK =0x\+FF}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a25e5e3fc309be8abca75f75ff294d2ae}\label{jmatrix_8h_a25e5e3fc309be8abca75f75ff294d2ae}} 
+\index{jmatrix.h@{jmatrix.h}!BLOCKSEP@{BLOCKSEP}}
+\index{BLOCKSEP@{BLOCKSEP}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{BLOCKSEP}{BLOCKSEP}}
+{\footnotesize\ttfamily const unsigned char BLOCKSEP\mbox{[}\mbox{\hyperlink{jmatrix_8h_a432a8c24c736a31b664b6e140ffadc5d}{BLOCKSEP\+\_\+\+LEN}}\mbox{]} =\{\mbox{\hyperlink{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}{BLOCK\+\_\+\+MARK}},0x45,0x42,\mbox{\hyperlink{jmatrix_8h_ae40d9102de3a80e38ecf21104eb12c8d}{BLOCK\+\_\+\+MARK}}\}}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a432a8c24c736a31b664b6e140ffadc5d}\label{jmatrix_8h_a432a8c24c736a31b664b6e140ffadc5d}} 
+\index{jmatrix.h@{jmatrix.h}!BLOCKSEP\_LEN@{BLOCKSEP\_LEN}}
+\index{BLOCKSEP\_LEN@{BLOCKSEP\_LEN}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{BLOCKSEP\_LEN}{BLOCKSEP\_LEN}}
+{\footnotesize\ttfamily const unsigned int BLOCKSEP\+\_\+\+LEN =4}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_acd76676c01eb6c67ca351a80ffd46d0d}\label{jmatrix_8h_acd76676c01eb6c67ca351a80ffd46d0d}} 
+\index{jmatrix.h@{jmatrix.h}!COL\_NAMES@{COL\_NAMES}}
+\index{COL\_NAMES@{COL\_NAMES}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{COL\_NAMES}{COL\_NAMES}}
+{\footnotesize\ttfamily const unsigned char COL\+\_\+\+NAMES =0x02}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a38e7db654cd46fdb941614ab1f3dd439}\label{jmatrix_8h_a38e7db654cd46fdb941614ab1f3dd439}} 
+\index{jmatrix.h@{jmatrix.h}!COMMENT@{COMMENT}}
+\index{COMMENT@{COMMENT}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{COMMENT}{COMMENT}}
+{\footnotesize\ttfamily const unsigned char COMMENT =0x04}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a74ffd76b8d66d082b6834743018959f1}\label{jmatrix_8h_a74ffd76b8d66d082b6834743018959f1}} 
+\index{jmatrix.h@{jmatrix.h}!COMMENT\_SIZE@{COMMENT\_SIZE}}
+\index{COMMENT\_SIZE@{COMMENT\_SIZE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{COMMENT\_SIZE}{COMMENT\_SIZE}}
+{\footnotesize\ttfamily const unsigned int COMMENT\+\_\+\+SIZE =1024}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a019db3f3e8c984733859d791966d988c}\label{jmatrix_8h_a019db3f3e8c984733859d791966d988c}} 
+\index{jmatrix.h@{jmatrix.h}!DTYPE@{DTYPE}}
+\index{DTYPE@{DTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{DTYPE}{DTYPE}}
+{\footnotesize\ttfamily const unsigned char DTYPE =0x0B}
+
+double \mbox{\Hypertarget{jmatrix_8h_a5b744953bfad2c959be6b58495d74156}\label{jmatrix_8h_a5b744953bfad2c959be6b58495d74156}} 
+\index{jmatrix.h@{jmatrix.h}!ERROR\_READING\_COL\_NAMES@{ERROR\_READING\_COL\_NAMES}}
+\index{ERROR\_READING\_COL\_NAMES@{ERROR\_READING\_COL\_NAMES}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_READING\_COL\_NAMES}{ERROR\_READING\_COL\_NAMES}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+READING\+\_\+\+COL\+\_\+\+NAMES =3}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a72ae2ba5f367a865b3f2520b9189023a}\label{jmatrix_8h_a72ae2ba5f367a865b3f2520b9189023a}} 
+\index{jmatrix.h@{jmatrix.h}!ERROR\_READING\_ROW\_NAMES@{ERROR\_READING\_ROW\_NAMES}}
+\index{ERROR\_READING\_ROW\_NAMES@{ERROR\_READING\_ROW\_NAMES}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_READING\_ROW\_NAMES}{ERROR\_READING\_ROW\_NAMES}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+READING\+\_\+\+ROW\+\_\+\+NAMES =2}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_afc96158344a334ea42b4cd2b94a8595d}\label{jmatrix_8h_afc96158344a334ea42b4cd2b94a8595d}} 
+\index{jmatrix.h@{jmatrix.h}!ERROR\_READING\_SEP\_MARK@{ERROR\_READING\_SEP\_MARK}}
+\index{ERROR\_READING\_SEP\_MARK@{ERROR\_READING\_SEP\_MARK}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_READING\_SEP\_MARK}{ERROR\_READING\_SEP\_MARK}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+READING\+\_\+\+SEP\+\_\+\+MARK =4}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_abc1429268c3c8deadc92a7c3fb0d309b}\label{jmatrix_8h_abc1429268c3c8deadc92a7c3fb0d309b}} 
+\index{jmatrix.h@{jmatrix.h}!ERROR\_READING\_STRINGS@{ERROR\_READING\_STRINGS}}
+\index{ERROR\_READING\_STRINGS@{ERROR\_READING\_STRINGS}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_READING\_STRINGS}{ERROR\_READING\_STRINGS}}
+{\footnotesize\ttfamily const int ERROR\+\_\+\+READING\+\_\+\+STRINGS =1}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a2a1d58d0fc5d08a57a8235308cf52d8e}\label{jmatrix_8h_a2a1d58d0fc5d08a57a8235308cf52d8e}} 
+\index{jmatrix.h@{jmatrix.h}!FTYPE@{FTYPE}}
+\index{FTYPE@{FTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{FTYPE}{FTYPE}}
+{\footnotesize\ttfamily const unsigned char FTYPE =0x0A}
+
+float \mbox{\Hypertarget{jmatrix_8h_a3377e92254d72a25f88baee5233b60f5}\label{jmatrix_8h_a3377e92254d72a25f88baee5233b60f5}} 
+\index{jmatrix.h@{jmatrix.h}!HEADER\_SIZE@{HEADER\_SIZE}}
+\index{HEADER\_SIZE@{HEADER\_SIZE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{HEADER\_SIZE}{HEADER\_SIZE}}
+{\footnotesize\ttfamily const unsigned short HEADER\+\_\+\+SIZE =128}
+
+The header size. We fix a header of 128 bytes. We don\textquotesingle{}t need so much, but just in case in the future... \mbox{\Hypertarget{jmatrix_8h_a6d5b3f04cce9d89e4dd3e18bc5dd1033}\label{jmatrix_8h_a6d5b3f04cce9d89e4dd3e18bc5dd1033}} 
+\index{jmatrix.h@{jmatrix.h}!LDTYPE@{LDTYPE}}
+\index{LDTYPE@{LDTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{LDTYPE}{LDTYPE}}
+{\footnotesize\ttfamily const unsigned char LDTYPE =0x0C}
+
+long double \mbox{\Hypertarget{jmatrix_8h_ad9454de5731c590331a137ea0b535740}\label{jmatrix_8h_ad9454de5731c590331a137ea0b535740}} 
+\index{jmatrix.h@{jmatrix.h}!LITEND@{LITEND}}
+\index{LITEND@{LITEND}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{LITEND}{LITEND}}
+{\footnotesize\ttfamily const unsigned char LITEND =0x\+F0}
+
+Little endian \mbox{\Hypertarget{jmatrix_8h_a5abdc101f3755235a0ca2cc69fd776f6}\label{jmatrix_8h_a5abdc101f3755235a0ca2cc69fd776f6}} 
+\index{jmatrix.h@{jmatrix.h}!MAX\_LEN\_NAME@{MAX\_LEN\_NAME}}
+\index{MAX\_LEN\_NAME@{MAX\_LEN\_NAME}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_LEN\_NAME}{MAX\_LEN\_NAME}}
+{\footnotesize\ttfamily const unsigned int MAX\+\_\+\+LEN\+\_\+\+NAME =1023}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_ae9169e39e51d4c75b617ba273aa9523e}\label{jmatrix_8h_ae9169e39e51d4c75b617ba273aa9523e}} 
+\index{jmatrix.h@{jmatrix.h}!MTYPEFULL@{MTYPEFULL}}
+\index{MTYPEFULL@{MTYPEFULL}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MTYPEFULL}{MTYPEFULL}}
+{\footnotesize\ttfamily const unsigned char MTYPEFULL =0x00}
+
+Full matrix \mbox{\Hypertarget{jmatrix_8h_af8fd011df2f028118128a2e5b1b1c48d}\label{jmatrix_8h_af8fd011df2f028118128a2e5b1b1c48d}} 
+\index{jmatrix.h@{jmatrix.h}!MTYPENOTYPE@{MTYPENOTYPE}}
+\index{MTYPENOTYPE@{MTYPENOTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MTYPENOTYPE}{MTYPENOTYPE}}
+{\footnotesize\ttfamily const unsigned char MTYPENOTYPE =0x0F}
+
+Constants for the possible matrix types Currently, they are no type (for errors), full matrix, sparse matrix and symmetric matrix. No matrix type \mbox{\Hypertarget{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}\label{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}} 
+\index{jmatrix.h@{jmatrix.h}!MTYPESPARSE@{MTYPESPARSE}}
+\index{MTYPESPARSE@{MTYPESPARSE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MTYPESPARSE}{MTYPESPARSE}}
+{\footnotesize\ttfamily const unsigned char MTYPESPARSE =0x01}
+
+Sparse matrix \mbox{\Hypertarget{jmatrix_8h_a8e8918060e564b35b393d763b3b67727}\label{jmatrix_8h_a8e8918060e564b35b393d763b3b67727}} 
+\index{jmatrix.h@{jmatrix.h}!MTYPESYMMETRIC@{MTYPESYMMETRIC}}
+\index{MTYPESYMMETRIC@{MTYPESYMMETRIC}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{MTYPESYMMETRIC}{MTYPESYMMETRIC}}
+{\footnotesize\ttfamily const unsigned char MTYPESYMMETRIC =0x02}
+
+Symmetric matrix \mbox{\Hypertarget{jmatrix_8h_a1cab0f33df714958cfad064ba593a06d}\label{jmatrix_8h_a1cab0f33df714958cfad064ba593a06d}} 
+\index{jmatrix.h@{jmatrix.h}!NO\_METADATA@{NO\_METADATA}}
+\index{NO\_METADATA@{NO\_METADATA}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{NO\_METADATA}{NO\_METADATA}}
+{\footnotesize\ttfamily const unsigned char NO\+\_\+\+METADATA =0x00}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_adbb2b052e4fb52c701458a8878f8b260}\label{jmatrix_8h_adbb2b052e4fb52c701458a8878f8b260}} 
+\index{jmatrix.h@{jmatrix.h}!NOTYPE@{NOTYPE}}
+\index{NOTYPE@{NOTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{NOTYPE}{NOTYPE}}
+{\footnotesize\ttfamily const unsigned char NOTYPE =0x0F}
+
+Constants for the possible data types a matrix can hold. These are (apart of the no type for errors) integer types\+: char (8 bits), short int (16 bits), int (32 bits), long (32 bits), long long (64 bits) with their signed versions and float types in IEEE-\/754 format\+: float (32 bits), double (64 bits) and long double (128 bits) No data type \mbox{\Hypertarget{jmatrix_8h_a2d6e5dd2d8171091ae718c2ef73371b0}\label{jmatrix_8h_a2d6e5dd2d8171091ae718c2ef73371b0}} 
+\index{jmatrix.h@{jmatrix.h}!READ\_OK@{READ\_OK}}
+\index{READ\_OK@{READ\_OK}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{READ\_OK}{READ\_OK}}
+{\footnotesize\ttfamily const int READ\+\_\+\+OK =0}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_af4ae00f22f496cc3531c635796a0df13}\label{jmatrix_8h_af4ae00f22f496cc3531c635796a0df13}} 
+\index{jmatrix.h@{jmatrix.h}!ROW\_NAMES@{ROW\_NAMES}}
+\index{ROW\_NAMES@{ROW\_NAMES}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ROW\_NAMES}{ROW\_NAMES}}
+{\footnotesize\ttfamily const unsigned char ROW\+\_\+\+NAMES =0x01}
+
+Constants for information about the metadata included with the matrix Possible metadata stored are currently names of rows and names of columns Errors are returned with these constants in case of bad reads \mbox{\Hypertarget{jmatrix_8h_a2e4c0d4077d0fe4cbccb0c44b72f9887}\label{jmatrix_8h_a2e4c0d4077d0fe4cbccb0c44b72f9887}} 
+\index{jmatrix.h@{jmatrix.h}!SCTYPE@{SCTYPE}}
+\index{SCTYPE@{SCTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{SCTYPE}{SCTYPE}}
+{\footnotesize\ttfamily const unsigned char SCTYPE =0x01}
+
+char \mbox{\Hypertarget{jmatrix_8h_a12f08476807fb95bd69151800e00feba}\label{jmatrix_8h_a12f08476807fb95bd69151800e00feba}} 
+\index{jmatrix.h@{jmatrix.h}!SITYPE@{SITYPE}}
+\index{SITYPE@{SITYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{SITYPE}{SITYPE}}
+{\footnotesize\ttfamily const unsigned char SITYPE =0x05}
+
+int \mbox{\Hypertarget{jmatrix_8h_ad5a44fbbc1fa98e6f9e1b7108bc7109b}\label{jmatrix_8h_ad5a44fbbc1fa98e6f9e1b7108bc7109b}} 
+\index{jmatrix.h@{jmatrix.h}!SLLTYPE@{SLLTYPE}}
+\index{SLLTYPE@{SLLTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{SLLTYPE}{SLLTYPE}}
+{\footnotesize\ttfamily const unsigned char SLLTYPE =0x09}
+
+long long \mbox{\Hypertarget{jmatrix_8h_a45967bf99dc3bc3776ca197022f54512}\label{jmatrix_8h_a45967bf99dc3bc3776ca197022f54512}} 
+\index{jmatrix.h@{jmatrix.h}!SLTYPE@{SLTYPE}}
+\index{SLTYPE@{SLTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{SLTYPE}{SLTYPE}}
+{\footnotesize\ttfamily const unsigned char SLTYPE =0x07}
+
+long \mbox{\Hypertarget{jmatrix_8h_a9f7d0baba9ede7bf58fe22679f3dcc47}\label{jmatrix_8h_a9f7d0baba9ede7bf58fe22679f3dcc47}} 
+\index{jmatrix.h@{jmatrix.h}!SSTYPE@{SSTYPE}}
+\index{SSTYPE@{SSTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{SSTYPE}{SSTYPE}}
+{\footnotesize\ttfamily const unsigned char SSTYPE =0x03}
+
+short \mbox{\Hypertarget{jmatrix_8h_a4752e6be4f53d96f7c6546b08ee3e2b2}\label{jmatrix_8h_a4752e6be4f53d96f7c6546b08ee3e2b2}} 
+\index{jmatrix.h@{jmatrix.h}!UCTYPE@{UCTYPE}}
+\index{UCTYPE@{UCTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{UCTYPE}{UCTYPE}}
+{\footnotesize\ttfamily const unsigned char UCTYPE =0x00}
+
+unsigned char \mbox{\Hypertarget{jmatrix_8h_a17ca12dce776c0a2845867e03ec46258}\label{jmatrix_8h_a17ca12dce776c0a2845867e03ec46258}} 
+\index{jmatrix.h@{jmatrix.h}!UITYPE@{UITYPE}}
+\index{UITYPE@{UITYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{UITYPE}{UITYPE}}
+{\footnotesize\ttfamily const unsigned char UITYPE =0x04}
+
+unsigned int \mbox{\Hypertarget{jmatrix_8h_a9c4c4773ae0b55725dfbc8219af7deac}\label{jmatrix_8h_a9c4c4773ae0b55725dfbc8219af7deac}} 
+\index{jmatrix.h@{jmatrix.h}!ULLTYPE@{ULLTYPE}}
+\index{ULLTYPE@{ULLTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ULLTYPE}{ULLTYPE}}
+{\footnotesize\ttfamily const unsigned char ULLTYPE =0x08}
+
+unsigned long long \mbox{\Hypertarget{jmatrix_8h_a2598f25841688752345c51fe7f920636}\label{jmatrix_8h_a2598f25841688752345c51fe7f920636}} 
+\index{jmatrix.h@{jmatrix.h}!ULTYPE@{ULTYPE}}
+\index{ULTYPE@{ULTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{ULTYPE}{ULTYPE}}
+{\footnotesize\ttfamily const unsigned char ULTYPE =0x06}
+
+unsigned long \mbox{\Hypertarget{jmatrix_8h_a625523e1ea61196ad09c2dcd181805f8}\label{jmatrix_8h_a625523e1ea61196ad09c2dcd181805f8}} 
+\index{jmatrix.h@{jmatrix.h}!USTYPE@{USTYPE}}
+\index{USTYPE@{USTYPE}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{USTYPE}{USTYPE}}
+{\footnotesize\ttfamily const unsigned char USTYPE =0x02}
+
+unsigned short 

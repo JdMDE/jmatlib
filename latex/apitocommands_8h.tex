@@ -1,0 +1,341 @@
+\hypertarget{apitocommands_8h}{}\doxysection{src/headers/apitocommands.h File Reference}
+\label{apitocommands_8h}\index{src/headers/apitocommands.h@{src/headers/apitocommands.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}indextype.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{apitocommands_8h_a99b7915c0886ac71ab8bf9fae050ba13}{JMat\+Info}} (std\+::string iname, std\+::string oname)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_ad86c55f426c7524c1618289088a8519e}{JGet\+Num\+Row}} (std\+::string iname, std\+::string oname, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} numrow)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_ae995adf7eac35359b2436ca1eb17ba54}{JGet\+Num\+Col}} (std\+::string iname, std\+::string oname, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} numcol)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_a340d35169cc656d3a5f679b54b0db69a}{JGet\+Name\+Row}} (std\+::string iname, std\+::string oname, std\+::string namerow)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_aab8d08f3ee928877ec5b0c69549165dc}{JGet\+Name\+Col}} (std\+::string iname, std\+::string oname, std\+::string namecol)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_af7544f6a1e53efa81583e98354b08068}{JGet\+Nums\+Row}} (std\+::string iname, std\+::string oname, std\+::vector$<$ \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} $>$ lrows)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_a7133338f1907a9ad71a5302816339c55}{JGet\+Nums\+Col}} (std\+::string iname, std\+::string oname, std\+::vector$<$ \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} $>$ lcols)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_ad007dcbd1b0e3b8fd2823f36c14c9c10}{JGet\+Names\+Row}} (std\+::string iname, std\+::string oname, std\+::vector$<$ std\+::string $>$ lrows)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_ab389c29ac31af88d9b0cba84aef2f039}{JGet\+Names\+Col}} (std\+::string iname, std\+::string oname, std\+::vector$<$ std\+::string $>$ lcols)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_aab4848c842c951645ab0b757961e9e58}{JGet\+Sub\+Diag}} (std\+::string iname, std\+::string oname)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_a63acc5af8605ed16df761ce4fa7ccc2b}{JGet\+Row\+Names}} (std\+::string iname, std\+::string oname)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_a1e82630c8fc2e628626e22bbf2a82d9d}{JGet\+Col\+Names}} (std\+::string iname, std\+::string oname)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_ac5b53905d79151d5fd80108472feb7b3}{JSet\+Row\+Names}} (std\+::string iname, std\+::string oname, std\+::vector$<$ std\+::string $>$ rnames)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_a9374ad5562018929d09c0a4154cfe521}{JSet\+Col\+Names}} (std\+::string iname, std\+::string oname, std\+::vector$<$ std\+::string $>$ cnames)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_af24abacbce348daeefa710aca4c53e0d}{JSet\+Row\+Col\+Names}} (std\+::string iname, std\+::string oname, std\+::vector$<$ std\+::string $>$ rnames, std\+::vector$<$ std\+::string $>$ cnames)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_aaed07f56b56a08dd1f16b12a672e147f}{JCsv\+Dump}} (std\+::string iname, std\+::string oname, char sep, bool with\+\_\+quotes)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_ac2c5041453a33b9d244e5e58593690e0}{JCsv\+To\+JMat}} (std\+::string iname, std\+::string oname, char sep, unsigned char mtype, unsigned char ctype)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{apitocommands_8h_aaed07f56b56a08dd1f16b12a672e147f}\label{apitocommands_8h_aaed07f56b56a08dd1f16b12a672e147f}} 
+\index{apitocommands.h@{apitocommands.h}!JCsvDump@{JCsvDump}}
+\index{JCsvDump@{JCsvDump}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JCsvDump()}{JCsvDump()}}
+{\footnotesize\ttfamily void JCsv\+Dump (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{char}]{sep,  }\item[{bool}]{with\+\_\+quotes }\end{DoxyParamCaption})}
+
+Function to dump the \mbox{\hyperlink{classJMatrix}{JMatrix}} contained in a binary file to as ASCII csv file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the csv file to generat \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & The character to be used as sepparator \\
+\hline
+\mbox{\texttt{ in}}  & {\em withquotes} & Boolean value to indicate if field names in .csv must be written surrounded by quotes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_ac2c5041453a33b9d244e5e58593690e0}\label{apitocommands_8h_ac2c5041453a33b9d244e5e58593690e0}} 
+\index{apitocommands.h@{apitocommands.h}!JCsvToJMat@{JCsvToJMat}}
+\index{JCsvToJMat@{JCsvToJMat}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JCsvToJMat()}{JCsvToJMat()}}
+{\footnotesize\ttfamily void JCsv\+To\+JMat (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{char}]{sep,  }\item[{unsigned char}]{mtype,  }\item[{unsigned char}]{ctype }\end{DoxyParamCaption})}
+
+Function to generate a binary \mbox{\hyperlink{classJMatrix}{JMatrix}} file from an ASCII csv file~\newline
+First line of csv is supposed to contain the column names, starting with an empty field~\newline
+First field of each line from the second line and on is supposed to contain the name of such row
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & CSV file with the data \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to contain the created \mbox{\hyperlink{classJMatrix}{JMatrix}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em sep} & The character that csv file uses as field sepparator \\
+\hline
+\mbox{\texttt{ in}}  & {\em mtype} & The type of the \mbox{\hyperlink{classJMatrix}{JMatrix}}. Possible values\+: \textquotesingle{}full\textquotesingle{}, \textquotesingle{}sparse\textquotesingle{} or \textquotesingle{}symmetric\textquotesingle{} \\
+\hline
+\mbox{\texttt{ in}}  & {\em ctype} & The data type to store the read values (value type of the \mbox{\hyperlink{classJMatrix}{JMatrix}}). Possible values\+: \textquotesingle{}u8\textquotesingle{},\textquotesingle{}s8\textquotesingle{},\textquotesingle{}u16\textquotesingle{},\textquotesingle{}s16\textquotesingle{},\textquotesingle{}u32\textquotesingle{},\textquotesingle{}s32\textquotesingle{},\textquotesingle{}u64\textquotesingle{},\textquotesingle{}s64\textquotesingle{},\textquotesingle{}f\textquotesingle{},\textquotesingle{}d\textquotesingle{} or \textquotesingle{}ld\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_a1e82630c8fc2e628626e22bbf2a82d9d}\label{apitocommands_8h_a1e82630c8fc2e628626e22bbf2a82d9d}} 
+\index{apitocommands.h@{apitocommands.h}!JGetColNames@{JGetColNames}}
+\index{JGetColNames@{JGetColNames}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetColNames()}{JGetColNames()}}
+{\footnotesize\ttfamily void JGet\+Col\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname }\end{DoxyParamCaption})}
+
+Function to write to an ASCII text file the names of the columns of the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a binary file~\newline
+The matrix is not loaded into memory
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the ASCII file to contain the column names, one at each line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_aab8d08f3ee928877ec5b0c69549165dc}\label{apitocommands_8h_aab8d08f3ee928877ec5b0c69549165dc}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNameCol@{JGetNameCol}}
+\index{JGetNameCol@{JGetNameCol}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNameCol()}{JGetNameCol()}}
+{\footnotesize\ttfamily void JGet\+Name\+Col (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::string}]{namecol }\end{DoxyParamCaption})}
+
+Function to get a column by name and write it as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file, assuming the input matrix has column names and such name exists
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the row contents \\
+\hline
+\mbox{\texttt{ in}}  & {\em namecol} & The name of the column we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_a340d35169cc656d3a5f679b54b0db69a}\label{apitocommands_8h_a340d35169cc656d3a5f679b54b0db69a}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNameRow@{JGetNameRow}}
+\index{JGetNameRow@{JGetNameRow}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNameRow()}{JGetNameRow()}}
+{\footnotesize\ttfamily void JGet\+Name\+Row (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::string}]{namerow }\end{DoxyParamCaption})}
+
+Function to get a row by name and write it as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file, assuming the input matrix has row names and such name exists
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the row contents \\
+\hline
+\mbox{\texttt{ in}}  & {\em namerow} & The name of the row we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_ab389c29ac31af88d9b0cba84aef2f039}\label{apitocommands_8h_ab389c29ac31af88d9b0cba84aef2f039}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNamesCol@{JGetNamesCol}}
+\index{JGetNamesCol@{JGetNamesCol}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNamesCol()}{JGetNamesCol()}}
+{\footnotesize\ttfamily void JGet\+Names\+Col (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ std\+::string $>$}]{lcols }\end{DoxyParamCaption})}
+
+Function to get several columns by their names and write them as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the rows as a matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em lcols} & A vector of strings with the names of the columns we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_ad007dcbd1b0e3b8fd2823f36c14c9c10}\label{apitocommands_8h_ad007dcbd1b0e3b8fd2823f36c14c9c10}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNamesRow@{JGetNamesRow}}
+\index{JGetNamesRow@{JGetNamesRow}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNamesRow()}{JGetNamesRow()}}
+{\footnotesize\ttfamily void JGet\+Names\+Row (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ std\+::string $>$}]{lrows }\end{DoxyParamCaption})}
+
+Function to get several rows by their names and write them as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the rows as a matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em lrows} & A vector of strings with the names of the rows we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_ae995adf7eac35359b2436ca1eb17ba54}\label{apitocommands_8h_ae995adf7eac35359b2436ca1eb17ba54}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNumCol@{JGetNumCol}}
+\index{JGetNumCol@{JGetNumCol}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNumCol()}{JGetNumCol()}}
+{\footnotesize\ttfamily void JGet\+Num\+Col (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{numcol }\end{DoxyParamCaption})}
+
+Function to get a column by number and write it as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the column contents \\
+\hline
+\mbox{\texttt{ in}}  & {\em numrow} & The number of the column (0-\/based index) we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_ad86c55f426c7524c1618289088a8519e}\label{apitocommands_8h_ad86c55f426c7524c1618289088a8519e}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNumRow@{JGetNumRow}}
+\index{JGetNumRow@{JGetNumRow}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNumRow()}{JGetNumRow()}}
+{\footnotesize\ttfamily void JGet\+Num\+Row (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{numrow }\end{DoxyParamCaption})}
+
+Function to get a row by number and write it as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the row contents \\
+\hline
+\mbox{\texttt{ in}}  & {\em numrow} & The number of the row (0-\/based index) we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_a7133338f1907a9ad71a5302816339c55}\label{apitocommands_8h_a7133338f1907a9ad71a5302816339c55}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNumsCol@{JGetNumsCol}}
+\index{JGetNumsCol@{JGetNumsCol}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNumsCol()}{JGetNumsCol()}}
+{\footnotesize\ttfamily void JGet\+Nums\+Col (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} $>$}]{lcols }\end{DoxyParamCaption})}
+
+Function to get several columns by number and write them as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the columns as a matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em lcols} & A vector with the numbers of the columns (0-\/based index) we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_af7544f6a1e53efa81583e98354b08068}\label{apitocommands_8h_af7544f6a1e53efa81583e98354b08068}} 
+\index{apitocommands.h@{apitocommands.h}!JGetNumsRow@{JGetNumsRow}}
+\index{JGetNumsRow@{JGetNumsRow}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetNumsRow()}{JGetNumsRow()}}
+{\footnotesize\ttfamily void JGet\+Nums\+Row (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} $>$}]{lrows }\end{DoxyParamCaption})}
+
+Function to get several rows by number and write them as a \mbox{\hyperlink{classJMatrix}{JMatrix}} in a binary file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the rows as a matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em lrows} & A vector with the numbers of the rows (0-\/based index) we want to extract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_a63acc5af8605ed16df761ce4fa7ccc2b}\label{apitocommands_8h_a63acc5af8605ed16df761ce4fa7ccc2b}} 
+\index{apitocommands.h@{apitocommands.h}!JGetRowNames@{JGetRowNames}}
+\index{JGetRowNames@{JGetRowNames}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetRowNames()}{JGetRowNames()}}
+{\footnotesize\ttfamily void JGet\+Row\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname }\end{DoxyParamCaption})}
+
+Function to write to an ASCII text file the names of the rows of the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a binary file~\newline
+The matrix is not loaded into memory
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the ASCII file to contain the row names, one at each line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_aab4848c842c951645ab0b757961e9e58}\label{apitocommands_8h_aab4848c842c951645ab0b757961e9e58}} 
+\index{apitocommands.h@{apitocommands.h}!JGetSubDiag@{JGetSubDiag}}
+\index{JGetSubDiag@{JGetSubDiag}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JGetSubDiag()}{JGetSubDiag()}}
+{\footnotesize\ttfamily void JGet\+Sub\+Diag (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname }\end{DoxyParamCaption})}
+
+Function to get the subdiagonal of a \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} of size (n x n) stored in a binary file and write them as a vector of one row and n x (n-\/1)/2 columns (rows under the main diagonal, without the diagonal itself) stored in row-\/major order
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the Symmatric\+Matrix binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the binary file to write the subdiagonal elements as a 1-\/row matrix \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_a99b7915c0886ac71ab8bf9fae050ba13}\label{apitocommands_8h_a99b7915c0886ac71ab8bf9fae050ba13}} 
+\index{apitocommands.h@{apitocommands.h}!JMatInfo@{JMatInfo}}
+\index{JMatInfo@{JMatInfo}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JMatInfo()}{JMatInfo()}}
+{\footnotesize\ttfamily void JMat\+Info (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname }\end{DoxyParamCaption})}
+
+Function to get information about the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a binary file and store such information in a text file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the text file to write the information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_a9374ad5562018929d09c0a4154cfe521}\label{apitocommands_8h_a9374ad5562018929d09c0a4154cfe521}} 
+\index{apitocommands.h@{apitocommands.h}!JSetColNames@{JSetColNames}}
+\index{JSetColNames@{JSetColNames}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JSetColNames()}{JSetColNames()}}
+{\footnotesize\ttfamily void JSet\+Col\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ std\+::string $>$}]{cnames }\end{DoxyParamCaption})}
+
+Function to create a copy of the original jmatrix setting or changing the column names to those given in a~\newline
+vector of strings, which must have as many elements as columns in the input matrix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the original matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the copy matrix with new column names \\
+\hline
+\mbox{\texttt{ in}}  & {\em cnames} & Vector of strings with the new column names \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_af24abacbce348daeefa710aca4c53e0d}\label{apitocommands_8h_af24abacbce348daeefa710aca4c53e0d}} 
+\index{apitocommands.h@{apitocommands.h}!JSetRowColNames@{JSetRowColNames}}
+\index{JSetRowColNames@{JSetRowColNames}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JSetRowColNames()}{JSetRowColNames()}}
+{\footnotesize\ttfamily void JSet\+Row\+Col\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ std\+::string $>$}]{rnames,  }\item[{std\+::vector$<$ std\+::string $>$}]{cnames }\end{DoxyParamCaption})}
+
+Function to create a copy of the original jmatrix setting or changing the column and row names to those given in~\newline
+vectors of strings, which must have as many elements as rows and columns respectively in the input matrix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the original matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the copy matrix with new column names \\
+\hline
+\mbox{\texttt{ in}}  & {\em rnames} & Vector of strings with the new row names \\
+\hline
+\mbox{\texttt{ in}}  & {\em cnames} & Vector of strings with the new column names \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_ac5b53905d79151d5fd80108472feb7b3}\label{apitocommands_8h_ac5b53905d79151d5fd80108472feb7b3}} 
+\index{apitocommands.h@{apitocommands.h}!JSetRowNames@{JSetRowNames}}
+\index{JSetRowNames@{JSetRowNames}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JSetRowNames()}{JSetRowNames()}}
+{\footnotesize\ttfamily void JSet\+Row\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::vector$<$ std\+::string $>$}]{rnames }\end{DoxyParamCaption})}
+
+Function to create a copy of the original jmatrix setting or changing the row names to those given in a~\newline
+vector of strings, which must have as many elements as rows in the input matrix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the original matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the copy matrix with new row names \\
+\hline
+\mbox{\texttt{ in}}  & {\em rnames} & Vector of strings with the new row names \\
+\hline
+\end{DoxyParams}

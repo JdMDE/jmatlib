@@ -1,0 +1,174 @@
+\hypertarget{matinfo_8h}{}\doxysection{src/headers/matinfo.h File Reference}
+\label{matinfo_8h}\index{src/headers/matinfo.h@{src/headers/matinfo.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}indextype.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{matinfo_8h_a860bad1d955c70ad491aca039032f586}{JMat\+Info}} (std\+::string fname, std\+::string fres=\char`\"{}\char`\"{})
+\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{matinfo_8h_ae9bc5b71fd5c02983e6333b20b9dfbcc}{Matrix\+Type}} (std\+::string fname, unsigned char \&mtype)
+\item 
+void \mbox{\hyperlink{matinfo_8h_a5aa2eb6d535c793f45540992f63a6253}{Matrix\+Type}} (std\+::string fname, unsigned char \&mtype, unsigned char \&ctype)
+\item 
+void \mbox{\hyperlink{matinfo_8h_a6ec02007181c72527e7f04d337463c27}{Matrix\+Type}} (std\+::string fname, unsigned char \&mtype, unsigned char \&ctype, unsigned char \&endianness)
+\item 
+void \mbox{\hyperlink{matinfo_8h_acc23111c2cc1a122432c8dcfb19169dd}{Matrix\+Type}} (std\+::string fname, unsigned char \&mtype, unsigned char \&ctype, unsigned char \&endianness, unsigned char \&mdinf)
+\item 
+void \mbox{\hyperlink{matinfo_8h_a604bd5754a417c9d51c82f5cd8bae2a6}{Matrix\+Type}} (std\+::string fname, unsigned char \&mtype, unsigned char \&ctype, unsigned char \&endianness, unsigned char \&mdinf, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \&nrows, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \&ncols)
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{matinfo_8h_a860bad1d955c70ad491aca039032f586}\label{matinfo_8h_a860bad1d955c70ad491aca039032f586}} 
+\index{matinfo.h@{matinfo.h}!JMatInfo@{JMatInfo}}
+\index{JMatInfo@{JMatInfo}!matinfo.h@{matinfo.h}}
+\doxysubsubsection{\texorpdfstring{JMatInfo()}{JMatInfo()}}
+{\footnotesize\ttfamily void JMat\+Info (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{std\+::string}]{fres = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Gives information about the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the binary file that contains the matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em fres} & The name of the text file that will contain the information, or the empty string to show the information in the console\\
+\hline
+\end{DoxyParams}
+Function to get information about the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a binary file and store such information in a text file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the text file to write the information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matinfo_8h_ae9bc5b71fd5c02983e6333b20b9dfbcc}\label{matinfo_8h_ae9bc5b71fd5c02983e6333b20b9dfbcc}} 
+\index{matinfo.h@{matinfo.h}!MatrixType@{MatrixType}}
+\index{MatrixType@{MatrixType}!matinfo.h@{matinfo.h}}
+\doxysubsubsection{\texorpdfstring{MatrixType()}{MatrixType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily void Matrix\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char \&}]{mtype }\end{DoxyParamCaption})}
+
+Auxiliary funcions to check characteristics of matrix stored in binary file looking only at its header. Matrix in file is NOT loaded into memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file \\
+\hline
+\mbox{\texttt{ out}}  & {\em mtype} & Returns matrix type (full,sparse,symmetric) \\
+\hline
+\mbox{\texttt{ out}}  & {\em ctype} & Returns matrix data type \\
+\hline
+\mbox{\texttt{ out}}  & {\em endianness} & Returns endianness (big,little) of the data stored in the matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em nrows} & Returns the number of rows \\
+\hline
+\mbox{\texttt{ out}}  & {\em ncols} & Returns the number of columns \\
+\hline
+\mbox{\texttt{ out}}  & {\em mdinf} & Returns the signal for the presence of metadata \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matinfo_8h_a5aa2eb6d535c793f45540992f63a6253}\label{matinfo_8h_a5aa2eb6d535c793f45540992f63a6253}} 
+\index{matinfo.h@{matinfo.h}!MatrixType@{MatrixType}}
+\index{MatrixType@{MatrixType}!matinfo.h@{matinfo.h}}
+\doxysubsubsection{\texorpdfstring{MatrixType()}{MatrixType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily void Matrix\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char \&}]{mtype,  }\item[{unsigned char \&}]{ctype }\end{DoxyParamCaption})}
+
+Auxiliary funcions to check characteristics of matrix stored in binary file looking only at its header. Matrix in file is NOT loaded into memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file \\
+\hline
+\mbox{\texttt{ out}}  & {\em mtype} & Returns matrix type (full,sparse,symmetric) \\
+\hline
+\mbox{\texttt{ out}}  & {\em ctype} & Returns matrix data type \\
+\hline
+\mbox{\texttt{ out}}  & {\em endianness} & Returns endianness (big,little) of the data stored in the matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em nrows} & Returns the number of rows \\
+\hline
+\mbox{\texttt{ out}}  & {\em ncols} & Returns the number of columns \\
+\hline
+\mbox{\texttt{ out}}  & {\em mdinf} & Returns the signal for the presence of metadata \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matinfo_8h_a6ec02007181c72527e7f04d337463c27}\label{matinfo_8h_a6ec02007181c72527e7f04d337463c27}} 
+\index{matinfo.h@{matinfo.h}!MatrixType@{MatrixType}}
+\index{MatrixType@{MatrixType}!matinfo.h@{matinfo.h}}
+\doxysubsubsection{\texorpdfstring{MatrixType()}{MatrixType()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily void Matrix\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char \&}]{mtype,  }\item[{unsigned char \&}]{ctype,  }\item[{unsigned char \&}]{endianness }\end{DoxyParamCaption})}
+
+Auxiliary funcions to check characteristics of matrix stored in binary file looking only at its header. Matrix in file is NOT loaded into memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file \\
+\hline
+\mbox{\texttt{ out}}  & {\em mtype} & Returns matrix type (full,sparse,symmetric) \\
+\hline
+\mbox{\texttt{ out}}  & {\em ctype} & Returns matrix data type \\
+\hline
+\mbox{\texttt{ out}}  & {\em endianness} & Returns endianness (big,little) of the data stored in the matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em nrows} & Returns the number of rows \\
+\hline
+\mbox{\texttt{ out}}  & {\em ncols} & Returns the number of columns \\
+\hline
+\mbox{\texttt{ out}}  & {\em mdinf} & Returns the signal for the presence of metadata \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matinfo_8h_acc23111c2cc1a122432c8dcfb19169dd}\label{matinfo_8h_acc23111c2cc1a122432c8dcfb19169dd}} 
+\index{matinfo.h@{matinfo.h}!MatrixType@{MatrixType}}
+\index{MatrixType@{MatrixType}!matinfo.h@{matinfo.h}}
+\doxysubsubsection{\texorpdfstring{MatrixType()}{MatrixType()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily void Matrix\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char \&}]{mtype,  }\item[{unsigned char \&}]{ctype,  }\item[{unsigned char \&}]{endianness,  }\item[{unsigned char \&}]{mdinf }\end{DoxyParamCaption})}
+
+Auxiliary funcions to check characteristics of matrix stored in binary file looking only at its header. Matrix in file is NOT loaded into memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file \\
+\hline
+\mbox{\texttt{ out}}  & {\em mtype} & Returns matrix type (full,sparse,symmetric) \\
+\hline
+\mbox{\texttt{ out}}  & {\em ctype} & Returns matrix data type \\
+\hline
+\mbox{\texttt{ out}}  & {\em endianness} & Returns endianness (big,little) of the data stored in the matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em nrows} & Returns the number of rows \\
+\hline
+\mbox{\texttt{ out}}  & {\em ncols} & Returns the number of columns \\
+\hline
+\mbox{\texttt{ out}}  & {\em mdinf} & Returns the signal for the presence of metadata \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matinfo_8h_a604bd5754a417c9d51c82f5cd8bae2a6}\label{matinfo_8h_a604bd5754a417c9d51c82f5cd8bae2a6}} 
+\index{matinfo.h@{matinfo.h}!MatrixType@{MatrixType}}
+\index{MatrixType@{MatrixType}!matinfo.h@{matinfo.h}}
+\doxysubsubsection{\texorpdfstring{MatrixType()}{MatrixType()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily void Matrix\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char \&}]{mtype,  }\item[{unsigned char \&}]{ctype,  }\item[{unsigned char \&}]{endianness,  }\item[{unsigned char \&}]{mdinf,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \&}]{nrows,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \&}]{ncols }\end{DoxyParamCaption})}
+
+Auxiliary funcions to check characteristics of matrix stored in binary file looking only at its header. Matrix in file is NOT loaded into memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file \\
+\hline
+\mbox{\texttt{ out}}  & {\em mtype} & Returns matrix type (full,sparse,symmetric) \\
+\hline
+\mbox{\texttt{ out}}  & {\em ctype} & Returns matrix data type \\
+\hline
+\mbox{\texttt{ out}}  & {\em endianness} & Returns endianness (big,little) of the data stored in the matrix \\
+\hline
+\mbox{\texttt{ out}}  & {\em nrows} & Returns the number of rows \\
+\hline
+\mbox{\texttt{ out}}  & {\em ncols} & Returns the number of columns \\
+\hline
+\mbox{\texttt{ out}}  & {\em mdinf} & Returns the signal for the presence of metadata \\
+\hline
+\end{DoxyParams}

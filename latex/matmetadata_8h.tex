@@ -1,0 +1,46 @@
+\hypertarget{matmetadata_8h}{}\doxysection{src/headers/matmetadata.h File Reference}
+\label{matmetadata_8h}\index{src/headers/matmetadata.h@{src/headers/matmetadata.h}}
+{\ttfamily \#include \char`\"{}fullmatrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sparsematrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}symmetricmatrix.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{matmetadata_8h_a32508847046ce00b87bc4768f1d98982}{JGet\+Row\+Names}} (std\+::string fname)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{matmetadata_8h_a3edcdfadbfa6a88daf8ba06fe6f4acd0}{JGet\+Col\+Names}} (std\+::string fname)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{matmetadata_8h_a3edcdfadbfa6a88daf8ba06fe6f4acd0}\label{matmetadata_8h_a3edcdfadbfa6a88daf8ba06fe6f4acd0}} 
+\index{matmetadata.h@{matmetadata.h}!JGetColNames@{JGetColNames}}
+\index{JGetColNames@{JGetColNames}!matmetadata.h@{matmetadata.h}}
+\doxysubsubsection{\texorpdfstring{JGetColNames()}{JGetColNames()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ JGet\+Col\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Function to get the names of the columns of the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a binary file~\newline
+The matrix is not loaded into memory 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file containing the matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings with the column names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matmetadata_8h_a32508847046ce00b87bc4768f1d98982}\label{matmetadata_8h_a32508847046ce00b87bc4768f1d98982}} 
+\index{matmetadata.h@{matmetadata.h}!JGetRowNames@{JGetRowNames}}
+\index{JGetRowNames@{JGetRowNames}!matmetadata.h@{matmetadata.h}}
+\doxysubsubsection{\texorpdfstring{JGetRowNames()}{JGetRowNames()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ JGet\+Row\+Names (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Function to get the names of the rows of the \mbox{\hyperlink{classJMatrix}{JMatrix}} stored in a binary file~\newline
+The matrix is not loaded into memory 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Name of the binary file containing the matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings with the row names 
+\end{DoxyReturn}
