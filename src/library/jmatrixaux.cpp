@@ -28,6 +28,7 @@ unsigned char ThisMachineEndianness()
         return (b[0] ? LITEND : BIGEND);
 }
 
+// Supposingly safe and portable way to get file size even of huge files
 unsigned long long GetFileSize(std::string fname)
 {
     	struct stat stat_buf;
