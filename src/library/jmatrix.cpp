@@ -22,7 +22,6 @@
 #include "../headers/jmatrix.h"
 #include "../headers/templatemacros.h"
 
-
 extern unsigned char DEB;
 
 

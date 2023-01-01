@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(kjmatlib CXX)
+project(jmatlib CXX)
 include(CheckCXXCompilerFlag)
 
 #Let's build shared libs (*.so)
