@@ -1,0 +1,305 @@
+\hypertarget{classSymmetricMatrix}{}\doxysection{Symmetric\+Matrix$<$ T $>$ Class Template Reference}
+\label{classSymmetricMatrix}\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$symmetricmatrix.\+h$>$}
+
+Inheritance diagram for Symmetric\+Matrix$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSymmetricMatrix}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_ae8b3d6f689cbef08034946683fe42590}{Symmetric\+Matrix}} ()
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_a5e153e09140212cb373f9475999abb58}{Symmetric\+Matrix}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} nrows)
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_adf9a40fd9d6b5856826825489673e69e}{Symmetric\+Matrix}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} nrows, bool warn)
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_acc2048222d630cea7e456b45163ca332}{Symmetric\+Matrix}} (std\+::string fname)
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_a242ba43bfa18f0d47fa2fbb73f7b6ef4}{Symmetric\+Matrix}} (std\+::string fname, bool warn)
+\item 
+void \mbox{\hyperlink{classSymmetricMatrix_ae2e16a8e0a3cad1e0b115c0bd0fc0512}{Resize}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnr)
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_aba753f25bd33401ee50c49346fe28b40}{Symmetric\+Matrix}} (const \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classSymmetricMatrix_a001f2b11755a3c8701d284a7771d84d7}{$\sim$\+Symmetric\+Matrix}} ()
+\item 
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classSymmetricMatrix_a8dd5efc1f1f3f5197079ee27ae58afbe}{operator=}} (const \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$ \&other)
+\item 
+bool \mbox{\hyperlink{classSymmetricMatrix_a65a1cdcf33c4610e3c845ff871b25f19}{Test\+Dist\+Dis\+Mat}} ()
+\item 
+T \mbox{\hyperlink{classSymmetricMatrix_a2c794c11585396bf3663bb037ac31e7f}{Get}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} c)
+\item 
+void \mbox{\hyperlink{classSymmetricMatrix_a51b876a2f8027b483bc748530879d028}{Set}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} c, T v)
+\item 
+T \mbox{\hyperlink{classSymmetricMatrix_ad73dc894fcf53609b440f03777f943d9}{Get\+Row\+Sum}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r)
+\item 
+void \mbox{\hyperlink{classSymmetricMatrix_a996b4673d7afed1012052cc9bc84a48d}{Write\+Csv}} (std\+::string fname, char csep=\textquotesingle{},\textquotesingle{}, bool withquotes=false)
+\item 
+void \mbox{\hyperlink{classSymmetricMatrix_a76d52ad66d21396d99d9b58c498a045b}{Write\+Bin}} (std\+::string fname)
+\item 
+float \mbox{\hyperlink{classSymmetricMatrix_a792d4bd7f2c2930825228cb8c2bd3130}{Get\+Used\+Memory\+MB}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Symmetric\+Matrix$<$ T $>$}
+
+@\+Symmetric\+Matrix Class to hold arbitrarily big symmetric square matrices. For a matrix of size NxN, only Nx(N+1)/2 elements are stored. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSymmetricMatrix_ae8b3d6f689cbef08034946683fe42590}\label{classSymmetricMatrix_ae8b3d6f689cbef08034946683fe42590}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!SymmetricMatrix@{SymmetricMatrix}}
+\index{SymmetricMatrix@{SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrix()}{SymmetricMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}}
+
+Default constructor \mbox{\Hypertarget{classSymmetricMatrix_a5e153e09140212cb373f9475999abb58}\label{classSymmetricMatrix_a5e153e09140212cb373f9475999abb58}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!SymmetricMatrix@{SymmetricMatrix}}
+\index{SymmetricMatrix@{SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrix()}{SymmetricMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{nrows }\end{DoxyParamCaption})}
+
+Constructor with number of rows/columns (the same, it is square)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nrows} & Number of rows \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_adf9a40fd9d6b5856826825489673e69e}\label{classSymmetricMatrix_adf9a40fd9d6b5856826825489673e69e}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!SymmetricMatrix@{SymmetricMatrix}}
+\index{SymmetricMatrix@{SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrix()}{SymmetricMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{nrows,  }\item[{bool}]{warn }\end{DoxyParamCaption})}
+
+Constructor with number of rows/columns (the same, it is square) giving memory warnings
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nrows} & Number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em warn} & Boolean value to give memory warnings~\newline
+The idea is to use this form of constructor with warn=true, which internally calls Memory\+Warnings, if one suspects the matrix to be constructed might provoke memory problems. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_acc2048222d630cea7e456b45163ca332}\label{classSymmetricMatrix_acc2048222d630cea7e456b45163ca332}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!SymmetricMatrix@{SymmetricMatrix}}
+\index{SymmetricMatrix@{SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrix()}{SymmetricMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a binary file~\newline
+Binary file header as explained in the documetation to Write\+Bin
+
+PRELIMINARY VERSION. ASSUMES SAME ENDIANESS FOR WRITER AND READER MACHINE
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_a242ba43bfa18f0d47fa2fbb73f7b6ef4}\label{classSymmetricMatrix_a242ba43bfa18f0d47fa2fbb73f7b6ef4}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!SymmetricMatrix@{SymmetricMatrix}}
+\index{SymmetricMatrix@{SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrix()}{SymmetricMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{bool}]{warn }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a binary file with warnings~\newline
+Binary file header as explained in the documetation to Write\+Bin
+
+PRELIMINARY VERSION. ASSUMES SAME ENDIANESS FOR WRITER AND READER MACHINE
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em warn} & Boolean value to give memory warnings \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_aba753f25bd33401ee50c49346fe28b40}\label{classSymmetricMatrix_aba753f25bd33401ee50c49346fe28b40}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!SymmetricMatrix@{SymmetricMatrix}}
+\index{SymmetricMatrix@{SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SymmetricMatrix()}{SymmetricMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} to be copied \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_a001f2b11755a3c8701d284a7771d84d7}\label{classSymmetricMatrix_a001f2b11755a3c8701d284a7771d84d7}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!````~SymmetricMatrix@{$\sim$SymmetricMatrix}}
+\index{````~SymmetricMatrix@{$\sim$SymmetricMatrix}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$SymmetricMatrix()}{~SymmetricMatrix()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSymmetricMatrix_a2c794c11585396bf3663bb037ac31e7f}\label{classSymmetricMatrix_a2c794c11585396bf3663bb037ac31e7f}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!Get@{Get}}
+\index{Get@{Get}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{c }\end{DoxyParamCaption})}
+
+Function to get acess to an element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & The columns to access\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value at (r,c) of matrix, of type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSymmetricMatrix_ad73dc894fcf53609b440f03777f943d9}\label{classSymmetricMatrix_ad73dc894fcf53609b440f03777f943d9}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!GetRowSum@{GetRowSum}}
+\index{GetRowSum@{GetRowSum}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetRowSum()}{GetRowSum()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Get\+Row\+Sum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r }\end{DoxyParamCaption})}
+
+Function to get the sum of a row (used frequently by PAM)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row whose sum we want\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of all columns of row r, of type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSymmetricMatrix_a792d4bd7f2c2930825228cb8c2bd3130}\label{classSymmetricMatrix_a792d4bd7f2c2930825228cb8c2bd3130}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!GetUsedMemoryMB@{GetUsedMemoryMB}}
+\index{GetUsedMemoryMB@{GetUsedMemoryMB}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetUsedMemoryMB()}{GetUsedMemoryMB()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+float \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Get\+Used\+Memory\+MB}
+
+Function to get memory in MB used by this symmetric matrix
+
+\begin{DoxyReturn}{Returns}
+The amount of memory in MB 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSymmetricMatrix_a8dd5efc1f1f3f5197079ee27ae58afbe}\label{classSymmetricMatrix_a8dd5efc1f1f3f5197079ee27ae58afbe}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Assignment operator
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSymmetricMatrix_ae2e16a8e0a3cad1e0b115c0bd0fc0512}\label{classSymmetricMatrix_ae2e16a8e0a3cad1e0b115c0bd0fc0512}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!Resize@{Resize}}
+\index{Resize@{Resize}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnr }\end{DoxyParamCaption})}
+
+Function to resize the matrix~\newline
+WARNING\+: previous content, if any, IS LOST (to be reviewed)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em newnr} & New number of rows (and columns) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_a51b876a2f8027b483bc748530879d028}\label{classSymmetricMatrix_a51b876a2f8027b483bc748530879d028}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!Set@{Set}}
+\index{Set@{Set}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{c,  }\item[{T}]{v }\end{DoxyParamCaption})}
+
+Function to set an element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & The columns to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em T} & The value to be set, of type T \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_a65a1cdcf33c4610e3c845ff871b25f19}\label{classSymmetricMatrix_a65a1cdcf33c4610e3c845ff871b25f19}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!TestDistDisMat@{TestDistDisMat}}
+\index{TestDistDisMat@{TestDistDisMat}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TestDistDisMat()}{TestDistDisMat()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Test\+Dist\+Dis\+Mat}
+
+Test of correctness~\newline
+This is meant to test if the symmetric matrix is a distance or dissimilarity matrix. It checks that all elements in the main diagonal are 0 and all outside the main diagonal are stricty possitive
+
+\begin{DoxyReturn}{Returns}
+true if the matrix can be a distance or dissimilarity matrix. false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSymmetricMatrix_a76d52ad66d21396d99d9b58c498a045b}\label{classSymmetricMatrix_a76d52ad66d21396d99d9b58c498a045b}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!WriteBin@{WriteBin}}
+\index{WriteBin@{WriteBin}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteBin()}{WriteBin()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Write\+Bin (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a binary file~\newline
+See format at documentation of \mbox{\hyperlink{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}{JMatrix\+::\+Write\+Bin}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSymmetricMatrix_a996b4673d7afed1012052cc9bc84a48d}\label{classSymmetricMatrix_a996b4673d7afed1012052cc9bc84a48d}} 
+\index{SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}!WriteCsv@{WriteCsv}}
+\index{WriteCsv@{WriteCsv}!SymmetricMatrix$<$ T $>$@{SymmetricMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteCsv()}{WriteCsv()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}}$<$ T $>$\+::Write\+Csv (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{char}]{csep = {\ttfamily \textquotesingle{},\textquotesingle{}},  }\item[{bool}]{withquotes = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a CSV file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The separator character between fields (default\+: , (comma)) \\
+\hline
+\mbox{\texttt{ in}}  & {\em withquotes} & Boolean value to indicate if field names in .csv must be written surrounded by quotes. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\mbox{\hyperlink{symmetricmatrix_8h}{symmetricmatrix.\+h}}\item 
+src/library/symmetricmatrix.\+cpp\end{DoxyCompactItemize}

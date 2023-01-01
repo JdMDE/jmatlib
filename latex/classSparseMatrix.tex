@@ -1,0 +1,422 @@
+\hypertarget{classSparseMatrix}{}\doxysection{Sparse\+Matrix$<$ T $>$ Class Template Reference}
+\label{classSparseMatrix}\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$sparsematrix.\+h$>$}
+
+Inheritance diagram for Sparse\+Matrix$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSparseMatrix}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSparseMatrix_a7cc1357950b026509513c9cc88796c00}{Sparse\+Matrix}} ()
+\item 
+\mbox{\hyperlink{classSparseMatrix_ab2812a8c83ceebc0c0912397e4e8e257}{Sparse\+Matrix}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} nrows, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} ncols)
+\item 
+\mbox{\hyperlink{classSparseMatrix_a294f2dcf5351e137d731ca08962a19af}{Sparse\+Matrix}} (std\+::string fname)
+\item 
+\mbox{\hyperlink{classSparseMatrix_a22369ff6c687b59b6772c899402ee44d}{Sparse\+Matrix}} (std\+::string fname, Tr\+Mark)
+\item 
+\mbox{\hyperlink{classSparseMatrix_aeb81adb645af467f189e99d23c56748a}{Sparse\+Matrix}} (std\+::string fname, unsigned char vtype, char csep)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a5e74173f3285f98cf908a0acafdf0d6b}{Resize}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnr, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnc)
+\item 
+\mbox{\hyperlink{classSparseMatrix_a28dfa1bfa6df431fd66a805bb5e11190}{Sparse\+Matrix}} (const \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} \&other)
+\item 
+\mbox{\hyperlink{classSparseMatrix_a1a02a8503d026de2eabec8fa68a0ac03}{$\sim$\+Sparse\+Matrix}} ()
+\item 
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classSparseMatrix_ab3786c43cce36dccc1c3d4c09d62972c}{operator=}} (const \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classSparseMatrix_aa9fcc0b803c4968b092ab03782245f2d}{operator!=}} (const \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \&other)
+\item 
+T \mbox{\hyperlink{classSparseMatrix_aff1e62fec7144390922d9015761b2be6}{Get}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} c) const
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a1322d7bd4a23a0fb383b502ddfb1f9c3}{Set}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} c, T v)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_afc7b17c7f18dc40091f1a765dff28399}{Set\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, std\+::vector$<$ \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} $>$ vc, std\+::vector$<$ T $>$ v)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_ad8fe199a6a33787d3d4f2c77bb67be9f}{Get\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, T $\ast$v)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a66183facd98f4796914dc724089e6f60}{Get\+Sparse\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, unsigned char $\ast$m, unsigned char s, T $\ast$v)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a50e7fe5b69cadee39b7847a516cb097a}{Get\+Marks\+Of\+Sparse\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, unsigned char $\ast$m, unsigned char s)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a570b160acb9584188872d90a516f3328}{Self\+Row\+Norm}} (std\+::string ctype)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a16d9e6bf6bd021a1c2f6071a61f043d9}{Self\+Col\+Norm}} (std\+::string ctype)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_a24b81af71bc1ed361f3400596954beab}{Write\+Csv}} (std\+::string fname, char csep=\textquotesingle{},\textquotesingle{}, bool withquotes=false)
+\item 
+void \mbox{\hyperlink{classSparseMatrix_aedb626d264a40e6703f1a29bdd11e36f}{Write\+Bin}} (std\+::string fname)
+\item 
+float \mbox{\hyperlink{classSparseMatrix_ab20fac3bfb5fda82902e9e401db7fdd3}{Get\+Used\+Memory\+MB}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Sparse\+Matrix$<$ T $>$}
+
+@\+Sparse\+Matrix Class to hold arbitrarily big sparse matrices. Elements are stored with column index + value in a vector associated to each row.~\newline
+ Time to set and get elements are of order O(log\+\_\+2(\+Nc)) being Nc the number of columns.~\newline
+ Space is O(N$\ast$(sizeof(element)+sizeof(index)), being element the type of the matrix contents and index that of the matrix index (which is currently unsigned int). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSparseMatrix_a7cc1357950b026509513c9cc88796c00}\label{classSparseMatrix_a7cc1357950b026509513c9cc88796c00}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SparseMatrix@{SparseMatrix}}
+\index{SparseMatrix@{SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SparseMatrix()}{SparseMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}}
+
+Default constructor \mbox{\Hypertarget{classSparseMatrix_ab2812a8c83ceebc0c0912397e4e8e257}\label{classSparseMatrix_ab2812a8c83ceebc0c0912397e4e8e257}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SparseMatrix@{SparseMatrix}}
+\index{SparseMatrix@{SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SparseMatrix()}{SparseMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{nrows,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{ncols }\end{DoxyParamCaption})}
+
+Constructor with number of rows and columns
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nrows} & Number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em ncols} & Number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a294f2dcf5351e137d731ca08962a19af}\label{classSparseMatrix_a294f2dcf5351e137d731ca08962a19af}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SparseMatrix@{SparseMatrix}}
+\index{SparseMatrix@{SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SparseMatrix()}{SparseMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a binary file
+
+Binary file header as explained in the documetation to Write\+Bin
+
+PRELIMINARY VERSION. ASSUMES SAME ENDIANESS FOR WRITER AND READER MACHINE
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a22369ff6c687b59b6772c899402ee44d}\label{classSparseMatrix_a22369ff6c687b59b6772c899402ee44d}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SparseMatrix@{SparseMatrix}}
+\index{SparseMatrix@{SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SparseMatrix()}{SparseMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{Tr\+Mark}]{ }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from the transpose of the matrix contained in a binary file
+
+Binary file header as explained in the documentation to Write\+Bin
+
+PRELIMINARY VERSION. ASSUMES SAME ENDIANESS FOR WRITER AND READER MACHINE
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_aeb81adb645af467f189e99d23c56748a}\label{classSparseMatrix_aeb81adb645af467f189e99d23c56748a}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SparseMatrix@{SparseMatrix}}
+\index{SparseMatrix@{SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SparseMatrix()}{SparseMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char}]{vtype,  }\item[{char}]{csep }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a csv file First line is supposed to have the field names and is ignored. First column of each line is supposed to have the field name, and is ignored, too. The passed character is the expected field sepparator (usually, comma or tab)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the csv file to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em vtype} & The data type to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The character used as field sepparator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a28dfa1bfa6df431fd66a805bb5e11190}\label{classSparseMatrix_a28dfa1bfa6df431fd66a805bb5e11190}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SparseMatrix@{SparseMatrix}}
+\index{SparseMatrix@{SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SparseMatrix()}{SparseMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} to be copied \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a1a02a8503d026de2eabec8fa68a0ac03}\label{classSparseMatrix_a1a02a8503d026de2eabec8fa68a0ac03}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!````~SparseMatrix@{$\sim$SparseMatrix}}
+\index{````~SparseMatrix@{$\sim$SparseMatrix}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$SparseMatrix()}{~SparseMatrix()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSparseMatrix_aff1e62fec7144390922d9015761b2be6}\label{classSparseMatrix_aff1e62fec7144390922d9015761b2be6}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!Get@{Get}}
+\index{Get@{Get}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{c }\end{DoxyParamCaption}) const}
+
+Function to get acess to an element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & The columns to access\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value at (r,c) of matrix of type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSparseMatrix_a50e7fe5b69cadee39b7847a516cb097a}\label{classSparseMatrix_a50e7fe5b69cadee39b7847a516cb097a}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!GetMarksOfSparseRow@{GetMarksOfSparseRow}}
+\index{GetMarksOfSparseRow@{GetMarksOfSparseRow}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetMarksOfSparseRow()}{GetMarksOfSparseRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Get\+Marks\+Of\+Sparse\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{unsigned char $\ast$}]{m,  }\item[{unsigned char}]{s }\end{DoxyParamCaption})}
+
+Function to get from a sparse row a pointer to an array of marks signalling where the non-\/zero elements are.~\newline
+The array of marks will be changed OR\textquotesingle{}ing the passed mark to each place where there is a value. The pointer to the marks is not returned since that way it do not need to be booked. It is passed as a parameter and is supposed to be properly allocated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to get \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$m} & Pointer to the marks \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & The value to be OR\textquotesingle{}ed to each place at the mark array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_ad8fe199a6a33787d3d4f2c77bb67be9f}\label{classSparseMatrix_ad8fe199a6a33787d3d4f2c77bb67be9f}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!GetRow@{GetRow}}
+\index{GetRow@{GetRow}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetRow()}{GetRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Get\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{T $\ast$}]{v }\end{DoxyParamCaption})}
+
+Function to get a row as a pointer to the content type. Row is not a sparse but a full vector with zeros when needed.~\newline
+The pointer is not returned since that way it does not need to be booked. The pointer to hold result is passed as parameter and it is supposed to be properly allocated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to get \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$v} & Pointer to the result of type $\ast$T \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a66183facd98f4796914dc724089e6f60}\label{classSparseMatrix_a66183facd98f4796914dc724089e6f60}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!GetSparseRow@{GetSparseRow}}
+\index{GetSparseRow@{GetSparseRow}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetSparseRow()}{GetSparseRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Get\+Sparse\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{unsigned char $\ast$}]{m,  }\item[{unsigned char}]{s,  }\item[{T $\ast$}]{v }\end{DoxyParamCaption})}
+
+Function to get a sparse row as a pointer to the content type plus a pointer to an array of marks.~\newline
+The content will have the values. The array of marks will be changed OR\textquotesingle{}ing the passed mark to each place where there is a value. The pointers to the values and marks are not returned since that way they do not need to be booked. They are passed as parameters and both are supposed to be properly allocated.~\newline
+This strange way of storing data has been choosen because it will be specially suitable to calculate distance between sparse vectors
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to get \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$v} & Pointer to the values \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$m} & Pointer to the marks \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & The value to be OR\textquotesingle{}ed to each place at the mark array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_ab20fac3bfb5fda82902e9e401db7fdd3}\label{classSparseMatrix_ab20fac3bfb5fda82902e9e401db7fdd3}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!GetUsedMemoryMB@{GetUsedMemoryMB}}
+\index{GetUsedMemoryMB@{GetUsedMemoryMB}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetUsedMemoryMB()}{GetUsedMemoryMB()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+float \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Get\+Used\+Memory\+MB}
+
+Function to get memory in MB used by this sparse matrix (including values and additional indexes)
+
+\begin{DoxyReturn}{Returns}
+The amount of memory in MB 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSparseMatrix_aa9fcc0b803c4968b092ab03782245f2d}\label{classSparseMatrix_aa9fcc0b803c4968b092ab03782245f2d}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Transpose-\/assignment
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}, which is the transpose of the passed one 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSparseMatrix_ab3786c43cce36dccc1c3d4c09d62972c}\label{classSparseMatrix_ab3786c43cce36dccc1c3d4c09d62972c}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Assignment operator
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSparseMatrix_a5e74173f3285f98cf908a0acafdf0d6b}\label{classSparseMatrix_a5e74173f3285f98cf908a0acafdf0d6b}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!Resize@{Resize}}
+\index{Resize@{Resize}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnr,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnc }\end{DoxyParamCaption})}
+
+Function to resize the matrix~\newline
+ WARNING\+: previous content, if any, IS LOST (to be reviewed)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em newnr} & New number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em newnc} & New number of cols \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a16d9e6bf6bd021a1c2f6071a61f043d9}\label{classSparseMatrix_a16d9e6bf6bd021a1c2f6071a61f043d9}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SelfColNorm@{SelfColNorm}}
+\index{SelfColNorm@{SelfColNorm}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SelfColNorm()}{SelfColNorm()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Self\+Col\+Norm (\begin{DoxyParamCaption}\item[{std\+::string}]{ctype }\end{DoxyParamCaption})}
+
+Function to alter the internal values of the matrix so that each column is normalized according to the requested normalization type The purpose of this function can be achieved with a loop using Set and Get, but using the internal structure makes the task much faster~\newline
+Normally, this function will not be used outside the context of bioinformatics where these normalizations are standard
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ctype} & The requested type of normalization\+: rawn, log1 or log1n \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a570b160acb9584188872d90a516f3328}\label{classSparseMatrix_a570b160acb9584188872d90a516f3328}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SelfRowNorm@{SelfRowNorm}}
+\index{SelfRowNorm@{SelfRowNorm}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SelfRowNorm()}{SelfRowNorm()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Self\+Row\+Norm (\begin{DoxyParamCaption}\item[{std\+::string}]{ctype }\end{DoxyParamCaption})}
+
+Function to alter the internal values of the matrix so that each row is normalized according to the requested normalization type The purpose of this function can be achieved with a loop using Set and Get, but using the internal structure makes the task much faster~\newline
+Normally, this function will not be used outside the context of bioinformatics where these normalizations are standard
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ctype} & The requested type of normalization\+: rawn, log1 or log1n \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a1322d7bd4a23a0fb383b502ddfb1f9c3}\label{classSparseMatrix_a1322d7bd4a23a0fb383b502ddfb1f9c3}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!Set@{Set}}
+\index{Set@{Set}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{c,  }\item[{T}]{v }\end{DoxyParamCaption})}
+
+Function to set an element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row of the element to be set \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & The column of the element to be set \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The value to be set, of type T \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_afc7b17c7f18dc40091f1a765dff28399}\label{classSparseMatrix_afc7b17c7f18dc40091f1a765dff28399}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!SetRow@{SetRow}}
+\index{SetRow@{SetRow}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetRow()}{SetRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Set\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{std\+::vector$<$ \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} $>$}]{vc,  }\item[{std\+::vector$<$ T $>$}]{v }\end{DoxyParamCaption})}
+
+Function to set a row (as two vectors of locations and values)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to be set \\
+\hline
+\mbox{\texttt{ in}}  & {\em vc} & The vector with the columns to be set \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The vector with the corresponding values to be set. Must be the same length as vc \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_aedb626d264a40e6703f1a29bdd11e36f}\label{classSparseMatrix_aedb626d264a40e6703f1a29bdd11e36f}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!WriteBin@{WriteBin}}
+\index{WriteBin@{WriteBin}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteBin()}{WriteBin()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Write\+Bin (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Function to write the matrix content into a binary file~\newline
+For the header format, see the documentation of \mbox{\hyperlink{classJMatrix}{JMatrix}}
+
+After the header comes the content as raw data, by rows, with this content for each row\+:
+\begin{DoxyItemize}
+\item indextype ncr\+: number of non-\/zero entries of this row
+\item ncr values of indextype with the numbers of the columns of this row occupied by non-\/zero entries
+\item ncr elements of the current value type (the values of all non-\/zero entries of this row).
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSparseMatrix_a24b81af71bc1ed361f3400596954beab}\label{classSparseMatrix_a24b81af71bc1ed361f3400596954beab}} 
+\index{SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}!WriteCsv@{WriteCsv}}
+\index{WriteCsv@{WriteCsv}!SparseMatrix$<$ T $>$@{SparseMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteCsv()}{WriteCsv()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classSparseMatrix}{Sparse\+Matrix}}$<$ T $>$\+::Write\+Csv (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{char}]{csep = {\ttfamily \textquotesingle{},\textquotesingle{}},  }\item[{bool}]{withquotes = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a CSV file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The separator character between fields (default\+: , (comma)) \\
+\hline
+\mbox{\texttt{ in}}  & {\em withquotes} & Boolean value to indicate if field names in .csv must be written surrounded by quotes. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\mbox{\hyperlink{sparsematrix_8h}{sparsematrix.\+h}}\item 
+src/library/sparsematrix.\+cpp\end{DoxyCompactItemize}

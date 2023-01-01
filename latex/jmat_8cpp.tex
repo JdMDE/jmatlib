@@ -1,0 +1,124 @@
+\hypertarget{jmat_8cpp}{}\doxysection{src/examples/jmat.cpp File Reference}
+\label{jmat_8cpp}\index{src/examples/jmat.cpp@{src/examples/jmat.cpp}}
+{\ttfamily \#include \char`\"{}../headers/debugpar.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/jmatrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/apitocommands.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{jmat_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxysubsubsection*{jmat}
+
+See program use in the documention to \mbox{\hyperlink{jmat_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}} below~\newline
+ ~\newline
+ NOTE\+: The includes in this source file are for compilation of this program as an example together with the library,~\newline
+ before the library itself is installed. Once you have installed the library (assuming headers are in~\newline
+ /usr/local/include, lib is in /usr/local/lib or in other place included in your compiler search path)~\newline
+ you should substitute this by~\newline
+~\newline
+ \#include $<$jmatrixlib/debugpar.\+h$>$ etc...~\newline
+~\newline
+ and compile with something like
+
+g++ -\/Wall \mbox{\hyperlink{jmat_8cpp}{jmat.\+cpp}} -\/o jmat -\/ljmatrix
+
+~\newline
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{jmat_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{jmat_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{jmat.cpp@{jmat.cpp}!main@{main}}
+\index{main@{main}!jmat.cpp@{jmat.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\doxysubsubsection*{jmat}
+
+A program to manipulate matrices created with the jmatrix library and written to the disk as binary files.
+
+The program must be called as \begin{DoxyVerb}jmat command matrix_file other_options -o out_matrix file
+\end{DoxyVerb}
+ where command is one of a predefined list (see below) which is followed by the matrix to be manipulated, other relevant options for the particular command and (optionally) the -\/o option with the result of the command.~\newline
+If -\/o option is not given, the result is dumped to the console in ASCII~\newline
+{\bfseries{other\+\_\+options}} are options dependent on the command (call \textquotesingle{}jmat any\+\_\+command\textquotesingle{} for specific information)~\newline
+Also, remember that if this program is called as {\bfseries{jmatd}} (symbolic link to jmat) you will get debugging messages in the console.~\newline
+~\newline
+Possible commands are\+: \begin{DoxyVerb}jmat info matrix_file [-o info_file.txt]
+\end{DoxyVerb}
+ Dumps in ASCII to console or to info\+\_\+file.\+txt information about the jmatrix in file matrix\+\_\+file.
+
+\begin{DoxyVerb}jmat rownum matrix_file n -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file with the n-\/th row of the jmatrix in file matrix\+\_\+file (index n from 0).
+
+\begin{DoxyVerb}jmat rownums matrix_file n1,n2,... -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file with the rows in the comma-\/sepparated list of the jmatrix in file matrix\+\_\+file (indices n1,n2,... from 0).
+
+\begin{DoxyVerb}jmat rowname matrix_file rname -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file with the row named \textquotesingle{}rname\textquotesingle{} of the jmatrix in file matrix\+\_\+file (index n from 0).
+
+\begin{DoxyVerb}jmat rownames matrix_file rn1,rn2,... -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file, with the rows named \textquotesingle{}rn1\textquotesingle{},\textquotesingle{}rn2\textquotesingle{}... in the comma-\/sepparated list of the jmatrix n file matrix\+\_\+file.
+
+\begin{DoxyVerb}jmat colnum matrix_file n -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file, with the n-\/th column of the jmatrix in file matrix\+\_\+file (index n from 0).
+
+\begin{DoxyVerb}jmat colnums matrix_file n1,n2,... -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file, with the columns in the comma-\/sepparated list of the jmatrix in file matrix\+\_\+file (indices form 0).
+
+\begin{DoxyVerb}jmat colname matrix_file cname -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file, with the column named \textquotesingle{}cname\textquotesingle{} of the jmatrix in file matrix\+\_\+file
+
+\begin{DoxyVerb}jmat colnames matrix_file cn1,cn2,... -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file, with the columns named \textquotesingle{}cn1\textquotesingle{},\textquotesingle{}cn2\textquotesingle{}... in the comma-\/sepparated list of the jmatrix in file matrix\+\_\+file.
+
+\begin{DoxyVerb}jmat subdiag symmetric_matrix_file -o res_file
+\end{DoxyVerb}
+ Creates a jmatrix file with the lower-\/triangular part (not including the diagonal) of the symmetric matrix in the input.
+
+\begin{DoxyVerb}jmat getrnames matrix_file -o res_file.txt
+\end{DoxyVerb}
+ Dumps to ASCII file res\+\_\+file.\+txt the names of the rows in the input matrix.
+
+\begin{DoxyVerb}jmat getcnames matrix_file -o res_file.txt
+\end{DoxyVerb}
+ Dumps to ASCII file res\+\_\+file.\+txt the names of the columns in the input matrix.
+
+\begin{DoxyVerb}jmat setrnames matrix_file rownames_file.txt -o res_file
+\end{DoxyVerb}
+ Creates a copy of the original jmatrix setting or changing the row names to those given in file rownames\+\_\+file.\+txt, which must have as many lines as rows in input matrix.
+
+\begin{DoxyVerb}jmat setcnames matrix_file colnames_file.txt -o res_file
+\end{DoxyVerb}
+ Creates a copy of the original jmatrix setting or changing the column names to those given in file colnames\+\_\+file.\+txt, which must have as many lines as columns in input matrix.
+
+\begin{DoxyVerb}jmat setrcnames matrix_file rownames_file.txt colnames_file.txt -o res_file
+\end{DoxyVerb}
+ Creates a copy of the original jmatrix setting or changing the row and column names to those given in files rownames\+\_\+file.\+txt and colnames\+\_\+file.\+txt respectively, which must have as many lines as rows/columns in input matrix.
+
+\begin{DoxyVerb}jmat csvdump matrix_file format -o res_file.csv
+\end{DoxyVerb}
+ Dumps the content of the matrix in the input file to the .csv output file. Format must be one of these strings\+:~\newline
+ cn Comma as separator, row/column names not surrounded by double quotes.~\newline
+ cq Comma as separator, row/column names surrounded by double quotes.~\newline
+ tn Tab as separator, row/column names not surrounded by double quotes.~\newline
+ tq Tab as separator, row/column names surrounded by double quotes.
+
+\begin{DoxyVerb}jmat csvread input_file.csv sepchar mtype valtype -o res_file
+\end{DoxyVerb}
+ Reads the input file, which must be a csv file, and creates a binary jmatrix file with its content.~\newline
+ sepchar must be c or t to indicate that the expected field separator will be a comma or a tab, respectively.~\newline
+ mtype must be one of the strings \textquotesingle{}full\textquotesingle{} or \textquotesingle{}sparse\textquotesingle{}. Symmetric matrices cannot be read as such from a CSV file.~\newline
+ valtype must be one of the strings \textquotesingle{}u8\textquotesingle{},\textquotesingle{}s8\textquotesingle{},\textquotesingle{}u16\textquotesingle{},\textquotesingle{}s16\textquotesingle{},\textquotesingle{}u32\textquotesingle{},\textquotesingle{}s32\textquotesingle{},\textquotesingle{}u64\textquotesingle{},\textquotesingle{}s64\textquotesingle{},\textquotesingle{}f\textquotesingle{},\textquotesingle{}d\textquotesingle{} or \textquotesingle{}ld\textquotesingle{}.~\newline
+ These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively. 

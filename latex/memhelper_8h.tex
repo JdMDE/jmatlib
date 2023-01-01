@@ -1,0 +1,73 @@
+\hypertarget{memhelper_8h}{}\doxysection{src/headers/memhelper.h File Reference}
+\label{memhelper_8h}\index{src/headers/memhelper.h@{src/headers/memhelper.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{memhelper_8h_a84933388999d0b11ea36d384c1010565}{Get\+Available\+Mem\+And\+Swap}} (unsigned long \&avmem, unsigned long \&avswap)
+\item 
+void \mbox{\hyperlink{memhelper_8h_a7b7ad8e7afdd8b1513dba3065744e3e3}{Memory\+Warnings}} (unsigned long nr, unsigned long nc, int s)
+\item 
+void \mbox{\hyperlink{memhelper_8h_afe05a431fa6c0044c52e959f6e6f44ca}{Memory\+Warnings}} (unsigned long nr, int s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memhelper_8h_a84933388999d0b11ea36d384c1010565}\label{memhelper_8h_a84933388999d0b11ea36d384c1010565}} 
+\index{memhelper.h@{memhelper.h}!GetAvailableMemAndSwap@{GetAvailableMemAndSwap}}
+\index{GetAvailableMemAndSwap@{GetAvailableMemAndSwap}!memhelper.h@{memhelper.h}}
+\doxysubsubsection{\texorpdfstring{GetAvailableMemAndSwap()}{GetAvailableMemAndSwap()}}
+{\footnotesize\ttfamily void Get\+Available\+Mem\+And\+Swap (\begin{DoxyParamCaption}\item[{unsigned long \&}]{avmem,  }\item[{unsigned long \&}]{avswap }\end{DoxyParamCaption})}
+
+Finds how much memory is available and how much swap at call time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em avmem} & Available memory in bytes \\
+\hline
+\mbox{\texttt{ out}}  & {\em avswap} & Available swap in bytes~\newline
+===============================================================~\newline
+WARNING\+: currently this funcion work only on Linux systems.~\newline
+Calling in other systems simply sets the variables to 0~\newline
+===============================================================~\newline
+\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{memhelper_8h_afe05a431fa6c0044c52e959f6e6f44ca}\label{memhelper_8h_afe05a431fa6c0044c52e959f6e6f44ca}} 
+\index{memhelper.h@{memhelper.h}!MemoryWarnings@{MemoryWarnings}}
+\index{MemoryWarnings@{MemoryWarnings}!memhelper.h@{memhelper.h}}
+\doxysubsubsection{\texorpdfstring{MemoryWarnings()}{MemoryWarnings()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Memory\+Warnings (\begin{DoxyParamCaption}\item[{unsigned long}]{nr,  }\item[{int}]{s }\end{DoxyParamCaption})}
+
+Shows memory warnings if the memory needed to declare a \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} is above 75\% of available memory or directly shows an error and stops the program is it is avobe the available memory~\newline
+The idea is to call this function before going into an scope where a \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} will be declared if you think it might be too large, or if you don\textquotesingle{}t know its size in advance 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nr} & Number of rows of the prospective \mbox{\hyperlink{classSymmetricMatrix}{Symmetric\+Matrix}} (obviously, it will be square) \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & Size in bytes of each element (normally obtained with sizeof(\+Type))~\newline
+===============================================================~\newline
+WARNING\+: currently this funcion work only on Linux systems.~\newline
+Calling in other systems simply sets the variables to 0~\newline
+===============================================================~\newline
+\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{memhelper_8h_a7b7ad8e7afdd8b1513dba3065744e3e3}\label{memhelper_8h_a7b7ad8e7afdd8b1513dba3065744e3e3}} 
+\index{memhelper.h@{memhelper.h}!MemoryWarnings@{MemoryWarnings}}
+\index{MemoryWarnings@{MemoryWarnings}!memhelper.h@{memhelper.h}}
+\doxysubsubsection{\texorpdfstring{MemoryWarnings()}{MemoryWarnings()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Memory\+Warnings (\begin{DoxyParamCaption}\item[{unsigned long}]{nr,  }\item[{unsigned long}]{nc,  }\item[{int}]{s }\end{DoxyParamCaption})}
+
+Shows memory warnings if the memory needed to declare a \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} is above 75\% of available memory or directly shows an error and stops the program is it is avobe the available memory~\newline
+The idea is to call this function before going into an scope where a \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} will be declared if you think it might be too large, or if you don\textquotesingle{}t know its size in advance 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nr} & Number of rows of the prospective \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em nc} & Number of columns of the prospective \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & Size in bytes of each element (normally obtained with sizeof(\+Type))~\newline
+===============================================================~\newline
+WARNING\+: currently this funcion work only on Linux systems.~\newline
+Calling in other systems simply sets the variables to 0~\newline
+===============================================================~\newline
+\\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,19 @@
+\hypertarget{indextype_8h}{}\doxysection{src/headers/indextype.h File Reference}
+\label{indextype_8h}\index{src/headers/indextype.h@{src/headers/indextype.h}}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}\label{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}} 
+\index{indextype.h@{indextype.h}!indextype@{indextype}}
+\index{indextype@{indextype}!indextype.h@{indextype.h}}
+\doxysubsubsection{\texorpdfstring{indextype}{indextype}}
+{\footnotesize\ttfamily unsigned int \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}
+
+This is the type of the indexes. It is left fixed, but using a typedef allows easy recompilation of the library if we decide otherwise in the future.~\newline
+It is quite unlikely we need to change indextype, unless, to save some memory and if you know for sure that there will be no more than 65536 individuals, can be defined as unsigned short. But this might provoke hidden problems in other places so, please, think twice before...~\newline
+Increasing it to 128 bits (unsigned long long) would be possible, but if you need such size of matrices, better don\textquotesingle{}t use this library... 

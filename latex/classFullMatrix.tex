@@ -1,0 +1,408 @@
+\hypertarget{classFullMatrix}{}\doxysection{Full\+Matrix$<$ T $>$ Class Template Reference}
+\label{classFullMatrix}\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$fullmatrix.\+h$>$}
+
+Inheritance diagram for Full\+Matrix$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classFullMatrix}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFullMatrix_a04853b7b5eee4ca6e0bb8f3361a825c9}{Full\+Matrix}} ()
+\item 
+\mbox{\hyperlink{classFullMatrix_a8d59b4f814abdb2c587578dbddb99b1b}{Full\+Matrix}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} nrows, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} ncols)
+\item 
+\mbox{\hyperlink{classFullMatrix_af6f94df0df8d12ee622d0ac297fc4a1f}{Full\+Matrix}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} nrows, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} ncols, bool warn)
+\item 
+\mbox{\hyperlink{classFullMatrix_a84f9e813203e0d03fecfe06df5190300}{Full\+Matrix}} (const \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classFullMatrix_aef057d791501ad53ed010f9461a51152}{Full\+Matrix}} (std\+::string fname)
+\item 
+\mbox{\hyperlink{classFullMatrix_a7f75d9c7f41e2faf3e78ee1cedc60b6e}{Full\+Matrix}} (std\+::string fname, bool warn)
+\item 
+\mbox{\hyperlink{classFullMatrix_a59b14ff9145094eace78166ecef078d0}{Full\+Matrix}} (std\+::string fname, unsigned char vtype, char csep)
+\item 
+void \mbox{\hyperlink{classFullMatrix_a0cdfa04316e360e67e2165bdcbd72911}{Resize}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnr, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnc)
+\item 
+\mbox{\hyperlink{classFullMatrix_ae90c43576b909248277c70569aa53ccb}{$\sim$\+Full\+Matrix}} ()
+\item 
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classFullMatrix_a9e7974a3790ad7a4f8acde0aadf6ed1d}{operator=}} (const \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classFullMatrix_a073866962a7f397127ec5ff8f749b0f0}{operator!=}} (const \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \&other)
+\item 
+T \mbox{\hyperlink{classFullMatrix_a6a457cdb0bd0204fd9eb4932699048f9}{Get}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} c)
+\item 
+void \mbox{\hyperlink{classFullMatrix_a62128f8d341d028c4febbca8f280604b}{Set}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} c, T v)
+\item 
+void \mbox{\hyperlink{classFullMatrix_a873b2e863e509f9eabe1f17444021029}{Get\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, T $\ast$v)
+\item 
+void \mbox{\hyperlink{classFullMatrix_a8fd910085391ac22e639ef9150eb5ebe}{Get\+Full\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, unsigned char $\ast$m, unsigned char s, T $\ast$v)
+\item 
+void \mbox{\hyperlink{classFullMatrix_a65814db9dfd15b792ebe26e5c295f8d0}{Get\+Marks\+Of\+Full\+Row}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} r, unsigned char $\ast$m, unsigned char s)
+\item 
+void \mbox{\hyperlink{classFullMatrix_ac3f805e860feca840753890aa6e1b655}{Self\+Row\+Norm}} (std\+::string ctype)
+\item 
+void \mbox{\hyperlink{classFullMatrix_abb05b42c05c94f2b8d773e46757eb281}{Self\+Col\+Norm}} (std\+::string ctype)
+\item 
+void \mbox{\hyperlink{classFullMatrix_ac844317eab18ed1fbd0650e2dfedae99}{Write\+Csv}} (std\+::string fname, char csep=\textquotesingle{},\textquotesingle{}, bool withquotes=false)
+\item 
+void \mbox{\hyperlink{classFullMatrix_a3e0c15e0512b2a2e601df51f00511f5b}{Write\+Bin}} (std\+::string fname)
+\item 
+float \mbox{\hyperlink{classFullMatrix_ac820efceace8400fd93baf3e9ac90cc6}{Get\+Used\+Memory\+MB}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Full\+Matrix$<$ T $>$}
+
+@\+Full\+Matrix class to hold full matrices (all space booked in memory) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFullMatrix_a04853b7b5eee4ca6e0bb8f3361a825c9}\label{classFullMatrix_a04853b7b5eee4ca6e0bb8f3361a825c9}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}}
+
+Default constructor \mbox{\Hypertarget{classFullMatrix_a8d59b4f814abdb2c587578dbddb99b1b}\label{classFullMatrix_a8d59b4f814abdb2c587578dbddb99b1b}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{nrows,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{ncols }\end{DoxyParamCaption})}
+
+Constructor with number of rows and columns
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nrows} & Number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em ncols} & Number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_af6f94df0df8d12ee622d0ac297fc4a1f}\label{classFullMatrix_af6f94df0df8d12ee622d0ac297fc4a1f}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{nrows,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{ncols,  }\item[{bool}]{warn }\end{DoxyParamCaption})}
+
+Constructor with number of rows and columns which gives memory warnings
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nrows} & Number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em ncols} & Number of columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em warn} & Give memory warnings~\newline
+The idea is to use this form of constructor with warn=true, which internally calls Memory\+Warnings, if one suspects the matrix to be constructed might provoke memory problems. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a84f9e813203e0d03fecfe06df5190300}\label{classFullMatrix_a84f9e813203e0d03fecfe06df5190300}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the Matrix to be copied \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_aef057d791501ad53ed010f9461a51152}\label{classFullMatrix_aef057d791501ad53ed010f9461a51152}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix contents from a binary file~\newline
+Binary file header as explained in the documentation to \mbox{\hyperlink{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}{JMatrix\+::\+Write\+Bin}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a7f75d9c7f41e2faf3e78ee1cedc60b6e}\label{classFullMatrix_a7f75d9c7f41e2faf3e78ee1cedc60b6e}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{bool}]{warn }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a binary file giving memory warnings~\newline
+Binary file header as explained in the documentation to \mbox{\hyperlink{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}{JMatrix\+::\+Write\+Bin}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em warn} & Give memory warnings \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a59b14ff9145094eace78166ecef078d0}\label{classFullMatrix_a59b14ff9145094eace78166ecef078d0}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!FullMatrix@{FullMatrix}}
+\index{FullMatrix@{FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FullMatrix()}{FullMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char}]{vtype,  }\item[{char}]{csep }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a csv file~\newline
+First line is supposed to have the field names which become the column names~\newline
+First column of each line is supposed to have the field name, which becomes that row name~\newline
+The passed character is the expected field sepparator (usually, comma or tab)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the csv file to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em vtype} & The data type to be stored (see constants at \mbox{\hyperlink{jmatrix_8h}{jmatrix.\+h}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The character used as field sepparator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_ae90c43576b909248277c70569aa53ccb}\label{classFullMatrix_ae90c43576b909248277c70569aa53ccb}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!````~FullMatrix@{$\sim$FullMatrix}}
+\index{````~FullMatrix@{$\sim$FullMatrix}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$FullMatrix()}{~FullMatrix()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFullMatrix_a6a457cdb0bd0204fd9eb4932699048f9}\label{classFullMatrix_a6a457cdb0bd0204fd9eb4932699048f9}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!Get@{Get}}
+\index{Get@{Get}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get acess to an element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & The columns to access\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value at (r,c) of matrix with type T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFullMatrix_a8fd910085391ac22e639ef9150eb5ebe}\label{classFullMatrix_a8fd910085391ac22e639ef9150eb5ebe}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!GetFullRow@{GetFullRow}}
+\index{GetFullRow@{GetFullRow}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetFullRow()}{GetFullRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Get\+Full\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{unsigned char $\ast$}]{m,  }\item[{unsigned char}]{s,  }\item[{T $\ast$}]{v }\end{DoxyParamCaption})}
+
+Function to get a full row as a pointer to the content type plus a pointer to an array of marks. The content will have the values. The array of marks will be changed OR\textquotesingle{}ing the passed mark to each place where there is a value. The pointers to the values and marks are not returned since that way they do not need to be booked. They are passed as parameters and both are supposed to be properly allocated. This strange way of storing data has been choosen because it will be specially suitable to calculate distance between vectors
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to get \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$m} & Pointer to the marks \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & The value to be OR\textquotesingle{}ed to each place at the mark array \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$v} & Pointer to the values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a65814db9dfd15b792ebe26e5c295f8d0}\label{classFullMatrix_a65814db9dfd15b792ebe26e5c295f8d0}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!GetMarksOfFullRow@{GetMarksOfFullRow}}
+\index{GetMarksOfFullRow@{GetMarksOfFullRow}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetMarksOfFullRow()}{GetMarksOfFullRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Get\+Marks\+Of\+Full\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{unsigned char $\ast$}]{m,  }\item[{unsigned char}]{s }\end{DoxyParamCaption})}
+
+Function to get from a full row a pointer to an array of marks signalling where the non-\/zero elements are. The array of marks will be changed OR\textquotesingle{}ing the passed mark to each place where there is a value. The pointer to the marks is not returned since that way it do not need to be booked. It is passed as a parameter and is supposed to be properly allocated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to get \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$m} & Pointer to the marks \\
+\hline
+\mbox{\texttt{ in}}  & {\em s} & The value to be OR\textquotesingle{}ed to each place at the mark array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a873b2e863e509f9eabe1f17444021029}\label{classFullMatrix_a873b2e863e509f9eabe1f17444021029}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!GetRow@{GetRow}}
+\index{GetRow@{GetRow}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetRow()}{GetRow()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Get\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{T $\ast$}]{v }\end{DoxyParamCaption})}
+
+Function to get a row as a pointer to the content type. The pointer is not returned since that way it does not need to be booked. The pointer to hold result is passed as parameter and it is supposed to be properly allocated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to get \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$v} & Pointer to the result \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_ac820efceace8400fd93baf3e9ac90cc6}\label{classFullMatrix_ac820efceace8400fd93baf3e9ac90cc6}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!GetUsedMemoryMB@{GetUsedMemoryMB}}
+\index{GetUsedMemoryMB@{GetUsedMemoryMB}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetUsedMemoryMB()}{GetUsedMemoryMB()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+float \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Get\+Used\+Memory\+MB}
+
+Function to get memory in MB used by this full matrix
+
+\begin{DoxyReturn}{Returns}
+The amount of memory in MB 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFullMatrix_a073866962a7f397127ec5ff8f749b0f0}\label{classFullMatrix_a073866962a7f397127ec5ff8f749b0f0}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Transpose-\/assignment
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the Matrix to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created Matrix, which is the transpose of the passed one 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFullMatrix_a9e7974a3790ad7a4f8acde0aadf6ed1d}\label{classFullMatrix_a9e7974a3790ad7a4f8acde0aadf6ed1d}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \& \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Assignment operator
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the Matrix to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created Matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFullMatrix_a0cdfa04316e360e67e2165bdcbd72911}\label{classFullMatrix_a0cdfa04316e360e67e2165bdcbd72911}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!Resize@{Resize}}
+\index{Resize@{Resize}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnr,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnc }\end{DoxyParamCaption})}
+
+Function to resize the matrix~\newline
+WARNING\+: previous content, if any, IS LOST (to be reviewed)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em newnr} & New number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em newnc} & New number of cols \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_abb05b42c05c94f2b8d773e46757eb281}\label{classFullMatrix_abb05b42c05c94f2b8d773e46757eb281}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!SelfColNorm@{SelfColNorm}}
+\index{SelfColNorm@{SelfColNorm}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SelfColNorm()}{SelfColNorm()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Self\+Col\+Norm (\begin{DoxyParamCaption}\item[{std\+::string}]{ctype }\end{DoxyParamCaption})}
+
+Function to alter the internal values of the matrix so that each column is normalized according to the requested normalization type The purpose of this function can be achieved with a loop using Set and Get, but using the internal structure makes the task much faster.~\newline
+Normally, this function will not be used outside the context of bioinformatics where these normalizations are standard
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ctype} & The requested type of normalization\+: rawn, log1 or log1n \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_ac3f805e860feca840753890aa6e1b655}\label{classFullMatrix_ac3f805e860feca840753890aa6e1b655}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!SelfRowNorm@{SelfRowNorm}}
+\index{SelfRowNorm@{SelfRowNorm}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SelfRowNorm()}{SelfRowNorm()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Self\+Row\+Norm (\begin{DoxyParamCaption}\item[{std\+::string}]{ctype }\end{DoxyParamCaption})}
+
+Function to alter the internal values of the matrix so that each row is normalized according to the requested normalization type The purpose of this function can be achieved with a loop using Set and Get, but using the internal structure makes the task much faster.~\newline
+Normally, this function will not be used outside the context of bioinformatics where these normalizations are standard
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ctype} & The requested type of normalization\+: rawn, log1 or log1n \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a62128f8d341d028c4febbca8f280604b}\label{classFullMatrix_a62128f8d341d028c4febbca8f280604b}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!Set@{Set}}
+\index{Set@{Set}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{r,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{c,  }\item[{T}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to set an element
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em r} & The row to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & The column to access \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & The value to be set (of type T) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_a3e0c15e0512b2a2e601df51f00511f5b}\label{classFullMatrix_a3e0c15e0512b2a2e601df51f00511f5b}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!WriteBin@{WriteBin}}
+\index{WriteBin@{WriteBin}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteBin()}{WriteBin()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Write\+Bin (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a binary file See format at documentation of \mbox{\hyperlink{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}{JMatrix\+::\+Write\+Bin}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFullMatrix_ac844317eab18ed1fbd0650e2dfedae99}\label{classFullMatrix_ac844317eab18ed1fbd0650e2dfedae99}} 
+\index{FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}!WriteCsv@{WriteCsv}}
+\index{WriteCsv@{WriteCsv}!FullMatrix$<$ T $>$@{FullMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteCsv()}{WriteCsv()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classFullMatrix}{Full\+Matrix}}$<$ T $>$\+::Write\+Csv (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{char}]{csep = {\ttfamily \textquotesingle{},\textquotesingle{}},  }\item[{bool}]{withquotes = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a CSV file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The separator character between fields (default\+: , (comma)) \\
+\hline
+\mbox{\texttt{ in}}  & {\em withquotes} & Boolean value to indicate if field names in .csv must be written surrounded by quotes. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\mbox{\hyperlink{fullmatrix_8h}{fullmatrix.\+h}}\item 
+src/library/fullmatrix.\+cpp\end{DoxyCompactItemize}

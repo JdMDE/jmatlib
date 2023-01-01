@@ -1,0 +1,411 @@
+\hypertarget{classJMatrix}{}\doxysection{JMatrix$<$ T $>$ Class Template Reference}
+\label{classJMatrix}\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$jmatrix.\+h$>$}
+
+Inheritance diagram for JMatrix$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classJMatrix}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJMatrix_a158e7af8c9389b8e2b50b9de7e2aee9d}{JMatrix}} (unsigned char mtype)
+\item 
+\mbox{\hyperlink{classJMatrix_a9d02b4cc43e341dc73a94d46a6223c88}{JMatrix}} (unsigned char mtype, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} nrows, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} ncols)
+\item 
+\mbox{\hyperlink{classJMatrix_abd58e4083c9ce5c00dbfecf096ff9e3e}{JMatrix}} (std\+::string fname, unsigned char mtype)
+\item 
+\mbox{\hyperlink{classJMatrix_a80c23dbd842d116514c871fb38f336fd}{JMatrix}} (std\+::string fname, unsigned char mtype, unsigned char vtype, char csep)
+\item 
+\mbox{\hyperlink{classJMatrix_a4b7d3503ab1271d7631d3c2bbc7df2f3}{JMatrix}} (const \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \& \mbox{\hyperlink{classJMatrix_ad351ec41fd1250b0aa206e7a21641762}{operator=}} (const \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \& \mbox{\hyperlink{classJMatrix_a023c4e33136af9c12e71be8a8742363b}{operator!=}} (const \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \mbox{\hyperlink{classJMatrix_aff06ee8af3ca029e4b0bb8da497027b5}{Get\+NRows}} ()
+\item 
+\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \mbox{\hyperlink{classJMatrix_a2e1e8d956192d149c8651d5cb739352b}{Get\+NCols}} ()
+\item 
+void \mbox{\hyperlink{classJMatrix_a235cec930bb83971f8a97f41e4357035}{Resize}} (\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnr, \mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} newnc)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classJMatrix_a80a5734206807fc35d1e1929369731fa}{Get\+Col\+Names}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classJMatrix_aa5394695f656581398f3244fb8987057}{Get\+Row\+Names}} ()
+\item 
+void \mbox{\hyperlink{classJMatrix_ac304c3f13be5c371cdb7d2e2d7f63d32}{Set\+Col\+Names}} (std\+::vector$<$ std\+::string $>$ cnames)
+\item 
+void \mbox{\hyperlink{classJMatrix_a82a2b3f69b861c12824d2486274d2544}{Set\+Row\+Names}} (std\+::vector$<$ std\+::string $>$ rnames)
+\item 
+std\+::string \mbox{\hyperlink{classJMatrix_a807d7b40146577b86c5afc83baa6793d}{Get\+Comment}} ()
+\item 
+void \mbox{\hyperlink{classJMatrix_aae6a6bd0c1ec88f4834d9a5df4547540}{Set\+Comment}} (std\+::string cm)
+\item 
+void \mbox{\hyperlink{classJMatrix_ae3653675686aabb52c2cf737644cb355}{Write\+Csv}} (std\+::string fname, char csep=\textquotesingle{},\textquotesingle{}, bool withquotes=false)
+\item 
+void \mbox{\hyperlink{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}{Write\+Bin}} (std\+::string fname, unsigned char mtype)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJMatrix_a2458dc490387bc059e181f33caa53285}\label{classJMatrix_a2458dc490387bc059e181f33caa53285}} 
+unsigned char {\bfseries Type\+Name\+To\+Id} ()
+\item 
+\mbox{\Hypertarget{classJMatrix_ab060c97693af682754e55c259ad3e462}\label{classJMatrix_ab060c97693af682754e55c259ad3e462}} 
+bool {\bfseries Process\+Data\+Line\+Csv} (std\+::string line, char csep, T $\ast$rowofdata)
+\item 
+\mbox{\Hypertarget{classJMatrix_a4d9bb19777a2617f2366f82357e47c5b}\label{classJMatrix_a4d9bb19777a2617f2366f82357e47c5b}} 
+int {\bfseries Read\+Metadata} ()
+\item 
+\mbox{\Hypertarget{classJMatrix_afc01c57e1d81563ca77b94bd7107276b}\label{classJMatrix_afc01c57e1d81563ca77b94bd7107276b}} 
+void {\bfseries Write\+Metadata} ()
+\item 
+\mbox{\Hypertarget{classJMatrix_a50b14cef8572471602f5e553cb9a2dab}\label{classJMatrix_a50b14cef8572471602f5e553cb9a2dab}} 
+void {\bfseries Set\+Data\+Type} (unsigned char dtype)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJMatrix_aefe6e594c5a4c6bb57b0f1f8cdee38e8}\label{classJMatrix_aefe6e594c5a4c6bb57b0f1f8cdee38e8}} 
+\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} {\bfseries nr}
+\item 
+\mbox{\Hypertarget{classJMatrix_abc0bb371b276a9a1a00e0cc1530e870e}\label{classJMatrix_abc0bb371b276a9a1a00e0cc1530e870e}} 
+\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} {\bfseries nc}
+\item 
+\mbox{\Hypertarget{classJMatrix_affb7cbcf3623aff497cd58a2f92f2d54}\label{classJMatrix_affb7cbcf3623aff497cd58a2f92f2d54}} 
+unsigned char {\bfseries jctype}
+\item 
+\mbox{\Hypertarget{classJMatrix_a9a96745f8d5686955227f761c9be5759}\label{classJMatrix_a9a96745f8d5686955227f761c9be5759}} 
+std\+::ifstream {\bfseries ifile}
+\item 
+\mbox{\Hypertarget{classJMatrix_a5b7a55f05429b02b41e5fca8464cdc8e}\label{classJMatrix_a5b7a55f05429b02b41e5fca8464cdc8e}} 
+std\+::ofstream {\bfseries ofile}
+\item 
+\mbox{\Hypertarget{classJMatrix_a68686cca0c9abafc7e887c682e03e6ab}\label{classJMatrix_a68686cca0c9abafc7e887c682e03e6ab}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries rownames}
+\item 
+\mbox{\Hypertarget{classJMatrix_a9d0ef8617f3218811b4444ad43a6c2b2}\label{classJMatrix_a9d0ef8617f3218811b4444ad43a6c2b2}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries colnames}
+\item 
+\mbox{\Hypertarget{classJMatrix_a633060c5bfab1420a99d1442c8ed6e8c}\label{classJMatrix_a633060c5bfab1420a99d1442c8ed6e8c}} 
+char {\bfseries comment} \mbox{[}\mbox{\hyperlink{jmatrix_8h_a74ffd76b8d66d082b6834743018959f1}{COMMENT\+\_\+\+SIZE}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class JMatrix$<$ T $>$}
+
+@\+JMatrix Wrapper class for all types of matrices. It is meant to hold some basic operations common to all of them Even the instances of this class may now hold real data (the metadata, row and column names), they don\textquotesingle{}t do until an \char`\"{}authentic\char`\"{} matrix is constructed. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJMatrix_a158e7af8c9389b8e2b50b9de7e2aee9d}\label{classJMatrix_a158e7af8c9389b8e2b50b9de7e2aee9d}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!JMatrix@{JMatrix}}
+\index{JMatrix@{JMatrix}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{JMatrix()}{JMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::\mbox{\hyperlink{classJMatrix}{JMatrix}} (\begin{DoxyParamCaption}\item[{unsigned char}]{mtype }\end{DoxyParamCaption})}
+
+Default constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mtype} & The matrix type (see constants at \mbox{\hyperlink{jmatrix_8h}{jmatrix.\+h}}) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_a9d02b4cc43e341dc73a94d46a6223c88}\label{classJMatrix_a9d02b4cc43e341dc73a94d46a6223c88}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!JMatrix@{JMatrix}}
+\index{JMatrix@{JMatrix}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{JMatrix()}{JMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::\mbox{\hyperlink{classJMatrix}{JMatrix}} (\begin{DoxyParamCaption}\item[{unsigned char}]{mtype,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{nrows,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{ncols }\end{DoxyParamCaption})}
+
+Constructor with number of rows and columns
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mtype} & The matrix type (see constants at \mbox{\hyperlink{jmatrix_8h}{jmatrix.\+h}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em nrows} & Number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em ncols} & Number of columns~\newline
+\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_abd58e4083c9ce5c00dbfecf096ff9e3e}\label{classJMatrix_abd58e4083c9ce5c00dbfecf096ff9e3e}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!JMatrix@{JMatrix}}
+\index{JMatrix@{JMatrix}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{JMatrix()}{JMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::\mbox{\hyperlink{classJMatrix}{JMatrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char}]{mtype }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a binary file
+
+Binary file header as explained in the documentation to Write\+Bin
+
+TODO PRELIMINARY VERSION. ASSUMES SAME ENDIANESS FOR WRITER AND READER MACHINE
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em mtype} & The matrix type (see constants at \mbox{\hyperlink{jmatrix_8h}{jmatrix.\+h}}) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_a80c23dbd842d116514c871fb38f336fd}\label{classJMatrix_a80c23dbd842d116514c871fb38f336fd}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!JMatrix@{JMatrix}}
+\index{JMatrix@{JMatrix}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{JMatrix()}{JMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::\mbox{\hyperlink{classJMatrix}{JMatrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char}]{mtype,  }\item[{unsigned char}]{vtype,  }\item[{char}]{csep }\end{DoxyParamCaption})}
+
+Constructor to fill the matrix content from a csv text file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em mtype} & The matrix type (see constants at \mbox{\hyperlink{jmatrix_8h}{jmatrix.\+h}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em vtype} & The data type to be contained in the matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The character expected to be the sepparator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_a4b7d3503ab1271d7631d3c2bbc7df2f3}\label{classJMatrix_a4b7d3503ab1271d7631d3c2bbc7df2f3}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!JMatrix@{JMatrix}}
+\index{JMatrix@{JMatrix}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{JMatrix()}{JMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::\mbox{\hyperlink{classJMatrix}{JMatrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classJMatrix}{JMatrix}} to be copied \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJMatrix_a80a5734206807fc35d1e1929369731fa}\label{classJMatrix_a80a5734206807fc35d1e1929369731fa}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!GetColNames@{GetColNames}}
+\index{GetColNames@{GetColNames}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetColNames()}{GetColNames()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Get\+Col\+Names}
+
+Function to get the matrix column names, if present
+
+\begin{DoxyReturn}{Returns}
+\+: The vector of strings with the col names. Empty vector if not present 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_a807d7b40146577b86c5afc83baa6793d}\label{classJMatrix_a807d7b40146577b86c5afc83baa6793d}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!GetComment@{GetComment}}
+\index{GetComment@{GetComment}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetComment()}{GetComment()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Get\+Comment}
+
+Function to get a string with the matrix comment, if any (or the empty string otherwise).
+
+\begin{DoxyReturn}{Returns}
+\+: A string with the content of the comment area. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_a2e1e8d956192d149c8651d5cb739352b}\label{classJMatrix_a2e1e8d956192d149c8651d5cb739352b}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!GetNCols@{GetNCols}}
+\index{GetNCols@{GetNCols}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetNCols()}{GetNCols()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Get\+NCols (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get number of columns
+
+\begin{DoxyReturn}{Returns}
+Number of columns of the matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_aff06ee8af3ca029e4b0bb8da497027b5}\label{classJMatrix_aff06ee8af3ca029e4b0bb8da497027b5}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!GetNRows@{GetNRows}}
+\index{GetNRows@{GetNRows}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetNRows()}{GetNRows()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}} \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Get\+NRows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Function to get number of rows
+
+\begin{DoxyReturn}{Returns}
+Number of rows of the matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_aa5394695f656581398f3244fb8987057}\label{classJMatrix_aa5394695f656581398f3244fb8987057}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!GetRowNames@{GetRowNames}}
+\index{GetRowNames@{GetRowNames}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetRowNames()}{GetRowNames()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Get\+Row\+Names}
+
+Function to get the matrix row names, if present
+
+\begin{DoxyReturn}{Returns}
+\+: The vector of strings with the row names. Empty vector if not present 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_a023c4e33136af9c12e71be8a8742363b}\label{classJMatrix_a023c4e33136af9c12e71be8a8742363b}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \& \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Transpose-\/assignment
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classJMatrix}{JMatrix}} to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created Matrix, which is the transpose of the passed one 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_ad351ec41fd1250b0aa206e7a21641762}\label{classJMatrix_ad351ec41fd1250b0aa206e7a21641762}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \& \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})}
+
+Assignment operator
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em other} & Reference to the \mbox{\hyperlink{classJMatrix}{JMatrix}} to be assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the newly created \mbox{\hyperlink{classJMatrix}{JMatrix}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJMatrix_a235cec930bb83971f8a97f41e4357035}\label{classJMatrix_a235cec930bb83971f8a97f41e4357035}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!Resize@{Resize}}
+\index{Resize@{Resize}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnr,  }\item[{\mbox{\hyperlink{indextype_8h_a9aa9e180296894e72049e4c0d5141da0}{indextype}}}]{newnc }\end{DoxyParamCaption})}
+
+Function to resize the matrix WARNING\+: previous content, if any, IS LOST (TODO\+: to be reviewed)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em newnr} & New number of rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em newnc} & New number of cols \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_ac304c3f13be5c371cdb7d2e2d7f63d32}\label{classJMatrix_ac304c3f13be5c371cdb7d2e2d7f63d32}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!SetColNames@{SetColNames}}
+\index{SetColNames@{SetColNames}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetColNames()}{SetColNames()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Set\+Col\+Names (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{cnames }\end{DoxyParamCaption})}
+
+Function to set the matrix column names.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cnames} & The std\+::vector of strings with the column names. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_aae6a6bd0c1ec88f4834d9a5df4547540}\label{classJMatrix_aae6a6bd0c1ec88f4834d9a5df4547540}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!SetComment@{SetComment}}
+\index{SetComment@{SetComment}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetComment()}{SetComment()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Set\+Comment (\begin{DoxyParamCaption}\item[{std\+::string}]{cm }\end{DoxyParamCaption})}
+
+Function to set the matrix comment
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cm} & A std\+::string with the comment to be stored. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_a82a2b3f69b861c12824d2486274d2544}\label{classJMatrix_a82a2b3f69b861c12824d2486274d2544}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!SetRowNames@{SetRowNames}}
+\index{SetRowNames@{SetRowNames}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetRowNames()}{SetRowNames()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Set\+Row\+Names (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{rnames }\end{DoxyParamCaption})}
+
+Function to set the matrix row names.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rnames} & The std\+::vector of strings with the row names. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}\label{classJMatrix_a47c2330a1fd4262d838ad79f5ea36794}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!WriteBin@{WriteBin}}
+\index{WriteBin@{WriteBin}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteBin()}{WriteBin()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Write\+Bin (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{unsigned char}]{mtype }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a binary file
+
+The binary header will contain\+:
+\begin{DoxyItemize}
+\item unsigned char t\+: matrix type (normal, sparse, symmetric). Other types might be added later
+\item unsigned char dt\+: the data type of the matrix elements, which is one of unsigned/signed char, unsigned signed short, unsigned/signed long, unsigned/signed longlong, float, double, longdouble in its lower 4 bits and the endianess in its upper 4 bits (big or little).
+\item indextype nr\+: number of rows
+\item indextype nc\+: number of columns
+\item unsigned char mdinfo\+: information on the presence/absence of metadata, currently row and/or column names and comment.
+\end{DoxyItemize}
+
+This means that the size of the header is 2+2$\ast$sizeof(indextype)+1+empty\+\_\+space. We have fixed the empty space so that total header size be 128 bytes.
+
+After the header the binary file contains the matrix raw data, by rows. Internal representation is different according to the matrix type (full, sparse or symmetric).
+\begin{DoxyItemize}
+\item After the raw data come the row and/or column names (if any)
+\item Then, the row names, as character arrays separated by null character (0x00)
+\item Then, a separation mark (the succesion of bytes 0x\+FF 0x45 0x42 0x\+FF). 0x45 and 0x42 are ASCII characters EB, for End Block
+\item Then, the column names, as character arrays separated by null character (0x00)
+\item Then, a separation mark, as above
+\item After the row/column names comes the comment (if any)
+\item Then, a separation mark, as above
+\end{DoxyItemize}
+
+HEADER AND DATA ARE ALWAYS WRITTEN IN THE ENDIANESS OF THE MACHINE WHICH EXECUTES THIS CODE Nevertheless, other machines will know about it, since it is declared in the first byte of the written file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em string} & fname\+: The name of the file to write \\
+\hline
+\mbox{\texttt{ in}}  & {\em unsigned} & char mtype\+: The type identifier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJMatrix_ae3653675686aabb52c2cf737644cb355}\label{classJMatrix_ae3653675686aabb52c2cf737644cb355}} 
+\index{JMatrix$<$ T $>$@{JMatrix$<$ T $>$}!WriteCsv@{WriteCsv}}
+\index{WriteCsv@{WriteCsv}!JMatrix$<$ T $>$@{JMatrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteCsv()}{WriteCsv()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classJMatrix}{JMatrix}}$<$ T $>$\+::Write\+Csv (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{char}]{csep = {\ttfamily \textquotesingle{},\textquotesingle{}},  }\item[{bool}]{withquotes = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Function to write the matrix content to a CSV file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file to write \\
+\hline
+\mbox{\texttt{ in}}  & {\em csep} & The separator character between fields (default\+: , (comma)) \\
+\hline
+\mbox{\texttt{ in}}  & {\em withquotes} & boolean value to indicate if field names in .csv must be written surrounded by quotes or not \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/headers/\mbox{\hyperlink{jmatrix_8h}{jmatrix.\+h}}\item 
+src/library/jmatrix.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,74 @@
+\hypertarget{debugpar_8h}{}\doxysection{src/headers/debugpar.h File Reference}
+\label{debugpar_8h}\index{src/headers/debugpar.h@{src/headers/debugpar.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{debugpar_8h_a74a44d278363cc0af5c366083e7edb43}{JMatrix\+Set\+Debug}} (bool deb)
+\item 
+void \mbox{\hyperlink{debugpar_8h_a4f7ec3f15bba191a15bc3d331c394407}{JMatrix\+Stop}} (std\+::string errortext)
+\item 
+void \mbox{\hyperlink{debugpar_8h_aa75d0698aa087a3535ae465194ce8c74}{JMatrix\+Warning}} (std\+::string warntext)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+const unsigned char \mbox{\hyperlink{debugpar_8h_a5740740abd410ab3368b3f83b6b9f028}{NODEBUG}} =0x0
+\item 
+const unsigned char \mbox{\hyperlink{debugpar_8h_a4967ad4105eee4db76b3443b1e772599}{DEBJM}} =0x01
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{debugpar_8h_a74a44d278363cc0af5c366083e7edb43}\label{debugpar_8h_a74a44d278363cc0af5c366083e7edb43}} 
+\index{debugpar.h@{debugpar.h}!JMatrixSetDebug@{JMatrixSetDebug}}
+\index{JMatrixSetDebug@{JMatrixSetDebug}!debugpar.h@{debugpar.h}}
+\doxysubsubsection{\texorpdfstring{JMatrixSetDebug()}{JMatrixSetDebug()}}
+{\footnotesize\ttfamily void JMatrix\+Set\+Debug (\begin{DoxyParamCaption}\item[{bool}]{deb }\end{DoxyParamCaption})}
+
+Sets the debug state to get messages or not 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em deb} & true to get messages, false to suppress them. Default state is false. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debugpar_8h_a4f7ec3f15bba191a15bc3d331c394407}\label{debugpar_8h_a4f7ec3f15bba191a15bc3d331c394407}} 
+\index{debugpar.h@{debugpar.h}!JMatrixStop@{JMatrixStop}}
+\index{JMatrixStop@{JMatrixStop}!debugpar.h@{debugpar.h}}
+\doxysubsubsection{\texorpdfstring{JMatrixStop()}{JMatrixStop()}}
+{\footnotesize\ttfamily void JMatrix\+Stop (\begin{DoxyParamCaption}\item[{std\+::string}]{errortext }\end{DoxyParamCaption})}
+
+Sends an error message to the console and stops the program that is using the library 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em errortext} & The text of the message to be shown. It will appear after a standard message saying that is comes from this library. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{debugpar_8h_aa75d0698aa087a3535ae465194ce8c74}\label{debugpar_8h_aa75d0698aa087a3535ae465194ce8c74}} 
+\index{debugpar.h@{debugpar.h}!JMatrixWarning@{JMatrixWarning}}
+\index{JMatrixWarning@{JMatrixWarning}!debugpar.h@{debugpar.h}}
+\doxysubsubsection{\texorpdfstring{JMatrixWarning()}{JMatrixWarning()}}
+{\footnotesize\ttfamily void JMatrix\+Warning (\begin{DoxyParamCaption}\item[{std\+::string}]{warntext }\end{DoxyParamCaption})}
+
+Sends a warning message to the console and goes on with the program that is using the library 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em errortext} & The text of the message to be shown. It will appear after a standard message saying that is comes from this library. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{debugpar_8h_a4967ad4105eee4db76b3443b1e772599}\label{debugpar_8h_a4967ad4105eee4db76b3443b1e772599}} 
+\index{debugpar.h@{debugpar.h}!DEBJM@{DEBJM}}
+\index{DEBJM@{DEBJM}!debugpar.h@{debugpar.h}}
+\doxysubsubsection{\texorpdfstring{DEBJM}{DEBJM}}
+{\footnotesize\ttfamily const unsigned char DEBJM =0x01}
+
+These are constants to allow selective debug by library. Each library will print messages or not using a test with logical AND between its particular constant and the DEB global variable. This allows the use of the system either in each separate package or in the global one \mbox{\Hypertarget{debugpar_8h_a5740740abd410ab3368b3f83b6b9f028}\label{debugpar_8h_a5740740abd410ab3368b3f83b6b9f028}} 
+\index{debugpar.h@{debugpar.h}!NODEBUG@{NODEBUG}}
+\index{NODEBUG@{NODEBUG}!debugpar.h@{debugpar.h}}
+\doxysubsubsection{\texorpdfstring{NODEBUG}{NODEBUG}}
+{\footnotesize\ttfamily const unsigned char NODEBUG =0x0}
+
+These are constants to allow selective debug by library. Each library will print messages or not using a test with logical AND between its particular constant and the DEB global variable. This allows the use of the system either in each separate package or in the global one 
