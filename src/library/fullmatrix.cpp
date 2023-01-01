@@ -353,7 +353,7 @@ TEMPLATES_SETFUNC(void,FullMatrix,Set,SINGLE_ARG(indextype r,indextype c),v)
 template <typename T>
 void FullMatrix<T>::GetRow(indextype r,T *v)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
     	std::ostringstream errst;
@@ -374,7 +374,7 @@ TEMPLATES_SETFUNC(void,FullMatrix,GetRow,indextype r,*v)
 template <typename T>
 void FullMatrix<T>::GetFullRow(indextype r,unsigned char *m,unsigned char s,T *v)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
         std::ostringstream errst;
@@ -401,7 +401,7 @@ TEMPLATES_SETFUNC(void,FullMatrix,GetFullRow,SINGLE_ARG(indextype r,unsigned cha
 template <typename T>
 void FullMatrix<T>::GetMarksOfFullRow(indextype r,unsigned char *m,unsigned char s)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
     	std::ostringstream errst;

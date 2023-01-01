@@ -37,6 +37,20 @@
 /// @file jmatrix.h
 
 ///@{
+/**
+ *      Constant defined to check access to matrix elements
+ *
+ *      The simple fact of being defined at compilation time adds a test in each matrix access to be sure we are
+ *      not out of bound; if we are, a run-time error is raised.
+ *
+ *      This is obviously safer but at the expense of adding overhead and a slight increment of run time.\n
+ *      Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds.
+ *
+ */
+#define WITH_CHECKS_MATRIX
+///@}
+
+///@{
 /** 
  *       Constants for the possible matrix types
  *         Currently, they are no type (for errors), full matrix, sparse matrix and symmetric matrix.
@@ -170,8 +184,6 @@ std::string MetadataInfo(unsigned char metadatainfo);
  * @return The size in bytes of one element of the passed data type.
  */
 int SizeOfType(unsigned char datatypeident);
-
-#define WITH_CHECKS_MATRIXSP 1
 
 const unsigned short HEADER_SIZE=128;	/*!< The header size. We fix a header of 128 bytes. We don't need so much, but just in case in the future... */
 

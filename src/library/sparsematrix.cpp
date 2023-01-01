@@ -465,7 +465,7 @@ TEMPLATES_CONST(SparseMatrix,SINGLE_ARG(std::string fname,unsigned char vtype,ch
 template <typename T>
 T SparseMatrix<T>::Get(indextype r,indextype c) const
 { 
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if ((r>=this->nr) || (c>=this->nc))
     {
         std::ostringstream errst;
@@ -511,7 +511,7 @@ TEMPLATES_FUNCRCONST(SparseMatrix,Get,SINGLE_ARG(indextype r,indextype c))
 template <typename T>
 void SparseMatrix<T>::Set(indextype r,indextype c,T v)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if ((r>=this->nr) || (c>=this->nc))
     {
     	std::ostringstream errst;
@@ -573,7 +573,7 @@ TEMPLATES_SETFUNC(void,SparseMatrix,Set,SINGLE_ARG(indextype r,indextype c),v)
 template <typename T>
 void SparseMatrix<T>::SetRow(indextype r,std::vector<indextype> vc,std::vector<T> v)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if ((r>=this->nr) || (vc.size()>=this->nc))
     {
         std::ostringstream errst;
@@ -594,7 +594,7 @@ TEMPLATES_SETFUNCVEC(void,SparseMatrix,SetRow,SINGLE_ARG(indextype r,std::vector
 template <typename T>
 void SparseMatrix<T>::GetRow(indextype r,T *v)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
     	std::ostringstream errst;
@@ -615,7 +615,7 @@ TEMPLATES_SETFUNC(void,SparseMatrix,GetRow,indextype r,*v)
 template <typename T>
 void SparseMatrix<T>::GetSparseRow(indextype r,unsigned char *m,unsigned char s,T *v)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
         std::ostringstream errst;
@@ -639,7 +639,7 @@ TEMPLATES_SETFUNC(void,SparseMatrix,GetSparseRow,SINGLE_ARG(indextype r,unsigned
 template <typename T>
 void SparseMatrix<T>::GetMarksOfSparseRow(indextype r,unsigned char *m,unsigned char s)
 {
-#ifdef WITH_CHECKS_MATRIXSP
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
     	std::ostringstream errst;

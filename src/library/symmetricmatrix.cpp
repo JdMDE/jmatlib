@@ -310,7 +310,7 @@ template <typename T>
 T SymmetricMatrix<T>::Get(indextype r,indextype c)
 { 
 
-#ifdef WITH_CHECKS_MATRIXSYM
+#ifdef WITH_CHECKS_MATRIX
     if ((r>=this->nr) || (c>=this->nc))
     {
     	std::ostringstream errst;
@@ -329,7 +329,7 @@ TEMPLATES_FUNCR(SymmetricMatrix,Get,SINGLE_ARG(indextype r,indextype c))
 template <typename T>
 void SymmetricMatrix<T>::Set(indextype r,indextype c,T v)
 {
-#ifdef WITH_CHECKS_MATRIXSYM
+#ifdef WITH_CHECKS_MATRIX
     if ((r>=this->nr) || (c>=this->nc))
     {
     	std::ostringstream errst;
@@ -351,7 +351,7 @@ TEMPLATES_SETFUNC(void,SymmetricMatrix,Set,SINGLE_ARG(indextype r,indextype c),v
 template <typename T>
 T SymmetricMatrix<T>::GetRowSum(indextype r)
 {
-#ifdef WITH_CHECKS_MATRIXSYM
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
     	std::ostringstream errst;
