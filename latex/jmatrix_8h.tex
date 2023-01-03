@@ -19,11 +19,12 @@
 class \mbox{\hyperlink{classJMatrix}{JMatrix$<$ T $>$}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Macros}
+\textbf{ }\par
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{jmatrix_8h_ae1b305d2831d68d4b2c10aeb44d7f323}\label{jmatrix_8h_ae1b305d2831d68d4b2c10aeb44d7f323}} 
-\#define {\bfseries WITH\+\_\+\+CHECKS\+\_\+\+MATRIXSP}~1
+\#define \mbox{\hyperlink{jmatrix_8h_ad6fa70fc4255ca3aec2e403f7821f887}{WITH\+\_\+\+CHECKS\+\_\+\+MATRIX}}
 \end{DoxyCompactItemize}
+
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -134,6 +135,20 @@ const unsigned char \mbox{\hyperlink{jmatrix_8h_a25e5e3fc309be8abca75f75ff294d2a
 \end{DoxyCompactItemize}
 
 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{jmatrix_8h_ad6fa70fc4255ca3aec2e403f7821f887}\label{jmatrix_8h_ad6fa70fc4255ca3aec2e403f7821f887}} 
+\index{jmatrix.h@{jmatrix.h}!WITH\_CHECKS\_MATRIX@{WITH\_CHECKS\_MATRIX}}
+\index{WITH\_CHECKS\_MATRIX@{WITH\_CHECKS\_MATRIX}!jmatrix.h@{jmatrix.h}}
+\doxysubsubsection{\texorpdfstring{WITH\_CHECKS\_MATRIX}{WITH\_CHECKS\_MATRIX}}
+{\footnotesize\ttfamily \#define WITH\+\_\+\+CHECKS\+\_\+\+MATRIX}
+
+Constant defined to check access to matrix elements
+
+The simple fact of being defined at compilation time adds a test in each matrix access to be sure we are not out of bound; if we are, a run-\/time error is raised.
+
+This is obviously safer but at the expense of adding overhead and a slight increment of run time.~\newline
+Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds. 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}\label{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}} 

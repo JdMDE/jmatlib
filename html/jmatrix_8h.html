@@ -69,7 +69,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -99,9 +98,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ae1b305d2831d68d4b2c10aeb44d7f323"><td class="memItemLeft" align="right" valign="top"><a id="ae1b305d2831d68d4b2c10aeb44d7f323"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WITH_CHECKS_MATRIXSP</b>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ae1b305d2831d68d4b2c10aeb44d7f323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ad6fa70fc4255ca3aec2e403f7821f887"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jmatrix_8h.html#ad6fa70fc4255ca3aec2e403f7821f887">WITH_CHECKS_MATRIX</a></td></tr>
+<tr class="separator:ad6fa70fc4255ca3aec2e403f7821f887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -201,6 +200,25 @@ Variables</h2></td></tr>
 <tr class="memitem:a25e5e3fc309be8abca75f75ff294d2ae"><td class="memItemLeft" align="right" valign="top">const unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jmatrix_8h.html#a25e5e3fc309be8abca75f75ff294d2ae">BLOCKSEP</a> [<a class="el" href="jmatrix_8h.html#a432a8c24c736a31b664b6e140ffadc5d">BLOCKSEP_LEN</a>] ={<a class="el" href="jmatrix_8h.html#ae40d9102de3a80e38ecf21104eb12c8d">BLOCK_MARK</a>,0x45,0x42,<a class="el" href="jmatrix_8h.html#ae40d9102de3a80e38ecf21104eb12c8d">BLOCK_MARK</a>}</td></tr>
 <tr class="separator:a25e5e3fc309be8abca75f75ff294d2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ad6fa70fc4255ca3aec2e403f7821f887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6fa70fc4255ca3aec2e403f7821f887">&#9670;&nbsp;</a></span>WITH_CHECKS_MATRIX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WITH_CHECKS_MATRIX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constant defined to check access to matrix elements</p>
+<p>The simple fact of being defined at compilation time adds a test in each matrix access to be sure we are not out of bound; if we are, a run-time error is raised.</p>
+<p>This is obviously safer but at the expense of adding overhead and a slight increment of run time.<br  />
+Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ab7ff82340988d7bed5aea643c5fd233b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7ff82340988d7bed5aea643c5fd233b">&#9670;&nbsp;</a></span>DataTypeName()</h2>

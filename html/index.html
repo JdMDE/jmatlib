@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>jmatrix: Main Page</title>
+<title>jmatrix: jmatlib: a matrix library to manipulate big 2D matrices</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,11 +62,27 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">jmatrix Documentation</div>  </div>
+<div class="title">jmatlib: a matrix library to manipulate big 2D matrices </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="expl"></a>
+General explanation</h1>
+<p>Matrix indexes are 32-bit unsigned integers so matrix size is in practice limited by the amount of memory.<br  />
+ This library manages full, sparse and symmetric matrices using as less memory as possible.<br  />
+ Matrix elements can be of any data type.<br  />
+ Matrices can be read from/written to disk in a compact binary format.<br  />
+ Rows and columns may have names (any C++ string).<br  />
+ The characteristics of a matrix can be known without loading it into memory.<br  />
+ Rows and columns can be read from disk, either by their names or numbers, without loading the complete matrix in memory.<br  />
+ <br  />
+ One example program is provided, jmat, which is a command-line interface that allows creation from/writing to jmatrices from CSV files, as long as any kind of matrix manipulation. See section Files.<br  />
+ <br  />
+ This library is used by parpamlib, a library to implement in parallel the Partiioning Around Medoids (PAM) clustering method that can be found in <a href="https://github.com/JdMDE/ppamlib">https://github.com/JdMDE/ppamlib</a><br  />
+<br  />
+ Its code with interface modifications is also used inside the jmatrix R package (<a href="https://cran.r-project.org/web/packages/jmatrix/index.html">https://cran.r-project.org/web/packages/jmatrix/index.html</a>) </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
