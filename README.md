@@ -11,7 +11,7 @@ One example program is provided, jmat, which is a command-line interface that al
 creation from/writing to jmatrices from CSV files, as long as any kind of matrix
 manipulation.
 
-This library is used by parpamlib, a library to implement in parallel the Partiioning Around Medoids (PAM) clustering method
+This library is used by ppamlib, a library to implement in parallel the Partiioning Around Medoids (PAM) clustering method
 that can be found in https://github.com/JdMDE/ppamlib
 
 Its code with interface modifications is also used inside the jmatrix R package (https://CRAN.R-project.org/package=jmatrix)
