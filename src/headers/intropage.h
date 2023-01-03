@@ -18,6 +18,6 @@
 * This library is used by parpamlib, a library to implement in parallel the Partiioning Around Medoids (PAM) clustering method
 * that can be found in https://github.com/JdMDE/ppamlib\n
 *\n
-* Its code with interface modifications is also used inside the jmatrix R package (https://cran.r-project.org/web/packages/jmatrix/index.html)
+* Its code with interface modifications is also used inside the jmatrix R package (https://CRAN.R-project.org/package=jmatrix)
 */
 
