@@ -227,6 +227,36 @@ void SRCSelect(string inmat,string ofile,unsigned char mtype,vector<string> rnam
  }
 }
 
+template <typename T>
+void SetComment(string inmat,string ofile,unsigned char mtype,string comment)
+{
+ switch (mtype)
+ {
+  case MTYPEFULL:
+  {
+    FullMatrix<T> M(inmat);
+    M.SetComment(comment);
+    M.WriteBin(ofile);
+  }
+  break;
+  case MTYPESPARSE:
+  {
+    SparseMatrix<T> M(inmat);
+    M.SetComment(comment);
+    M.WriteBin(ofile);
+  }
+  break;
+  case MTYPESYMMETRIC:
+  {
+    SymmetricMatrix<T> M(inmat);
+    M.SetComment(comment);
+    M.WriteBin(ofile);
+  }
+  break;
+  default: cerr << "Unexpected error: unknown matrix type.\n"; exit(1); break;
+ }
+}
+
 void JSetRowNames(string iname,string oname,vector<string> rnames)
 {
  unsigned char mtype,ctype,endian,mdinfo;
@@ -311,3 +341,26 @@ void JSetRowColNames(string iname,string oname,vector<string> rnames,vector<stri
  }
 }
 
+void JSetComment(string iname,string oname,string new_comment)
+{
+ unsigned char mtype,ctype,endian,mdinfo;
+ indextype nrows,ncols;
+ MatrixType(iname,mtype,ctype,endian,mdinfo,nrows,ncols);
+ switch (ctype)
+ {
+  case UCTYPE: SetComment<unsigned char>(iname,oname,mtype,new_comment); break;
+  case SCTYPE: SetComment<char>(iname,oname,mtype,new_comment); break;
+  case USTYPE: SetComment<unsigned short>(iname,oname,mtype,new_comment); break;
+  case SSTYPE: SetComment<short>(iname,oname,mtype,new_comment); break;
+  case UITYPE: SetComment<unsigned int>(iname,oname,mtype,new_comment); break;
+  case SITYPE: SetComment<int>(iname,oname,mtype,new_comment); break;
+  case ULTYPE: SetComment<unsigned long>(iname,oname,mtype,new_comment); break;
+  case SLTYPE: SetComment<long>(iname,oname,mtype,new_comment); break;
+  case ULLTYPE: SetComment<unsigned long long>(iname,oname,mtype,new_comment); break;
+  case SLLTYPE: SetComment<long long>(iname,oname,mtype,new_comment); break;
+  case FTYPE: SetComment<float>(iname,oname,mtype,new_comment); break;
+  case DTYPE: SetComment<double>(iname,oname,mtype,new_comment); break;
+  case LDTYPE: SetComment<long double>(iname,oname,mtype,new_comment); break;
+  default: cerr << "Error:\n   Unknown data type in input matrix.\n"; break;
+ }
+}

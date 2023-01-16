@@ -876,10 +876,15 @@ void JMatrix<T>::SetComment(std::string cm)
  }
  else
  {
-  for (size_t i=0; i<cm.size(); i++)
-   comment[i]=cm[i];
-  for (size_t i=cm.size(); i<COMMENT_SIZE; i++)
-   comment[i]='\0';
+  if (cm.size()==0)
+   mdinfo &= (~COMMENT);  // Sets the comment bit to 0 if the comment is empty.
+  else
+  {
+   for (size_t i=0; i<cm.size(); i++)
+    comment[i]=cm[i];
+   for (size_t i=cm.size(); i<COMMENT_SIZE; i++)
+    comment[i]='\0';
+  }
  }
 }
 

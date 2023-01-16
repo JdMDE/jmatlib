@@ -186,4 +186,13 @@ void JCsvDump(std::string iname,std::string oname,char sep,bool with_quotes);
  * @param[in] ctype The data type to store the read values (value type of the JMatrix). Possible values: 'u8','s8','u16','s16','u32','s32','u64','s64','f','d' or 'ld'
  */
 void JCsvToJMat(std::string iname,std::string oname,char sep,unsigned char mtype,unsigned char ctype);
+
+/*!
+ * Function to generate a copy of a binary JMatrix file setting the comment to any string\n
+ *
+ * @param[in] iname   Name of the JMatrix binary file with the original matrix
+ * @param[in] oname   Name of the JMatrix binary file with the copy matrix with the new comment
+ * @param[in] comment The comment to be set (it can be the empty string)
+ */
+void JSetComment(std::string iname,std::string oname,std::string comment);
 #endif

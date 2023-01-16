@@ -65,10 +65,11 @@ const unsigned char GETRNAMES=13;
 const unsigned char GETCNAMES=14;
 const unsigned char CSVDUMP=15;
 const unsigned char CSVREAD=16;
-const unsigned int NUM_COMMANDS=17;
+const unsigned char SETCOM=17;
+const unsigned int NUM_COMMANDS=18;
 
 // Strings associated to each command
-const string command_names[NUM_COMMANDS]={"info","rownum","rownums","rowname","rownames","colnum","colnums","colname","colnames","subdiag","setrnames","setcnames","setrcnames","getrnames","getcnames","csvdump","csvread"};
+const string command_names[NUM_COMMANDS]={"info","rownum","rownums","rowname","rownames","colnum","colnums","colname","colnames","subdiag","setrnames","setcnames","setrcnames","getrnames","getcnames","csvdump","csvread","setcom"};
 
 unsigned short ComFromName(string com)
 {
@@ -159,6 +160,10 @@ void Usage(char *pname,unsigned char specific)
         cerr << "  valtype must be one of the strings 'u8','s8','u16','s16','u32','s32','u64','s64','f','d' or 'ld'.\n";
         cerr << "  These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively.\n";
         break;
+    case SETCOM:
+        cerr << "\n" << pname << " setcom matrix_file 'new comment' -o res_file\n\nCopy the input matrix with the given comment.\n";
+        cerr << "  The comment is set to the new one. Previous comment, if any, is discarded.\n";
+        cerr << "  Setting the new comment to the empty string, '', gets rid of the old comment.\n";
     default: break;
   }
  }
@@ -442,6 +447,11 @@ int CheckProgName(string pname,vector<string> possible_endings)
  *   mtype must be one of the strings 'full' or 'sparse'. Symmetric matrices cannot be read as such from a CSV file.\n
  *   valtype must be one of the strings 'u8','s8','u16','s16','u32','s32','u64','s64','f','d' or 'ld'.\n
  *   These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively.
+ *
+ *     jmat setcom matrix_file 'new_comment' -o out_file
+ *
+ *   Copy the input matrix in the output file, setting the comment to the one specified (which can be the empty string, '')
+ *
  */
 int main(int argc,char *argv[])
 {
@@ -575,6 +585,11 @@ int main(int argc,char *argv[])
       Usage(argv[0],CSVREAD);
     else
      JCsvToJMat(iname,oname,sep,mtype,valtype);
+  case SETCOM:
+    if ( (args.size()!=1) )
+     Usage(argv[0],SETCOM);
+    else
+     JSetComment(iname,oname,args[0]);
   default: break;
  }
 
