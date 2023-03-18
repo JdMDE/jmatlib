@@ -312,10 +312,11 @@ TEMPLATES_CONST(FullMatrix,SINGLE_ARG(std::string fname,unsigned char vtype,char
 
 //////////////////////////////////////////////////////////////////
 
+#ifdef WITH_CHECKS_MATRIX
 template <typename T>
 inline T FullMatrix<T>::Get(indextype r,indextype c)
 { 
-#ifdef WITH_CHECKS_MATRIX
+
     if ((r>=this->nr) || (c>=this->nc))
     {
     	std::ostringstream errst;
@@ -323,18 +324,18 @@ inline T FullMatrix<T>::Get(indextype r,indextype c)
         errst << "This matrix was of dimension (" << this->nr << " x " << this->nc << ")\n";
         JMatrixStop(errst.str());
     }
-#endif
     return data[r][c];
 }
 
 TEMPLATES_FUNCR(FullMatrix,Get,SINGLE_ARG(indextype r,indextype c))
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 
+#ifdef WITH_CHECKS_MATRIX
 template <typename T>
 inline void FullMatrix<T>::Set(indextype r,indextype c,T v)
 {
-#ifdef WITH_CHECKS_MATRIX
     if ((r>=this->nr) || (c>=this->nc))
     {
         std::ostringstream errst;
@@ -342,11 +343,11 @@ inline void FullMatrix<T>::Set(indextype r,indextype c,T v)
         errst << "This matrix was of dimension (" << this->nr << " x " << this->nc << ")\n";
         JMatrixStop(errst.str());
     }
-#endif
     data[r][c]=v;
 }
 
 TEMPLATES_SETFUNC(void,FullMatrix,Set,SINGLE_ARG(indextype r,indextype c),v)
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -362,7 +363,6 @@ void FullMatrix<T>::GetRow(indextype r,T *v)
         JMatrixStop(errst.str());
     }
 #endif
- // Fill the positions in v which are not zero.
  for (indextype c=0;c<this->nc;c++)
      v[c]=data[r][c];
 }

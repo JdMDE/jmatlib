@@ -47,7 +47,7 @@
  *      Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds.
  *
  */
-#define WITH_CHECKS_MATRIX
+//#define WITH_CHECKS_MATRIX
 ///@}
 
 ///@{

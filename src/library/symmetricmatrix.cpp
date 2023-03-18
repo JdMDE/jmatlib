@@ -24,7 +24,7 @@ extern unsigned char DEB;
 template <typename T>
 SymmetricMatrix<T>::SymmetricMatrix() : JMatrix<T>(MTYPESYMMETRIC)
 {
- data.clear();
+ data = nullptr;
 }
 
 TEMPLATES_CONST(SymmetricMatrix,)
@@ -34,15 +34,16 @@ TEMPLATES_CONST(SymmetricMatrix,)
 template <typename T>
 SymmetricMatrix<T>::SymmetricMatrix(indextype nrows) : JMatrix<T>(MTYPESYMMETRIC,nrows,nrows)
 {
- data.resize(this->nr);
+ data = new (std::nothrow) T*[nrows];
+ if (data == nullptr)
+     JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
  for (indextype r=0;r<this->nr;r++)
  {
-     data[r].resize(r+1);
-     data[r].assign(r+1,T(0));
-     /*
+     data[r] = new (std::nothrow) T[nrows];
+     if (data[r] == nullptr)
+         JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
      for (indextype c=0;c<=r;c++)
          data[r][c]=0;
-     */
  }
 }
 
@@ -55,15 +56,16 @@ SymmetricMatrix<T>::SymmetricMatrix(indextype nrows,bool warn) : JMatrix<T>(MTYP
 {
  if (warn)
   MemoryWarnings(nrows,sizeof(T));
- data.resize(this->nr);
+ data = new (std::nothrow) T*[nrows];
+ if (data == nullptr)
+     JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
  for (indextype r=0;r<this->nr;r++)
  {
-     data[r].resize(r+1);
-     data[r].assign(r+1,T(0));
-     /*
+     data[r] = new (std::nothrow) T[nrows];
+     if (data[r] == nullptr)
+         JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
      for (indextype c=0;c<=r;c++)
          data[r][c]=0;
-     */
  }
 }
 
@@ -74,15 +76,16 @@ TEMPLATES_CONST_WITH_ARG(SymmetricMatrix,indextype rows, bool warn)
 template <typename T>
 SymmetricMatrix<T>::SymmetricMatrix(const SymmetricMatrix& other) : JMatrix<T>(other)
 {
- data.resize(this->nr);
+ data = new (std::nothrow) T*[this->nr];
+ if (data == nullptr)
+     JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
  for (indextype r=0;r<this->nr;r++)
  {
-     data[r].resize(r+1);
-     copy(other.data[r].begin(),other.data[r].end(),data[r].begin());
-     /*
+     data[r] = new (std::nothrow) T[this->nr];
+     if (data[r] == nullptr)
+         JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
      for (indextype c=0;c<=r;c++)
          data[r][c]=other.data[r][c];
-     */
  }
 }
 
@@ -93,23 +96,29 @@ TEMPLATES_COPY_CONST(SymmetricMatrix)
 template <typename T>
 void SymmetricMatrix<T>::Resize(indextype newnr)
 {
-   if (data.size()!=0)
+   if (data != nullptr)
    {
-    for (indextype r=0;r<data.size();r++)
-     data[r].clear();
+    for (indextype r=0;r<this->nr;r++)
+     if (data[r] != nullptr)
+         delete[] data[r];
+    delete[] data;
    }
    
    ((JMatrix<T> *)this)->Resize(newnr,newnr);
    
    if (DEB & DEBJM)
        std::cout << "Symmetric matrix resized to (" << this->nr << "," << this->nc << ")\n";
-   
-   data.resize(this->nr);
-   for (indextype r=0;r<this->nr;r++)
+
+   data = new (std::nothrow) T*[newnr];
+   if (data == nullptr)
+     JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
+   for (indextype r=0;r<newnr;r++)
    {
-     data[r].resize(r+1);
+     data[r] = new (std::nothrow) T[newnr];
+     if (data[r] == nullptr)
+         JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
      for (indextype c=0;c<=r;c++)
-         data[r][c]=T(0);
+         data[r][c]=0;
    }
 }
 
@@ -120,11 +129,13 @@ TEMPLATES_FUNC(void,SymmetricMatrix,Resize,indextype newnr)
 template <typename T>
 SymmetricMatrix<T>::~SymmetricMatrix()
 {
- if (data.size()!=0)
- {
-  for (indextype r=0;r<data.size();r++)
-   data[r].clear();
- }
+   if (data != nullptr)
+   {
+    for (indextype r=0;r<this->nr;r++)
+     if (data[r] != nullptr)
+         delete[] data[r];
+    delete[] data;
+   }
 }
 
 TEMPLATES_DEFAULT_DEST(SymmetricMatrix)
@@ -135,39 +146,19 @@ TEMPLATES_DEFAULT_DEST(SymmetricMatrix)
 template <typename T>
 SymmetricMatrix<T>::SymmetricMatrix(std::string fname) : JMatrix<T>(fname,MTYPESYMMETRIC)
 {
-    try
-    {
-     data.resize(this->nr);
-    }
-    catch (int e)
-    {
-        JMatrixStop("Exception allocating data.\n");
-    }
+    data = new (std::nothrow) T*[this->nr];
+    if (data == nullptr)
+      JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
     for (indextype r=0;r<this->nr;r++)
     {
-        try
-        {
-         data[r].resize(r+1);
-        }
-        catch (int e)
-        {
-         std::ostringstream errst;
-         errst << "Exception allocating data[" << r << "].\n";
-         JMatrixStop(errst.str());
-        }
+     data[r] = new (std::nothrow) T[this->nr];
+     if (data[r] == nullptr)
+        JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
     }
-    
-    T *ddata = new T [this->nr];
     
     for (indextype r=0;r<this->nr;r++)
-    {
-        this->ifile.read((char *)ddata,(r+1)*sizeof(T));
-        for (indextype c=0;c<=r;c++)
-            data[r][c]=ddata[c];
-    }
-    
-    delete[] ddata;
-    
+        this->ifile.read((char *)data[r],size_t(r+1)*sizeof(T));
+
     this->ReadMetadata();                  // This is exclusively used when reading from a binary file, not from a csv file
       
     this->ifile.close();
@@ -188,38 +179,18 @@ SymmetricMatrix<T>::SymmetricMatrix(std::string fname,bool warn) : JMatrix<T>(fn
     if (warn)
      MemoryWarnings(this->nr,sizeof(T));
 
-    try
-    {
-     data.resize(this->nr);
-    }
-    catch (int e)
-    {
-        JMatrixStop("Exception allocating data.\n");
-    }
+    data = new (std::nothrow) T*[this->nr];
+    if (data == nullptr)
+      JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
     for (indextype r=0;r<this->nr;r++)
     {
-        try
-        {
-         data[r].resize(r+1);
-        }
-        catch (int e)
-        {
-         std::ostringstream errst;
-         errst << "Exception allocating data[" << r << "].\n";
-         JMatrixStop(errst.str());
-        }
+     data[r] = new (std::nothrow) T[this->nr];
+     if (data[r] == nullptr)
+        JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
     }
-
-    T *ddata = new T [this->nr];
 
     for (indextype r=0;r<this->nr;r++)
-    {
-        this->ifile.read((char *)ddata,(r+1)*sizeof(T));
-        for (indextype c=0;c<=r;c++)
-            data[r][c]=ddata[c];
-    }
-
-    delete[] ddata;
+        this->ifile.read((char *)data[r],size_t(r+1)*sizeof(T));
 
     this->ReadMetadata();                  // This is exclusively used when reading from a binary file, not from a csv file
 
@@ -227,7 +198,6 @@ SymmetricMatrix<T>::SymmetricMatrix(std::string fname,bool warn) : JMatrix<T>(fn
 
     if (DEB & DEBJM)
      std::cout << "Read symmetric matrix with size (" << this->nr << "," << this->nc << ")\n";
-
 }
 
 TEMPLATES_CONST_WITH_ARG(SymmetricMatrix,std::string fname, bool warn)
@@ -237,23 +207,18 @@ TEMPLATES_CONST_WITH_ARG(SymmetricMatrix,std::string fname, bool warn)
 template <typename T>
 SymmetricMatrix<T>& SymmetricMatrix<T>::operator=(const SymmetricMatrix<T>& other)
 {
- if (data.size()!=0)
- {
-  for (indextype r=0;r<data.size();r++)
-   data[r].clear();
- }
- 
- ((JMatrix<T> *)this)->operator=((const JMatrix<T> &)other);
- data.resize(this->nr);
+ data = new (std::nothrow) T*[this->nr];
+ if (data == nullptr)
+     JMatrixStop("Cannot allocate memory for the rows of the symmetric matrix.");
  for (indextype r=0;r<this->nr;r++)
  {
-     data[r].resize(r+1);
-     copy(other.data[r].begin(),other.data[r].end(),data[r].begin());
-     /*
+     data[r] = new (std::nothrow) T[this->nr];
+     if (data[r] == nullptr)
+         JMatrixStop("Cannot allocate memory for one of the rows of the symmetric matrix.");
      for (indextype c=0;c<=r;c++)
          data[r][c]=other.data[r][c];
-     */
  }
+
  return *this;
 }
 
@@ -379,17 +344,9 @@ void SymmetricMatrix<T>::WriteBin(std::string fname)
      std::cout.flush();
     }
     
-    T *ddata = new T [this->nr];
-    
     for (indextype r=0;r<this->nr;r++)
-    {
-        for (indextype c=0;c<=r;c++)
-            ddata[c]=data[r][c];
-        this->ofile.write((const char *)ddata,(r+1)*sizeof(T));
-    }
-    
-    delete[] ddata;
-    
+        this->ofile.write((const char *)data[r],size_t(r+1)*sizeof(T));
+
     unsigned long long endofbindata = this->ofile.tellp();
     
     if (DEB & DEBJM)

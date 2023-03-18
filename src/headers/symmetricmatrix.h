@@ -127,7 +127,7 @@ class SymmetricMatrix: public JMatrix<T>
     T Get(indextype r,indextype c);
 #else
     inline T Get(indextype r,indextype c) {
-         return (c<=r) data[r][c] : data[c][r];
+         return (c<=r) ? data[r][c] : data[c][r];
     }
 #endif
     /** 
@@ -183,7 +183,7 @@ class SymmetricMatrix: public JMatrix<T>
     float GetUsedMemoryMB();
     
  private:
-     std::vector< std::vector<T> > data;
+     T **data;
 };
 
 #endif // SYMMETRICMATRIX_H
