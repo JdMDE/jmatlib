@@ -45,6 +45,8 @@ template void sort_indexes_and_values(const std::vector<unsigned int> &v,std::ve
 template void sort_indexes_and_values(const std::vector<int> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
 template void sort_indexes_and_values(const std::vector<unsigned long> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
 template void sort_indexes_and_values(const std::vector<long> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
+template void sort_indexes_and_values(const std::vector<unsigned long long> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
+template void sort_indexes_and_values(const std::vector<long long> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
 template void sort_indexes_and_values(const std::vector<float> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
 template void sort_indexes_and_values(const std::vector<double> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
 template void sort_indexes_and_values(const std::vector<long double> &v,std::vector<size_t> &idx,std::vector<indextype> &vdx);
@@ -202,6 +204,9 @@ SparseMatrix<T>::SparseMatrix(std::string fname) : JMatrix<T>(fname,MTYPESPARSE)
     this->ReadMetadata();                  // This is exclusively used when reading from a binary file, not from a csv file
     
     this->ifile.close();
+
+    if (DEB & DEBJM)
+     std::cout << "Read sparse matrix with size (" << this->nr << "," << this->nc << ")\n";
 }
 
 TEMPLATES_CONST(SparseMatrix,std::string fname)
@@ -277,6 +282,9 @@ SparseMatrix<T>::SparseMatrix(std::string fname,TrMark) : JMatrix<T>(fname,MTYPE
         data[r].clear();
         data[r]=values;
     }
+
+    if (DEB & DEBJM)
+     std::cout << "Read transposed sparse matrix with size (" << this->nr << "," << this->nc << ")\n";
 }
 
 TEMPLATES_CONST(SparseMatrix,SINGLE_ARG(std::string fname,TrMark))

@@ -181,11 +181,21 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype)
  unsigned char mt;
  ifile.read((char *)(&mt),1);
 
- if (mt!=mtype)
+ if ((mt==MTYPESYMMETRIC) && (mtype==MTYPEFULL))
  {
+  full_read_as_symmetric = true;
+  if (DEB & DEBJM)
+    JMatrixWarning("You are reading a SymmetricMatrix as a FullMatrix. This will use twice the memory (but it might allow a slightly faster access to the matrix elements).\n");
+ }
+ else
+ {
+  if (mt!=mtype)
+  {
  	std::string err="Error: matrix stored in file "+fname+" is of type "+MatrixTypeName(mt)+" and you are trying to store it as a "+ MatrixTypeName(mtype)+". If it is not of type "+MatrixTypeName(MTYPENOTYPE)+" you must use the right class.\n";
         JMatrixStop(err);
+  }
  }
+
  unsigned char td;
  ifile.read((char *)(&td),1);
  

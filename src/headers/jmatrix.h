@@ -395,6 +395,9 @@ class JMatrix
 	void WriteNames(std::vector<std::string> &names);
 	indextype ReadNames(std::vector<std::string> &names);
 	indextype CheckSep();
+
+ protected:
+    bool full_read_as_symmetric=false;
 };
 
 /*

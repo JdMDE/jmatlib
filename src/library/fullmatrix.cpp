@@ -38,10 +38,14 @@ TEMPLATES_CONST(FullMatrix,)
 template <typename T>
 FullMatrix<T>::FullMatrix(indextype nrows,indextype ncols) : JMatrix<T>(MTYPEFULL,nrows,ncols)
 {
- data = new T* [this->nr];
+ data = new (std::nothrow) T* [this->nr];
+ if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
  for (unsigned long r=0;r<this->nr;r++)
  {
-     data[r] = new T[this->nc];
+     data[r] = new (std::nothrow) T[this->nc];
+     if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
      for (unsigned long c=0;c<this->nc;c++)
          data[r][c]=0;
  }
@@ -56,10 +60,14 @@ FullMatrix<T>::FullMatrix(indextype nrows,indextype ncols,bool warn) : JMatrix<T
 {
  if (warn)
   MemoryWarnings(nrows,ncols,sizeof(T));
- data = new T* [this->nr];
+ data = new (std::nothrow) T* [this->nr];
+ if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
  for (unsigned long r=0;r<this->nr;r++)
  {
-     data[r] = new T[this->nc];
+     data[r] = new (std::nothrow) T[this->nc];
+     if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
      for (unsigned long c=0;c<this->nc;c++)
          data[r][c]=0;
  }
@@ -72,10 +80,14 @@ TEMPLATES_CONST(FullMatrix,SINGLE_ARG(indextype nrows,indextype ncols, bool warn
 template <typename T>
 FullMatrix<T>::FullMatrix(const FullMatrix<T>& other) : JMatrix<T>(other)
 {
- data = new T* [this->nr];
+ data = new (std::nothrow) T* [this->nr];
+ if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
  for (unsigned long r=0;r<this->nr;r++)
  {
-     data[r] = new T[this->nc];
+     data[r] = new (std::nothrow) T[this->nc];
+     if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
      for (unsigned long c=0;c<this->nc;c++)
          data[r][c]=other.data[r][c];
  }
@@ -88,26 +100,21 @@ TEMPLATES_COPY_CONST(FullMatrix)
 template <typename T>
 void FullMatrix<T>::Resize(indextype newnr,indextype newnc)
 {
-   if (data != nullptr)
-   {
-    if (this->nr!=0)
-    {
-     if (this->nc!=0)
-      for (unsigned long r=0;r<this->nr;r++)
-       delete[] data[r];
-     delete[] data;
-    }
-   }
-   
+   this->~FullMatrix();
+
    ((JMatrix<T> *)this)->Resize(newnr,newnc);
    
    if (DEB & DEBJM)
     std::cout << "Full matrix resized to (" << this->nr << "," << this->nc << ")\n";
-   
-   data = new T* [this->nr];
+
+   data = new (std::nothrow) T* [this->nr];
+   if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
    for (unsigned long r=0;r<this->nr;r++)
    {
-     data[r] = new T[this->nc];
+     data[r] = new (std::nothrow) T[this->nc];
+     if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
      for (unsigned long c=0;c<this->nc;c++)
          data[r][c]=T(0);
    }
@@ -120,13 +127,18 @@ TEMPLATES_FUNC(void,FullMatrix,Resize,SINGLE_ARG(indextype newnr,indextype newnc
 template <typename T>
 FullMatrix<T>::~FullMatrix()
 {
- if (this->nr!=0)
- {
-  if (this->nc!=0)
-   for (unsigned long r=0;r<this->nr;r++)
-      delete[] data[r];
-  delete[] data;
- }
+ if (data != nullptr)
+   {
+    if (this->nr!=0)
+    {
+     if (this->nc!=0)
+      for (unsigned long r=0;r<this->nr;r++)
+       if (data[r]!=nullptr)
+           delete[] data[r];
+     if (data!=nullptr)
+         delete[] data;
+    }
+   }
 }
 
 TEMPLATES_DEFAULT_DEST(FullMatrix)
@@ -137,16 +149,34 @@ TEMPLATES_DEFAULT_DEST(FullMatrix)
 template <typename T>
 FullMatrix<T>::FullMatrix(std::string fname) : JMatrix<T>(fname,MTYPEFULL)
 {
-    data = new T* [this->nr];
+    data = new (std::nothrow) T* [this->nr];
+    if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
     for (indextype r=0;r<this->nr;r++)
-        data[r] = new T[this->nc];
-
-    for (indextype r=0;r<this->nr;r++)  	
+    {
+        data[r] = new (std::nothrow) T[this->nc];
+        if (data[r]==nullptr)
+            JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
+    }
+    if (this->full_read_as_symmetric)
+     for (indextype r=0;r<this->nr;r++)
+        this->ifile.read((char *)data[r],(r+1)*sizeof(T));           // Here we read only the first r+1 columns of row r, since this is
+                                                                     // what it is stored in the binary symmetric matrix we are reading....
+    else
+     for (indextype r=0;r<this->nr;r++)
         this->ifile.read((char *)data[r],this->nc*sizeof(T));
       
     this->ReadMetadata();                  // This is exclusively used when reading from a binary file, not from a csv file
       
     this->ifile.close();
+
+   if (this->full_read_as_symmetric)                // Here we have to fill the upper part of the full matrix by copying the lower part.
+    for (indextype r=0;r<this->nr;r++)
+     for (indextype c=r+1;c<this->nc;c++)
+      data[r][c]=data[c][r];
+
+   if (DEB & DEBJM)
+     std::cout << "Read full matrix with size (" << this->nr << "," << this->nc << ")\n";
 }
 
 TEMPLATES_CONST(FullMatrix,std::string fname)
@@ -159,16 +189,34 @@ FullMatrix<T>::FullMatrix(std::string fname, bool warn) : JMatrix<T>(fname,MTYPE
 {
     if (warn)
      MemoryWarnings(this->nr,this->nc,sizeof(T));
-    data = new T* [this->nr];
+    data = new (std::nothrow) T* [this->nr];
+    if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
     for (indextype r=0;r<this->nr;r++)
-        data[r] = new T[this->nc];
-
-    for (indextype r=0;r<this->nr;r++)
+    {
+        data[r] = new (std::nothrow) T[this->nc];
+        if (data[r]==nullptr)
+            JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
+    }
+    if (this->full_read_as_symmetric)
+     for (indextype r=0;r<this->nr;r++)
+        this->ifile.read((char *)data[r],(r+1)*sizeof(T));           // Here we read only the first r+1 columns of row r, since this is
+                                                                     // what it is stored in the binary symmetric matrix we are reading....
+    else
+     for (indextype r=0;r<this->nr;r++)
         this->ifile.read((char *)data[r],this->nc*sizeof(T));
 
     this->ReadMetadata();                  // This is exclusively used when reading from a binary file, not from a csv file
 
     this->ifile.close();
+
+   if (this->full_read_as_symmetric)                // Here we have to fill the upper part of the full matrix by copying the lower part.
+    for (indextype r=0;r<this->nr;r++)
+     for (indextype c=r+1;c<this->nc;c++)
+      data[r][c]=data[c][r];
+
+   if (DEB & DEBJM)
+     std::cout << "Read full matrix with size (" << this->nr << "," << this->nc << ")\n";
 }
 
 TEMPLATES_CONST_WITH_ARG(FullMatrix,std::string fname,bool warn)
@@ -178,23 +226,18 @@ TEMPLATES_CONST_WITH_ARG(FullMatrix,std::string fname,bool warn)
 template <typename T>
 FullMatrix<T>& FullMatrix<T>::operator=(const FullMatrix<T>& other)
 {
- if (data != nullptr)
- {
-  if (this->nr!=0)
-  {
-   if (this->nc!=0)
-    for (unsigned long r=0;r<this->nr;r++)
-     delete[] data[r];
-   delete[] data;
-  }
- }
+ this->~FullMatrix();
  
  ((JMatrix<T> *)this)->operator=((const JMatrix<T> &)other);
  
- data = new T* [this->nr];
+ data = new (std::nothrow) T* [this->nr];
+ if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
  for (unsigned long r=0;r<this->nr;r++)
  {
-     data[r] = new T[this->nc];
+     data[r] = new (std::nothrow) T[this->nc];
+     if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
      for (unsigned long c=0;c<this->nc;c++)
          data[r][c]=other.data[r][c];
  }
@@ -209,23 +252,19 @@ TEMPLATES_OPERATOR(FullMatrix,=)
 template <typename T>
 FullMatrix<T>& FullMatrix<T>::operator!=(const FullMatrix<T>& other)
 {
- if (data != nullptr)
- {
-  if (this->nr!=0)
-  {
-   if (this->nc!=0)
-    for (unsigned long r=0;r<this->nr;r++)
-     delete[] data[r];
-   delete[] data;
-  }
- }
- 
+ this->~FullMatrix();
+
  ((JMatrix<T> *)this)->operator!=((const JMatrix<T> &)other);
  
- data = new T* [this->nr];
+ data = new (std::nothrow) T* [this->nr];
+ if (data==nullptr)
+     JMatrixStop("Cannot allocate memory for pointer to rows.\n");
  for (unsigned long r=0;r<this->nr;r++)
-     data[r] = new T[this->nc];
- 
+ {
+     data[r] = new (std::nothrow) T[this->nc];
+     if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
+ }
  for (unsigned long r=0;r<other.nr;r++)
      for (unsigned long c=0;c<other.nc;c++)
          data[c][r]=other.data[r][c];
@@ -263,10 +302,15 @@ FullMatrix<T>::FullMatrix(std::string fname,unsigned char vtype,char csep) : JMa
         }
     }
     
-    data = new T* [this->nr];
+    data = new (std::nothrow) T* [this->nr];
+    if (data==nullptr)
+        JMatrixStop("Cannot allocate memory for pointer to rows.\n");
     for (indextype r=0;r<this->nr;r++)
-        data[r] = new T [this->nc];
-    
+    {
+        data[r] = new (std::nothrow) T [this->nc];
+        if (data[r]==nullptr)
+         JMatrixStop("Cannot allocate memory for at least one of the rows.\n");
+    }
     // Reposition pointer at the begin and re-read first (header) line
     // and no, seekg does not work (possibly, because we had reached the eof ???)
     this->ifile.close();

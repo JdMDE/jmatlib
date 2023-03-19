@@ -124,11 +124,9 @@ class SymmetricMatrix: public JMatrix<T>
      * @return value at (r,c) of matrix, of type T
      */
 #ifdef WITH_CHECKS_MATRIX
-    T Get(indextype r,indextype c);
+    inline T Get(indextype r,indextype c);
 #else
-    inline T Get(indextype r,indextype c) {
-         return (c<=r) ? data[r][c] : data[c][r];
-    }
+    inline T Get(indextype r,indextype c) { return (c<=r) ? data[r][c] : data[c][r]; };
 #endif
     /** 
      * Function to set an element
@@ -139,15 +137,11 @@ class SymmetricMatrix: public JMatrix<T>
      * 
      */
 #ifdef WITH_CHECKS_MATRIX
-    void Set(indextype r,indextype c,T v); 
+    inline void Set(indextype r,indextype c,T v);
 #else
-    inline T Set(indextype r,indextype c,T v) {
-         if (c<=r)
-            data[r][c] = v;
-         else
-            data[c][r] = v;
-    }
+    inline void Set(indextype r,indextype c,T v) { if (c<=r) data[r][c]=v; else data[c][r]=v; };
 #endif
+
     /**
      * Function to get the sum of a row (used frequently by PAM)
      * 
@@ -183,7 +177,7 @@ class SymmetricMatrix: public JMatrix<T>
     float GetUsedMemoryMB();
     
  private:
-     T **data;
+     std::vector< std::vector<T> > data;
 };
 
 #endif // SYMMETRICMATRIX_H
