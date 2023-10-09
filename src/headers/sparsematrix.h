@@ -136,7 +136,8 @@ class SparseMatrix: public JMatrix<T>
      * 
      * @return value at (r,c) of matrix of type T
      */
-    T Get(indextype r,indextype c) const;
+
+     T Get(indextype r,indextype c) const;
     
     /** 
      * Function to set an element

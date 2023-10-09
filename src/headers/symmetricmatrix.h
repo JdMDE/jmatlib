@@ -76,6 +76,21 @@ class SymmetricMatrix: public JMatrix<T>
      */
     SymmetricMatrix(std::string fname,bool warn);
 
+     /**
+     * Constructor to fill the matrix content from a csv file\n
+     * First line is supposed to have the field names which become the column names\n
+     * First column of each line is supposed to have the field name, which becomes that row name\n
+     * The passed character is the expected field sepparator (usually, comma or tab)
+     * WARNING: even the .csv must contain a square matrix, only the lower-triangular matrix and the main diagonal
+     * are stored. The upper-triangular matrix is read and discarded.
+     *
+     * @param[in] fname The name of the csv file to read
+     * @param[in] vtype The data type to be stored (see constants at jmatrix.h)
+     * @param[in] csep  The character used as field sepparator
+     * 
+     */
+    SymmetricMatrix(std::string fname,unsigned char vtype,char csep);
+    
     /** 
      * Function to resize the matrix\n
      * WARNING: previous content, if any, IS LOST (to be reviewed)
@@ -124,10 +139,11 @@ class SymmetricMatrix: public JMatrix<T>
      * @return value at (r,c) of matrix, of type T
      */
 #ifdef WITH_CHECKS_MATRIX
-    inline T Get(indextype r,indextype c);
+    T Get(indextype r,indextype c);
 #else
     inline T Get(indextype r,indextype c) { return (c<=r) ? data[r][c] : data[c][r]; };
 #endif
+
     /** 
      * Function to set an element
      * 
@@ -137,7 +153,7 @@ class SymmetricMatrix: public JMatrix<T>
      * 
      */
 #ifdef WITH_CHECKS_MATRIX
-    inline void Set(indextype r,indextype c,T v);
+    void Set(indextype r,indextype c,T v);
 #else
     inline void Set(indextype r,indextype c,T v) { if (c<=r) data[r][c]=v; else data[c][r]=v; };
 #endif

@@ -147,9 +147,9 @@ class FullMatrix: public JMatrix<T>
      * 
      */
 #ifdef WITH_CHECKS_MATRIX
-    void Set(indextype r,indextype c,T v);
+    void Set(indextype r, indextype c, T v);
 #else
-    inline void Set(indextype r,indextype c,T v) { data[r][c]=v; };
+    inline void Set(indextype r, indextype c, T v) { data[r][c]=v; };
 #endif
     /**
       * Function to get a row as a pointer to the content type.

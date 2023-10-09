@@ -115,6 +115,8 @@ Functions</h2></td></tr>
 <tr class="separator:aaed07f56b56a08dd1f16b12a672e147f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2c5041453a33b9d244e5e58593690e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="apitocommands_8h.html#ac2c5041453a33b9d244e5e58593690e0">JCsvToJMat</a> (std::string iname, std::string oname, char sep, unsigned char mtype, unsigned char ctype)</td></tr>
 <tr class="separator:ac2c5041453a33b9d244e5e58593690e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2673ab8ec62daf7d5e41aedd59b9362"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="apitocommands_8h.html#aa2673ab8ec62daf7d5e41aedd59b9362">JSetComment</a> (std::string iname, std::string oname, std::string comment)</td></tr>
+<tr class="separator:aa2673ab8ec62daf7d5e41aedd59b9362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aaed07f56b56a08dd1f16b12a672e147f"></a>
@@ -754,6 +756,49 @@ vector of strings, which must have as many elements as columns in the input matr
     <tr><td class="paramdir">[in]</td><td class="paramname">iname</td><td>Name of the <a class="el" href="classJMatrix.html">JMatrix</a> binary file with the original matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">oname</td><td>Name of the <a class="el" href="classJMatrix.html">JMatrix</a> binary file with the copy matrix with new column names </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cnames</td><td>Vector of strings with the new column names </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2673ab8ec62daf7d5e41aedd59b9362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2673ab8ec62daf7d5e41aedd59b9362">&#9670;&nbsp;</a></span>JSetComment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JSetComment </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>iname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>oname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function to generate a copy of a binary <a class="el" href="classJMatrix.html">JMatrix</a> file setting the comment to any string<br  />
+ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">iname</td><td>Name of the <a class="el" href="classJMatrix.html">JMatrix</a> binary file with the original matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">oname</td><td>Name of the <a class="el" href="classJMatrix.html">JMatrix</a> binary file with the copy matrix with the new comment </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">comment</td><td>The comment to be set (it can be the empty string) </td></tr>
   </table>
   </dd>
 </dl>

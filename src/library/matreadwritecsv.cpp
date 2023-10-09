@@ -89,17 +89,29 @@ void JCsvDump(string ifile, string csvfile, char csep =',',bool withquotes=false
 }
 
 template <typename T>
-void CsvDataToBinMat(string ifname,string ofname,unsigned char vtype,char csep,bool isfull)
+void CsvDataToBinMat(string ifname,string ofname,unsigned char vtype,char csep,unsigned char mtype)
 {
- if (isfull)
+ switch (mtype)
  {
-  FullMatrix<T> M(ifname,vtype,csep);
-  M.WriteBin(ofname);
- }
- else
- {
-  SparseMatrix<T> M(ifname,vtype,csep);
-  M.WriteBin(ofname);
+  case MTYPEFULL:
+  {
+   FullMatrix<T> M(ifname,vtype,csep);
+   M.WriteBin(ofname);
+   break;
+  }
+  case MTYPESPARSE:
+  {
+   SparseMatrix<T> M(ifname,vtype,csep);
+   M.WriteBin(ofname);
+   break;
+  }
+  case MTYPESYMMETRIC:
+  {
+   SymmetricMatrix<T> M(ifname,vtype,csep);
+   M.WriteBin(ofname);
+   break;
+  }
+  default: break;
  }
 }
 
@@ -107,19 +119,19 @@ void JCsvToJMat(string iname,string oname,char sep,unsigned char mtype,unsigned 
 {
  switch (valtype)
  {
-  case UCTYPE: CsvDataToBinMat<unsigned char>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case SCTYPE: CsvDataToBinMat<char>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case USTYPE: CsvDataToBinMat<unsigned short>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case SSTYPE: CsvDataToBinMat<short>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case UITYPE: CsvDataToBinMat<unsigned int>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case SITYPE: CsvDataToBinMat<int>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case ULTYPE: CsvDataToBinMat<unsigned long>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case SLTYPE: CsvDataToBinMat<long>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case ULLTYPE: CsvDataToBinMat<unsigned long long>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case SLLTYPE: CsvDataToBinMat<long long>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case FTYPE: CsvDataToBinMat<float>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case DTYPE: CsvDataToBinMat<double>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
-  case LDTYPE: CsvDataToBinMat<long double>(iname,oname,valtype,sep,(mtype==MTYPEFULL)); break;
+  case UCTYPE: CsvDataToBinMat<unsigned char>(iname,oname,valtype,sep,mtype); break;
+  case SCTYPE: CsvDataToBinMat<char>(iname,oname,valtype,sep,mtype); break;
+  case USTYPE: CsvDataToBinMat<unsigned short>(iname,oname,valtype,sep,mtype); break;
+  case SSTYPE: CsvDataToBinMat<short>(iname,oname,valtype,sep,mtype); break;
+  case UITYPE: CsvDataToBinMat<unsigned int>(iname,oname,valtype,sep,mtype); break;
+  case SITYPE: CsvDataToBinMat<int>(iname,oname,valtype,sep,mtype); break;
+  case ULTYPE: CsvDataToBinMat<unsigned long>(iname,oname,valtype,sep,mtype); break;
+  case SLTYPE: CsvDataToBinMat<long>(iname,oname,valtype,sep,mtype); break;
+  case ULLTYPE: CsvDataToBinMat<unsigned long long>(iname,oname,valtype,sep,mtype); break;
+  case SLLTYPE: CsvDataToBinMat<long long>(iname,oname,valtype,sep,mtype); break;
+  case FTYPE: CsvDataToBinMat<float>(iname,oname,valtype,sep,mtype); break;
+  case DTYPE: CsvDataToBinMat<double>(iname,oname,valtype,sep,mtype); break;
+  case LDTYPE: CsvDataToBinMat<long double>(iname,oname,valtype,sep,mtype); break;
   default: JMatrixStop("Unexpected error in JCdvToJMat: unknown data type.\n"); break;
  }
 }

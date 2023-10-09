@@ -94,6 +94,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acc2048222d630cea7e456b45163ca332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a242ba43bfa18f0d47fa2fbb73f7b6ef4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSymmetricMatrix.html#a242ba43bfa18f0d47fa2fbb73f7b6ef4">SymmetricMatrix</a> (std::string fname, bool warn)</td></tr>
 <tr class="separator:a242ba43bfa18f0d47fa2fbb73f7b6ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e468bed8072399b4cd3f2cbba6ef8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSymmetricMatrix.html#a11e468bed8072399b4cd3f2cbba6ef8e">SymmetricMatrix</a> (std::string fname, unsigned char vtype, char csep)</td></tr>
+<tr class="separator:a11e468bed8072399b4cd3f2cbba6ef8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e16a8e0a3cad1e0b115c0bd0fc0512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSymmetricMatrix.html#ae2e16a8e0a3cad1e0b115c0bd0fc0512">Resize</a> (<a class="el" href="indextype_8h.html#a9aa9e180296894e72049e4c0d5141da0">indextype</a> newnr)</td></tr>
 <tr class="separator:ae2e16a8e0a3cad1e0b115c0bd0fc0512"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba753f25bd33401ee50c49346fe28b40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSymmetricMatrix.html#aba753f25bd33401ee50c49346fe28b40">SymmetricMatrix</a> (const <a class="el" href="classSymmetricMatrix.html">SymmetricMatrix</a>&lt; T &gt; &amp;other)</td></tr>
@@ -163,6 +165,9 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>TypeNameToId
 <tr class="memitem:ab060c97693af682754e55c259ad3e462 inherit pro_methods_classJMatrix"><td class="memItemLeft" align="right" valign="top"><a id="ab060c97693af682754e55c259ad3e462"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessDataLineCsv</b> (std::string line, char csep, T *rowofdata)</td></tr>
 <tr class="separator:ab060c97693af682754e55c259ad3e462 inherit pro_methods_classJMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf4499b2906de61d80ecd6f0aa0f356 inherit pro_methods_classJMatrix"><td class="memItemLeft" align="right" valign="top"><a id="a7bf4499b2906de61d80ecd6f0aa0f356"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessDataLineCsvForSymmetric</b> (std::string line, char csep, <a class="el" href="indextype_8h.html#a9aa9e180296894e72049e4c0d5141da0">indextype</a> rnum, std::vector&lt; T &gt; &amp;rowofdata)</td></tr>
+<tr class="separator:a7bf4499b2906de61d80ecd6f0aa0f356 inherit pro_methods_classJMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d9bb19777a2617f2366f82357e47c5b inherit pro_methods_classJMatrix"><td class="memItemLeft" align="right" valign="top"><a id="a4d9bb19777a2617f2366f82357e47c5b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ReadMetadata</b> ()</td></tr>
 <tr class="separator:a4d9bb19777a2617f2366f82357e47c5b inherit pro_methods_classJMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +202,9 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="memitem:a633060c5bfab1420a99d1442c8ed6e8c inherit pro_attribs_classJMatrix"><td class="memItemLeft" align="right" valign="top"><a id="a633060c5bfab1420a99d1442c8ed6e8c"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>comment</b> [<a class="el" href="jmatrix_8h.html#a74ffd76b8d66d082b6834743018959f1">COMMENT_SIZE</a>]</td></tr>
 <tr class="separator:a633060c5bfab1420a99d1442c8ed6e8c inherit pro_attribs_classJMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcd96ed30986a43f7f1fb715789648e0 inherit pro_attribs_classJMatrix"><td class="memItemLeft" align="right" valign="top"><a id="adcd96ed30986a43f7f1fb715789648e0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>full_read_as_symmetric</b> =false</td></tr>
+<tr class="separator:adcd96ed30986a43f7f1fb715789648e0 inherit pro_attribs_classJMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -205,7 +213,7 @@ class SymmetricMatrix&lt; T &gt;</h3>
 <p>@SymmetricMatrix Class to hold arbitrarily big symmetric square matrices. For a matrix of size NxN, only Nx(N+1)/2 elements are stored. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae8b3d6f689cbef08034946683fe42590"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8b3d6f689cbef08034946683fe42590">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[1/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8b3d6f689cbef08034946683fe42590">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[1/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,7 +230,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a5e153e09140212cb373f9475999abb58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e153e09140212cb373f9475999abb58">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[2/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e153e09140212cb373f9475999abb58">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[2/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,7 +257,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="adf9a40fd9d6b5856826825489673e69e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf9a40fd9d6b5856826825489673e69e">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[3/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adf9a40fd9d6b5856826825489673e69e">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[3/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +296,7 @@ The idea is to use this form of constructor with warn=true, which internally cal
 </div>
 </div>
 <a id="acc2048222d630cea7e456b45163ca332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc2048222d630cea7e456b45163ca332">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[4/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2048222d630cea7e456b45163ca332">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[4/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,7 +325,7 @@ Binary file header as explained in the documetation to WriteBin</p>
 </div>
 </div>
 <a id="a242ba43bfa18f0d47fa2fbb73f7b6ef4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a242ba43bfa18f0d47fa2fbb73f7b6ef4">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[5/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a242ba43bfa18f0d47fa2fbb73f7b6ef4">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[5/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,8 +364,56 @@ Binary file header as explained in the documetation to WriteBin</p>
 
 </div>
 </div>
+<a id="a11e468bed8072399b4cd3f2cbba6ef8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e468bed8072399b4cd3f2cbba6ef8e">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSymmetricMatrix.html">SymmetricMatrix</a>&lt; T &gt;::<a class="el" href="classSymmetricMatrix.html">SymmetricMatrix</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>vtype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>csep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor to fill the matrix content from a csv file<br  />
+First line is supposed to have the field names which become the column names<br  />
+First column of each line is supposed to have the field name, which becomes that row name<br  />
+The passed character is the expected field sepparator (usually, comma or tab) WARNING: even the .csv must contain a square matrix, only the lower-triangular matrix and the main diagonal are stored. The upper-triangular matrix is read and discarded.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fname</td><td>The name of the csv file to read </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vtype</td><td>The data type to be stored (see constants at <a class="el" href="jmatrix_8h.html">jmatrix.h</a>) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">csep</td><td>The character used as field sepparator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aba753f25bd33401ee50c49346fe28b40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba753f25bd33401ee50c49346fe28b40">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aba753f25bd33401ee50c49346fe28b40">&#9670;&nbsp;</a></span>SymmetricMatrix() <span class="overload">[7/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -408,6 +464,9 @@ template&lt;typename T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="classSymmetricMatrix.html">SymmetricMatrix</a>&lt; T &gt;::Get </td>
@@ -427,6 +486,11 @@ template&lt;typename T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Function to get acess to an element</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -549,6 +613,9 @@ WARNING: previous content, if any, IS LOST (to be reviewed)</p>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSymmetricMatrix.html">SymmetricMatrix</a>&lt; T &gt;::Set </td>
@@ -574,6 +641,11 @@ template&lt;typename T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Function to set an element</p>
 <dl class="params"><dt>Parameters</dt><dd>

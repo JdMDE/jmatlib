@@ -119,6 +119,12 @@ Possible commands are\+: \begin{DoxyVerb}jmat info matrix_file [-o info_file.txt
 \end{DoxyVerb}
  Reads the input file, which must be a csv file, and creates a binary jmatrix file with its content.~\newline
  sepchar must be c or t to indicate that the expected field separator will be a comma or a tab, respectively.~\newline
- mtype must be one of the strings \textquotesingle{}full\textquotesingle{} or \textquotesingle{}sparse\textquotesingle{}. Symmetric matrices cannot be read as such from a CSV file.~\newline
+ mtype must be one of the strings \textquotesingle{}full\textquotesingle{}, \textquotesingle{}sparse\textquotesingle{} or \textquotesingle{}symmetric\textquotesingle{}~\newline
+ WARNING\+: if you read a symmetric matrix from a .csv file, the file must be a square table but ONLY the lower-\/diagonal matrix~\newline
+ and the main diagonal will be stored. The upper-\/diagonal matrix is read BUT THEIR VALUES ARE IGNORED.~\newline
  valtype must be one of the strings \textquotesingle{}u8\textquotesingle{},\textquotesingle{}s8\textquotesingle{},\textquotesingle{}u16\textquotesingle{},\textquotesingle{}s16\textquotesingle{},\textquotesingle{}u32\textquotesingle{},\textquotesingle{}s32\textquotesingle{},\textquotesingle{}u64\textquotesingle{},\textquotesingle{}s64\textquotesingle{},\textquotesingle{}f\textquotesingle{},\textquotesingle{}d\textquotesingle{} or \textquotesingle{}ld\textquotesingle{}.~\newline
- These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively. 
+ These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively.
+
+jmat setcom matrix\+\_\+file \textquotesingle{}new\+\_\+comment\textquotesingle{} -\/o out\+\_\+file
+
+Copy the input matrix in the output file, setting the comment to the one specified (which can be the empty string, \textquotesingle{}\textquotesingle{}) 

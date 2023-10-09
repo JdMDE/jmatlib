@@ -18,13 +18,6 @@
 \item 
 class \mbox{\hyperlink{classJMatrix}{JMatrix$<$ T $>$}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Macros}
-\textbf{ }\par
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{jmatrix_8h_ad6fa70fc4255ca3aec2e403f7821f887}{WITH\+\_\+\+CHECKS\+\_\+\+MATRIX}}
-\end{DoxyCompactItemize}
-
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -135,20 +128,6 @@ const unsigned char \mbox{\hyperlink{jmatrix_8h_a25e5e3fc309be8abca75f75ff294d2a
 \end{DoxyCompactItemize}
 
 
-
-\doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{jmatrix_8h_ad6fa70fc4255ca3aec2e403f7821f887}\label{jmatrix_8h_ad6fa70fc4255ca3aec2e403f7821f887}} 
-\index{jmatrix.h@{jmatrix.h}!WITH\_CHECKS\_MATRIX@{WITH\_CHECKS\_MATRIX}}
-\index{WITH\_CHECKS\_MATRIX@{WITH\_CHECKS\_MATRIX}!jmatrix.h@{jmatrix.h}}
-\doxysubsubsection{\texorpdfstring{WITH\_CHECKS\_MATRIX}{WITH\_CHECKS\_MATRIX}}
-{\footnotesize\ttfamily \#define WITH\+\_\+\+CHECKS\+\_\+\+MATRIX}
-
-Constant defined to check access to matrix elements
-
-The simple fact of being defined at compilation time adds a test in each matrix access to be sure we are not out of bound; if we are, a run-\/time error is raised.
-
-This is obviously safer but at the expense of adding overhead and a slight increment of run time.~\newline
-Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds. 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}\label{jmatrix_8h_ab7ff82340988d7bed5aea643c5fd233b}} 
@@ -380,7 +359,12 @@ Full matrix \mbox{\Hypertarget{jmatrix_8h_af8fd011df2f028118128a2e5b1b1c48d}\lab
 \doxysubsubsection{\texorpdfstring{MTYPENOTYPE}{MTYPENOTYPE}}
 {\footnotesize\ttfamily const unsigned char MTYPENOTYPE =0x0F}
 
-Constants for the possible matrix types Currently, they are no type (for errors), full matrix, sparse matrix and symmetric matrix. No matrix type \mbox{\Hypertarget{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}\label{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}} 
+Constant defined to check access to matrix elements
+
+The simple fact of being defined at compilation time adds a test in each matrix access to be sure we are not out of bound; if we are, a run-\/time error is raised.
+
+This is obviously safer but at the expense of adding overhead and a slight increment of run time.~\newline
+Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds. Constants for the possible matrix types Currently, they are no type (for errors), full matrix, sparse matrix and symmetric matrix. No matrix type \mbox{\Hypertarget{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}\label{jmatrix_8h_a11f5f71e49edcdbf2f79458b4465c71a}} 
 \index{jmatrix.h@{jmatrix.h}!MTYPESPARSE@{MTYPESPARSE}}
 \index{MTYPESPARSE@{MTYPESPARSE}!jmatrix.h@{jmatrix.h}}
 \doxysubsubsection{\texorpdfstring{MTYPESPARSE}{MTYPESPARSE}}

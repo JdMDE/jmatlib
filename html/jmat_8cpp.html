@@ -170,9 +170,13 @@ Possible commands are: </p><pre class="fragment">jmat info matrix_file [-o info_
 <pre class="fragment">jmat csvread input_file.csv sepchar mtype valtype -o res_file
 </pre><p> Reads the input file, which must be a csv file, and creates a binary jmatrix file with its content.<br  />
  sepchar must be c or t to indicate that the expected field separator will be a comma or a tab, respectively.<br  />
- mtype must be one of the strings 'full' or 'sparse'. Symmetric matrices cannot be read as such from a CSV file.<br  />
+ mtype must be one of the strings 'full', 'sparse' or 'symmetric'<br  />
+ WARNING: if you read a symmetric matrix from a .csv file, the file must be a square table but ONLY the lower-diagonal matrix<br  />
+ and the main diagonal will be stored. The upper-diagonal matrix is read BUT THEIR VALUES ARE IGNORED.<br  />
  valtype must be one of the strings 'u8','s8','u16','s16','u32','s32','u64','s64','f','d' or 'ld'.<br  />
- These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively. </p>
+ These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively.</p>
+<p>jmat setcom matrix_file 'new_comment' -o out_file</p>
+<p>Copy the input matrix in the output file, setting the comment to the one specified (which can be the empty string, '') </p>
 
 </div>
 </div>

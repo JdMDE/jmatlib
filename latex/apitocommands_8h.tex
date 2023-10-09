@@ -39,6 +39,8 @@ void \mbox{\hyperlink{apitocommands_8h_af24abacbce348daeefa710aca4c53e0d}{JSet\+
 void \mbox{\hyperlink{apitocommands_8h_aaed07f56b56a08dd1f16b12a672e147f}{JCsv\+Dump}} (std\+::string iname, std\+::string oname, char sep, bool with\+\_\+quotes)
 \item 
 void \mbox{\hyperlink{apitocommands_8h_ac2c5041453a33b9d244e5e58593690e0}{JCsv\+To\+JMat}} (std\+::string iname, std\+::string oname, char sep, unsigned char mtype, unsigned char ctype)
+\item 
+void \mbox{\hyperlink{apitocommands_8h_aa2673ab8ec62daf7d5e41aedd59b9362}{JSet\+Comment}} (std\+::string iname, std\+::string oname, std\+::string comment)
 \end{DoxyCompactItemize}
 
 
@@ -299,6 +301,22 @@ vector of strings, which must have as many elements as columns in the input matr
 \mbox{\texttt{ in}}  & {\em oname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the copy matrix with new column names \\
 \hline
 \mbox{\texttt{ in}}  & {\em cnames} & Vector of strings with the new column names \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{apitocommands_8h_aa2673ab8ec62daf7d5e41aedd59b9362}\label{apitocommands_8h_aa2673ab8ec62daf7d5e41aedd59b9362}} 
+\index{apitocommands.h@{apitocommands.h}!JSetComment@{JSetComment}}
+\index{JSetComment@{JSetComment}!apitocommands.h@{apitocommands.h}}
+\doxysubsubsection{\texorpdfstring{JSetComment()}{JSetComment()}}
+{\footnotesize\ttfamily void JSet\+Comment (\begin{DoxyParamCaption}\item[{std\+::string}]{iname,  }\item[{std\+::string}]{oname,  }\item[{std\+::string}]{comment }\end{DoxyParamCaption})}
+
+Function to generate a copy of a binary \mbox{\hyperlink{classJMatrix}{JMatrix}} file setting the comment to any string~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the original matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em oname} & Name of the \mbox{\hyperlink{classJMatrix}{JMatrix}} binary file with the copy matrix with the new comment \\
+\hline
+\mbox{\texttt{ in}}  & {\em comment} & The comment to be set (it can be the empty string) \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{apitocommands_8h_af24abacbce348daeefa710aca4c53e0d}\label{apitocommands_8h_af24abacbce348daeefa710aca4c53e0d}} 

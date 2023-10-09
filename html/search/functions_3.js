@@ -19,6 +19,7 @@ var searchData=
   ['jmatrixstop_165',['JMatrixStop',['../debugpar_8h.html#a4f7ec3f15bba191a15bc3d331c394407',1,'debugpar.cpp']]],
   ['jmatrixwarning_166',['JMatrixWarning',['../debugpar_8h.html#aa75d0698aa087a3535ae465194ce8c74',1,'debugpar.cpp']]],
   ['jsetcolnames_167',['JSetColNames',['../apitocommands_8h.html#a9374ad5562018929d09c0a4154cfe521',1,'apitocommands.h']]],
-  ['jsetrowcolnames_168',['JSetRowColNames',['../apitocommands_8h.html#af24abacbce348daeefa710aca4c53e0d',1,'apitocommands.h']]],
-  ['jsetrownames_169',['JSetRowNames',['../apitocommands_8h.html#ac5b53905d79151d5fd80108472feb7b3',1,'apitocommands.h']]]
+  ['jsetcomment_168',['JSetComment',['../apitocommands_8h.html#aa2673ab8ec62daf7d5e41aedd59b9362',1,'apitocommands.h']]],
+  ['jsetrowcolnames_169',['JSetRowColNames',['../apitocommands_8h.html#af24abacbce348daeefa710aca4c53e0d',1,'apitocommands.h']]],
+  ['jsetrownames_170',['JSetRowNames',['../apitocommands_8h.html#ac5b53905d79151d5fd80108472feb7b3',1,'apitocommands.h']]]
 ];

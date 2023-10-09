@@ -14,14 +14,15 @@ var searchData=
   ['jgetrownames_49',['JGetRowNames',['../matmetadata_8h.html#a32508847046ce00b87bc4768f1d98982',1,'JGetRowNames(std::string fname):&#160;matmetadata.h'],['../apitocommands_8h.html#a63acc5af8605ed16df761ce4fa7ccc2b',1,'JGetRowNames(std::string iname, std::string oname):&#160;apitocommands.h']]],
   ['jgetsubdiag_50',['JGetSubDiag',['../apitocommands_8h.html#aab4848c842c951645ab0b757961e9e58',1,'apitocommands.h']]],
   ['jmat_2ecpp_51',['jmat.cpp',['../jmat_8cpp.html',1,'']]],
-  ['jmatinfo_52',['JMatInfo',['../apitocommands_8h.html#a99b7915c0886ac71ab8bf9fae050ba13',1,'JMatInfo(std::string iname, std::string oname):&#160;matinfo.cpp'],['../matinfo_8h.html#a860bad1d955c70ad491aca039032f586',1,'JMatInfo(std::string fname, std::string fres=&quot;&quot;):&#160;matinfo.cpp']]],
+  ['jmatinfo_52',['JMatInfo',['../matinfo_8h.html#a860bad1d955c70ad491aca039032f586',1,'JMatInfo(std::string fname, std::string fres=&quot;&quot;):&#160;matinfo.cpp'],['../apitocommands_8h.html#a99b7915c0886ac71ab8bf9fae050ba13',1,'JMatInfo(std::string iname, std::string oname):&#160;matinfo.cpp']]],
   ['jmatlib_3a_20a_20matrix_20library_20to_20manipulate_20big_202d_20matrices_53',['jmatlib: a matrix library to manipulate big 2D matrices',['../index.html',1,'']]],
-  ['jmatrix_54',['JMatrix',['../classJMatrix.html#a4b7d3503ab1271d7631d3c2bbc7df2f3',1,'JMatrix::JMatrix(const JMatrix&lt; T &gt; &amp;other)'],['../classJMatrix.html#a80c23dbd842d116514c871fb38f336fd',1,'JMatrix::JMatrix(std::string fname, unsigned char mtype, unsigned char vtype, char csep)'],['../classJMatrix.html#abd58e4083c9ce5c00dbfecf096ff9e3e',1,'JMatrix::JMatrix(std::string fname, unsigned char mtype)'],['../classJMatrix.html#a9d02b4cc43e341dc73a94d46a6223c88',1,'JMatrix::JMatrix(unsigned char mtype, indextype nrows, indextype ncols)'],['../classJMatrix.html#a158e7af8c9389b8e2b50b9de7e2aee9d',1,'JMatrix::JMatrix(unsigned char mtype)'],['../classJMatrix.html',1,'JMatrix&lt; T &gt;']]],
+  ['jmatrix_54',['JMatrix',['../classJMatrix.html#a9d02b4cc43e341dc73a94d46a6223c88',1,'JMatrix::JMatrix(unsigned char mtype, indextype nrows, indextype ncols)'],['../classJMatrix.html#a158e7af8c9389b8e2b50b9de7e2aee9d',1,'JMatrix::JMatrix(unsigned char mtype)'],['../classJMatrix.html',1,'JMatrix&lt; T &gt;'],['../classJMatrix.html#abd58e4083c9ce5c00dbfecf096ff9e3e',1,'JMatrix::JMatrix(std::string fname, unsigned char mtype)'],['../classJMatrix.html#a80c23dbd842d116514c871fb38f336fd',1,'JMatrix::JMatrix(std::string fname, unsigned char mtype, unsigned char vtype, char csep)'],['../classJMatrix.html#a4b7d3503ab1271d7631d3c2bbc7df2f3',1,'JMatrix::JMatrix(const JMatrix&lt; T &gt; &amp;other)']]],
   ['jmatrix_2eh_55',['jmatrix.h',['../jmatrix_8h.html',1,'']]],
   ['jmatrixsetdebug_56',['JMatrixSetDebug',['../debugpar_8h.html#a74a44d278363cc0af5c366083e7edb43',1,'debugpar.cpp']]],
   ['jmatrixstop_57',['JMatrixStop',['../debugpar_8h.html#a4f7ec3f15bba191a15bc3d331c394407',1,'debugpar.cpp']]],
   ['jmatrixwarning_58',['JMatrixWarning',['../debugpar_8h.html#aa75d0698aa087a3535ae465194ce8c74',1,'debugpar.cpp']]],
   ['jsetcolnames_59',['JSetColNames',['../apitocommands_8h.html#a9374ad5562018929d09c0a4154cfe521',1,'apitocommands.h']]],
-  ['jsetrowcolnames_60',['JSetRowColNames',['../apitocommands_8h.html#af24abacbce348daeefa710aca4c53e0d',1,'apitocommands.h']]],
-  ['jsetrownames_61',['JSetRowNames',['../apitocommands_8h.html#ac5b53905d79151d5fd80108472feb7b3',1,'apitocommands.h']]]
+  ['jsetcomment_60',['JSetComment',['../apitocommands_8h.html#aa2673ab8ec62daf7d5e41aedd59b9362',1,'apitocommands.h']]],
+  ['jsetrowcolnames_61',['JSetRowColNames',['../apitocommands_8h.html#af24abacbce348daeefa710aca4c53e0d',1,'apitocommands.h']]],
+  ['jsetrownames_62',['JSetRowNames',['../apitocommands_8h.html#ac5b53905d79151d5fd80108472feb7b3',1,'apitocommands.h']]]
 ];

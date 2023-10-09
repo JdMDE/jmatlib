@@ -20,6 +20,7 @@
 #define JMATRIX_H
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cstring>
 #include <cmath>
@@ -381,12 +382,14 @@ class JMatrix
  	std::ofstream ofile;
  	unsigned char TypeNameToId();
  	bool ProcessDataLineCsv(std::string line,char csep,T *rowofdata);
+ 	bool ProcessDataLineCsvForSymmetric(std::string line,char csep,indextype rnum,std::vector<T> &rowofdata);
  	int ReadMetadata();
  	void WriteMetadata();
  	std::vector<std::string> rownames;
  	std::vector<std::string> colnames;
  	char comment[COMMENT_SIZE];
  	void SetDataType(unsigned char dtype);
+    std::string CleanQuotes(std::string s);
  	
  private:
  	unsigned char jmtype;

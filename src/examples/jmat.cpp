@@ -156,7 +156,9 @@ void Usage(char *pname,unsigned char specific)
     case CSVREAD:
         cerr << "\n  " << pname << " csvread input_file.csv sepchar mtype valtype -o res_file\n\nReads the input file, which must be a csv file, and creates a binary jmatrix file with its content.\n";
         cerr << "  sepchar must be c or t to indicate that the expected field separator will be a comma or a tab, respectively.\n";
-        cerr << "  mtype must be one of the strings 'full' or 'sparse'. Symmetric matrices cannot be read as such from a CSV file.\n";
+        cerr << "  mtype must be one of the strings 'full', 'sparse' or 'symmetric'\n";
+        cerr << "  WARNING: if you read a symmetric matrix from a .csv file, the file must be a square table but ONLY the lower-diagonal matrix\n";
+        cerr << "           and the main diagonal will be stored. The upper-diagonal matrix is read BUT THEIR VALUES ARE IGNORED.\n";
         cerr << "  valtype must be one of the strings 'u8','s8','u16','s16','u32','s32','u64','s64','f','d' or 'ld'.\n";
         cerr << "  These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively.\n";
         break;
@@ -272,10 +274,13 @@ bool CorrectWriteSpecs(vector<string> spec,char &sep,unsigned char &mtype,unsign
   if (spec[1]=="sparse")
    mtype=MTYPESPARSE;
   else
-  {
-   JMatrixStop("Incorrect format specifier for matrix type in csvread subcommand.\n");
-   return false;
-  }
+   if (spec[1]=="symmetric")
+    mtype=MTYPESYMMETRIC;
+   else
+   {
+    JMatrixStop("Incorrect format specifier for matrix type in csvread subcommand.\n");
+    return false;
+   }
 
  if (spec[2]=="u8") { valtype=UCTYPE; return true; }
  if (spec[2]=="s8") { valtype=SCTYPE; return true; }
@@ -444,7 +449,9 @@ int CheckProgName(string pname,vector<string> possible_endings)
  *
  *   Reads the input file, which must be a csv file, and creates a binary jmatrix file with its content.\n
  *   sepchar must be c or t to indicate that the expected field separator will be a comma or a tab, respectively.\n
- *   mtype must be one of the strings 'full' or 'sparse'. Symmetric matrices cannot be read as such from a CSV file.\n
+ *   mtype must be one of the strings 'full', 'sparse' or 'symmetric'\n
+ *    WARNING: if you read a symmetric matrix from a .csv file, the file must be a square table but ONLY the lower-diagonal matrix\n
+ *             and the main diagonal will be stored. The upper-diagonal matrix is read BUT THEIR VALUES ARE IGNORED.\n
  *   valtype must be one of the strings 'u8','s8','u16','s16','u32','s32','u64','s64','f','d' or 'ld'.\n
  *   These stands for unsigned/signed integers of 8,16,32 or 64 bits, float, double, or long double datatypes, respectively.
  *
@@ -585,6 +592,7 @@ int main(int argc,char *argv[])
       Usage(argv[0],CSVREAD);
     else
      JCsvToJMat(iname,oname,sep,mtype,valtype);
+    break; 
   case SETCOM:
     if ( (args.size()!=1) )
      Usage(argv[0],SETCOM);

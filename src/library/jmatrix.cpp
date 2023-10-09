@@ -32,7 +32,7 @@ void MatrixType(std::string fname,unsigned char &mtype,unsigned char &ctype,unsi
  ifile.open(fname.c_str(),std::ios::binary);
  if (!ifile.is_open())
     {
-    	std::string err="Error: cannot open file "+fname+" to verify matrix type.\n";
+    	std::string err="Cannot open file "+fname+" to verify matrix type.\n";
         JMatrixStop(err);
         
     }
@@ -173,7 +173,7 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype)
  ifile.open(fname.c_str(),std::ios::binary);
  if (!ifile.is_open())
     {
-    	std::string err="Error: cannot open file "+fname+" to read the matrix.\n";
+    	std::string err="Cannot open file "+fname+" to read the matrix.\n";
         JMatrixStop(err);
         
     }
@@ -191,7 +191,7 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype)
  {
   if (mt!=mtype)
   {
- 	std::string err="Error: matrix stored in file "+fname+" is of type "+MatrixTypeName(mt)+" and you are trying to store it as a "+ MatrixTypeName(mtype)+". If it is not of type "+MatrixTypeName(MTYPENOTYPE)+" you must use the right class.\n";
+ 	std::string err="Matrix stored in file "+fname+" is of type "+MatrixTypeName(mt)+" and you are trying to store it as a "+ MatrixTypeName(mtype)+". If it is not of type "+MatrixTypeName(MTYPENOTYPE)+" you must use the right class.\n";
         JMatrixStop(err);
   }
  }
@@ -204,7 +204,7 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype)
  {
     std::ostringstream errst;
     
-    errst << "Error: matrix stored in file " << fname << " has data of different size than those of the matrix supposed to hold it.\n";
+    errst << "Matrix stored in file " << fname << " has data of different size than those of the matrix supposed to hold it.\n";
     errst << "The stored matrix says to have elements of size " << tds << " whereas this matrix is declared to hold elements of size " << sizeof(T) << std::endl;
     JMatrixStop(errst.str());
  }
@@ -215,7 +215,7 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype)
  if ( (td & 0xF0) != ThisMachineEndianness() )
  {
     std::string err;
-    err = "Error: matrix stored in file " +fname+" has different endianness to that of this machine, which is ";
+    err = "Matrix stored in file " +fname+" has different endianness to that of this machine, which is ";
     err = err + ((ThisMachineEndianness() == BIGEND) ? "big endian.\n" : "little endian.\n");
     err = err + "Changing endianness when reading is not yet implemented. Sorry.\n";
     JMatrixStop(err);
@@ -293,6 +293,17 @@ std::vector<std::string> JMatrix<T>::GetRowNames()
 
 TEMPLATES_FUNC(std::vector<std::string>,JMatrix,GetRowNames,)
 
+////////////////////////////////////////////////////////////////////////
+template<typename T>
+std::string JMatrix<T>::CleanQuotes(std::string s)
+{
+ std::string r=s;
+ if (s[0]=='\"')
+  r=r.substr(1);
+ if (r[r.size()-1]=='\"')
+  r=r.substr(0,r.size()-1);
+ return r;
+}
 
 ////////////////////////////////////////////////////////////////////////
 template <typename T>
@@ -304,20 +315,23 @@ bool JMatrix<T>::ProcessFirstLineCsv(std::string line,char csep)
  size_t pos=0;
  std::string token,tt;
  int p=0;
+ 
  while ((pos=line.find(delim)) != std::string::npos)
  {
      token=line.substr(0,pos);
      line.erase(0,pos+1);
      tt="";
      std::remove_copy(token.begin(),token.end(),std::back_inserter(tt),'\"');
+     // Some people inserts a word before the first tab in the first line, even that word CANNOT BE the header of any column...
+     //if ( ( p==0 && tt!="" ) || ( p!=0 && tt=="" ) )
      if ( ( p==0 && tt!="" ) || ( p!=0 && tt=="" ) )
          return false;
-     // Each token (except the first one) is stored as a column name
+     // Each token (except the first one) is stored as a column name (without the quotes, if it has them...)
      if (p>0)
-      colnames.push_back(token);
+      colnames.push_back(CleanQuotes(token));
      p++;
  }
- colnames.push_back(line);
+ colnames.push_back(CleanQuotes(line));
  nc=colnames.size();
  return true;
 }
@@ -337,20 +351,20 @@ bool JMatrix<T>::ProcessDataLineCsv(std::string line, char csep,T *rowofdata)
     // This reads the first token, which is the row name
     size_t pos=line.find(delim);
     token=line.substr(0,pos);
-    rownames.push_back(token);
+    rownames.push_back(CleanQuotes(token));
     line.erase(0,pos+1);
     
     size_t p=0;
     while ((pos=line.find(delim)) != std::string::npos)
     {
      token=line.substr(0,pos);
-     rowofdata[p]=atof(token.c_str());
+     rowofdata[p]=T(atof(token.c_str()));
      p++;
      line.erase(0,pos+1);
     }
     if (p!=nc-1)
         return false;
-    rowofdata[p]=atof(line.c_str());
+    rowofdata[p]=T(atof(line.c_str()));
     p++;
     
     return true;
@@ -370,6 +384,54 @@ template bool JMatrix<float>::ProcessDataLineCsv(std::string line, char csep,flo
 template bool JMatrix<double>::ProcessDataLineCsv(std::string line, char csep,double *rowofdata);
 template bool JMatrix<long double>::ProcessDataLineCsv(std::string line, char csep,long double *rowofdata);
 
+//////////////////////
+
+template<typename T>
+bool JMatrix<T>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<T> &rowofdata)
+{
+    std::string delim=" ";
+    delim[0]=csep;
+ 
+    std::string token,tt;
+    
+    // This reads the first token, which is the row name
+    size_t pos=line.find(delim);
+    token=line.substr(0,pos);
+    rownames.push_back(token);
+    line.erase(0,pos+1);
+    
+    size_t p=0;
+    while ((pos=line.find(delim)) != std::string::npos)
+    {
+     token=line.substr(0,pos);
+     // Only columns 0 to rnum (included) are stored. The other are read, but ignored.
+     if (p<=rnum)
+      rowofdata[p]=T(atof(token.c_str()));
+     p++;
+     line.erase(0,pos+1);
+    }
+    if (p!=nc-1)
+        return false;
+    if (rnum==(nc-1))
+        rowofdata[p]=T(atof(line.c_str()));
+
+    return true;
+}
+
+template bool JMatrix<unsigned char>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<unsigned char> &rowofdata);
+template bool JMatrix<char>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<char> &rowofdata);
+template bool JMatrix<unsigned short>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<unsigned short> &rowofdata);
+template bool JMatrix<short>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<short> &rowofdata);
+template bool JMatrix<unsigned int>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<unsigned int> &rowofdata);
+template bool JMatrix<int>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<int> &rowofdata);
+template bool JMatrix<unsigned long>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<unsigned long> &rowofdata);
+template bool JMatrix<long>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<long> &rowofdata);
+template bool JMatrix<unsigned long long>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<unsigned long long> &rowofdata);
+template bool JMatrix<long long>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<long long> &rowofdata);
+template bool JMatrix<float>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<float> &rowofdata);
+template bool JMatrix<double>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<double> &rowofdata);
+template bool JMatrix<long double>::ProcessDataLineCsvForSymmetric(std::string line, char csep,indextype rnum,std::vector<long double> &rowofdata);
+
 ////////////////////////////////////////////
 
 // Constructor reading from csv file
@@ -387,7 +449,7 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype,unsigned char valuetyp
  ifile.open(fname.c_str());
  if (!ifile.is_open())
     {
-        std::string err = "Error: cannot open file "+fname+" to read the matrix.\n";
+        std::string err = "Cannot open file "+fname+" to read the matrix.\n";
         JMatrixStop(err);
     }   
  std::string first_line;
@@ -395,11 +457,14 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype,unsigned char valuetyp
  getline(ifile,first_line);
  if (!ProcessFirstLineCsv(first_line,csep))
  {
-     std::string err = "Error: incorrect format of first line of file "+fname+".\n";
+     std::string err = "Incorrect format of first line of file "+fname+".\n";
      JMatrixStop(err);
  }
  if (DEB & DEBJM)
-     std::cout << nc+1 << " columns (excluding column of names) in file " << fname << ".\n";
+     std::cout << nc << " columns (excluding column of names) in file " << fname << ".\n";
+ for (unsigned i=0;i<colnames.size();i++)
+   std::cout << colnames[i] << " ";
+ std::cout << std::endl;
 }
 
 TEMPLATES_CONST(JMatrix,SINGLE_ARG(std::string fname,unsigned char mtype,unsigned char valuetype,char csep))
@@ -530,7 +595,7 @@ void JMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
  ofile.open(fname.c_str());
  if (!ofile.is_open())
  {
-    std::string err = "Error: cannot open file "+fname+" to write the matrix.\n";
+    std::string err = "Cannot open file "+fname+" to write the matrix.\n";
     JMatrixStop(err);
  }
  if (mdinfo & COL_NAMES)
@@ -578,14 +643,14 @@ void JMatrix<T>::WriteBin(std::string fname,unsigned char mtype)
  ofile.open(fname.c_str(),std::ios::binary);
  if (!ofile.is_open())
  {
-        std::string err = "Error: cannot open file "+fname+" to write the matrix.\n";
+        std::string err = "Cannot open file "+fname+" to write the matrix.\n";
         JMatrixStop(err);
  }
  unsigned char td=TypeNameToId();
  if (td==NOTYPE)
  {
    std::ostringstream errst;
-   errst << "Error: " << int(td) << " is not a valid data type identifier.\n";
+   errst << int(td) << " is not a valid data type identifier.\n";
    JMatrixStop(errst.str());
  }
 

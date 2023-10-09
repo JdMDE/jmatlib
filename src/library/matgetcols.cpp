@@ -44,7 +44,7 @@ void GetJustOneColumnFromFull(std::string fname,indextype nc,indextype nrows,ind
  
  std::ifstream f(fname.c_str());
  // This places us at the nc column of first row (row 0)
- size_t offset=HEADER_SIZE+nc*sizeof(T);
+ std::streampos offset=HEADER_SIZE+nc*sizeof(T);
  for (indextype r=0; r<nrows; r++)
  {
   f.seekg(offset,std::ios::beg);
@@ -84,7 +84,7 @@ void GetManyColumnsFromFull(std::string fname,std::vector<indextype> ncs,indexty
  T data;
  
  std::ifstream f(fname.c_str());
- size_t offset;
+ std::streampos offset;
  m.clear();
  m=std::vector<std::vector<T>>(nrows);
  for (size_t r=0;r<nrows;r++)
@@ -103,7 +103,7 @@ void GetManyColumnsFromFull(std::string fname,std::vector<indextype> ncs,indexty
    m[r][t]=data;
    // This jumps exactly one row, up to just before the nc column of next row.
    // The number of bytes in one row is the number of columns multiplied by the size of one element.
-   offset += (ncols*sizeof(T));
+   offset += ((std::streampos)ncols*sizeof(T));
   }
   
  }
@@ -134,15 +134,16 @@ void GetJustOneColumnFromSparse(std::string fname,indextype nc,indextype nrows,i
  
  // Start of row nr is at the end of former rows, each of them having a different number of elements
  // we must go to the start of each row to find out how many...
- size_t offset=HEADER_SIZE;
+ std::streampos offset=HEADER_SIZE;
  indextype c,ncr;
+ unsigned long long to_add;
  for (indextype r=0; r<nrows; r++)
  {
   f.seekg(offset,std::ios::beg);
   // At the beginning of row r: read how many element there are in it (ncr):
-  f.read((char *)&ncr,sizeof(indextype));
+  f.read((char *)&ncr,(std::streampos)sizeof(indextype));
   // Read the indices of this row
-  f.read((char *)idata,ncr*sizeof(indextype));
+  f.read((char *)idata,(std::streampos)ncr*sizeof(indextype));
   // See if the index of the column we are looking for is there (a while loop with premature exit is OK, indices are ordered)
   c=0;
   while ( (c<ncr) && (idata[c]<nc) )
@@ -153,11 +154,12 @@ void GetJustOneColumnFromSparse(std::string fname,indextype nc,indextype nrows,i
   {
    // offset is now the beginning of the current row. We jump the indices (and the number of non-null indices, which is the reason of '+1' in ncr+1)
    // and also jump the first c data, too.
-   f.seekg(offset+((ncr+1)*sizeof(indextype))+(c*sizeof(T)),std::ios::beg);
-   f.read((char *)(&data[r]),sizeof(T));
+   to_add = (ncr+1)*sizeof(indextype)+c*sizeof(T);
+   f.seekg(offset+(std::streampos)to_add,std::ios::beg);
+   f.read((char *)(&data[r]),(std::streampos)sizeof(T));
   }
   // We advance up to the beginning of next row. The size of this row consists on the nc indices, plus the number of non-null indices, plut the number of present values.
-  offset += ((ncr+1)*sizeof(indextype)+(ncr*sizeof(T)));
+  offset += (((std::streampos)(ncr+1))*sizeof(indextype)+((std::streampos)ncr*sizeof(T)));
  }
  
  f.close();
@@ -191,10 +193,10 @@ template <typename T>
 void GetManyColumnsFromSparse(std::string fname,std::vector<indextype> nc,indextype nrows,indextype ncols,std::vector<std::vector<T>> &m)
 {
  // Differently to the function to get rows, here we need the offsets of absolutely all rows, since at least one element will be extracted from each of them
- std::vector<size_t> offsets(nrows,HEADER_SIZE);
+ std::vector<std::streampos> offsets(nrows,HEADER_SIZE);
  
  std::ifstream f(fname.c_str()); 
- size_t offset=HEADER_SIZE;
+ std::streampos offset=HEADER_SIZE;
  
  indextype ncr;
  for (size_t t=0;t<nrows;t++)
@@ -202,7 +204,7 @@ void GetManyColumnsFromSparse(std::string fname,std::vector<indextype> nc,indext
   offsets[t]=offset;
   f.seekg(offset,std::ios::beg);
   f.read((char *)&ncr,sizeof(indextype));
-  offset += ((ncr+1)*sizeof(indextype)+ncr*sizeof(T));
+  offset += (((std::streampos)(ncr+1))*sizeof(indextype)+(std::streampos)ncr*sizeof(T));
  }
  
  // These are temporary arrays to store the indices and values of a row.
@@ -221,11 +223,11 @@ void GetManyColumnsFromSparse(std::string fname,std::vector<indextype> nc,indext
  {
   f.seekg(offsets[t],std::ios::beg);
   // At the beginning of row r: read how many element there are in it (ncr):
-  f.read((char *)&ncr,sizeof(indextype));
+  f.read((char *)&ncr,(std::streamsize)sizeof(indextype));
   // Let's read its indices... No problem with size, ncr is always smaller than ncols
-  f.read((char *)idata,ncr*sizeof(indextype));
+  f.read((char *)idata,(std::streamsize)ncr*sizeof(indextype));
   // ... and let's read the data
-  f.read((char *)data,ncr*sizeof(T));
+  f.read((char *)data,(std::streamsize)ncr*sizeof(T));
   
   // Fill the appropriate places of the matrix (those dictated by the indices in idata)
   for (size_t c=0; c<nc.size(); c++)
@@ -261,27 +263,29 @@ template void GetManyColumnsFromSparse(std::string fname,std::vector<indextype> 
 template <typename T>
 void GetJustOneColumnFromSymmetric(std::string fname,indextype nr,indextype ncols,std::vector<T> &v)
 {
+ unsigned long long nrl=(std::streampos)nr;
  T *data = new T [ncols]; 
  
  std::ifstream f(fname.c_str());
  
  // This is the beginning of row nr in the binary symmetric data
- size_t offset=HEADER_SIZE+((nr*(nr+1))/2)*sizeof(T);
+ std::streampos offset=HEADER_SIZE+((nrl*(nrl+1))/2)*sizeof(T);
+ 
  f.seekg(offset,std::ios::beg);
  
  // Here we read the nr+1 values present in that row, including the (nr,nr) at the main diagonal (which will be normally 0 in a dissimilarity matrix)
- f.read((char *)data,(nr+1)*sizeof(T));
+ f.read((char *)data,(std::streamsize)((nrl+1)*sizeof(T)));
  
  // The rest of this row is not physically after; we must read the rest of the column that starts in the diagonal, down to the end.
  // It would be clearer to write r=nr+1; r<nrows; r++ but we haven't a variable nrows. But we don't need: symmetric matrices are square.
- offset=HEADER_SIZE+(nr+((nr+1)*(nr+2))/2)*sizeof(T);
+ offset=HEADER_SIZE+(nrl+((nrl+1)*(nrl+2))/2)*sizeof(T);
  for (indextype r=nr+1; r<ncols; r++)
  {
   f.seekg(offset,std::ios::beg);
   // Here we read just one value...
-  f.read((char *)&(data[r]),sizeof(T));
+  f.read((char *)&(data[r]),(std::streamsize)sizeof(T));
   // and advance to the next row, taking into account that each row has a different number of really stored columns, which is r+1
-  offset += ((r+1)*sizeof(T));
+  offset += ((std::streampos)(r+1)*sizeof(T));
  }
  f.close();
 
@@ -317,8 +321,9 @@ void GetManyColumnsFromSymmetric(std::string fname,std::vector<indextype> nr,ind
  T *data = new T [ncols]; 
  
  std::ifstream f(fname.c_str());
- size_t offset;
-
+ std::streampos  offset;
+ unsigned long long nrl;
+ 
  m.clear();
  m=std::vector<std::vector<T>>(ncols);
  for (size_t r=0;r<ncols;r++)
@@ -327,24 +332,25 @@ void GetManyColumnsFromSymmetric(std::string fname,std::vector<indextype> nr,ind
  for (size_t t=0; t<nr.size(); t++)
  {
   // This is the beginning of row nr in the binary symmetric data
-  offset=HEADER_SIZE+((nr[t]*(nr[t]+1))/2)*sizeof(T);
+  nrl=(unsigned long long)nr[t];
+  offset=HEADER_SIZE+((nrl*(nrl+1))/2)*sizeof(T);
   f.seekg(offset,std::ios::beg);
   // Here we read the nr+1 values present in that row, including the (nr,nr) at the main diagonal (which will be normally 0 in a dissimilarity matrix)
-  f.read((char *)data,(nr[t]+1)*sizeof(T));
+  f.read((char *)data,(std::streamsize)((nrl+1)*sizeof(T)));
  
   for (size_t c=0; c<nr[t]+1; c++)
    m[c][t]=data[c];                   // This is the difference w.r.t. the original, m is filled transposed
    
   // The rest of this row is not physically after; we must read the rest of the column that starts in the diagonal, down to the end.
   // It would be clearer to write r=nr+1; r<nrows; r++ but we haven't a variable nrows. But we don't need: symmetric matrices are square.
-  offset=HEADER_SIZE+(nr[t]+((nr[t]+1)*(nr[t]+2))/2)*sizeof(T);
+  offset=HEADER_SIZE+sizeof(T)*(nrl+((nrl+1)*(nrl+2))/2);
   for (indextype r=nr[t]+1; r<ncols; r++)
   {
    f.seekg(offset,std::ios::beg);
    // Here we read just one value...
-   f.read((char *)&(data[r]),sizeof(T));
+   f.read((char *)&(data[r]),(std::streamsize)sizeof(T));
    // and advance to the next row, taking into account that each row has a different number of really stored columns, which is r+1
-   offset += ((r+1)*sizeof(T));
+   offset += ((std::streampos)(r+1)*sizeof(T));
   }
   
   for (size_t c=nr[t]+1; c<ncols; c++)

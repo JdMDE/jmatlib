@@ -789,18 +789,12 @@ void SparseMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
 {
     ((JMatrix<T> *)this)->WriteCsv(fname,csep,withquotes);
     
-    bool with_row_headers=true;
-    bool with_col_headers=true;
     size_t nch=this->colnames.size();
-    size_t nrh=this->rownames.size();
-    
-    if (nch==0)
-     with_col_headers=false;
     if (nch>0 && nch!=this->nc)
-    {
-     JMatrixWarning("Different size of column headers and matrix. Column Headers will not be written in the .csv file.\n");
-     with_col_headers=false;
-    }
+       JMatrixWarning("Different size of column headers and matrix. Column Headers will not be written in the .csv file.\n");
+
+    bool with_row_headers=true;
+    size_t nrh=this->rownames.size();
     if (nrh==0)
      with_row_headers=false;
     if (nrh>0 && nrh!=this->nr)
@@ -808,23 +802,23 @@ void SparseMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
      JMatrixWarning("Different size of row headers and matrix. Column Headers will not be written in the .csv file.\n");
      with_row_headers=false;
     }
-   
+
+    int p = std::numeric_limits<T>::max_digits10;
+
     for (indextype r=0;r<this->nr;r++)
     {
-        if (with_col_headers)
-        {
-         if (withquotes)
-           this->ofile << "\"\"" << csep;
-         else
-           this->ofile << csep;   // Blank empty field at the beginning of each line
-        }
-        
         if (with_row_headers)
             this->ofile << FixQuotes(this->rownames[r],withquotes) << csep;
-           
+        else
+        {
+         if (withquotes)
+           this->ofile << "\"\"";
+         this->ofile << csep;   // Blank empty field at the beginning of each line
+        }
+
         for (indextype c=0;c<this->nc-1;c++)
-            this->ofile << Get(r,c) << csep;
-        this->ofile << Get(r,this->nc-1) << std::endl;
+            this->ofile << std::setprecision(p) << Get(r,c) << csep;
+        this->ofile << std::setprecision(p) << Get(r,this->nc-1) << std::endl;
     }
     this->ofile.close();
 }
