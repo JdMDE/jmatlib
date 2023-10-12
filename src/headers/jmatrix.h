@@ -45,7 +45,7 @@
  *      not out of bound; if we are, a run-time error is raised.
  *
  *      This is obviously safer but at the expense of adding overhead and a slight increment of run time.\n
- *      Comment these constant if you are absolutely sure your program does not make any Get or Set out of bounds.
+ *      Comment this constant if you are absolutely sure your program does not make any Get or Set out of bounds.
  *
  */
 //#define WITH_CHECKS_MATRIX

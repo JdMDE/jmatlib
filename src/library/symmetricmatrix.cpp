@@ -414,14 +414,14 @@ T SymmetricMatrix<T>::Get(indextype r,indextype c)
     }
     return (c<=r) ? data[r][c] : data[c][r];
 }
-#endif
 
 TEMPLATES_FUNCR(SymmetricMatrix,Get,SINGLE_ARG(indextype r,indextype c))
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // This procedure is defined online for the case of no argument checks in the header
-#ifdef WITH_CHECKS_MATRIXSYM
+#ifdef WITH_CHECKS_MATRIX
 template <typename T>
 inline void SymmetricMatrix<T>::Set(indextype r,indextype c,T v)
 {
@@ -438,16 +438,16 @@ inline void SymmetricMatrix<T>::Set(indextype r,indextype c,T v)
     else 
         data[c][r]=v;
 }
-#endif
 
 TEMPLATES_SETFUNC(void,SymmetricMatrix,Set,SINGLE_ARG(indextype r,indextype c),v)
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
 T SymmetricMatrix<T>::GetRowSum(indextype r)
 {
-#ifdef WITH_CHECKS_MATRIXSYM
+#ifdef WITH_CHECKS_MATRIX
     if (r>=this->nr)
     {
     	std::ostringstream errst;

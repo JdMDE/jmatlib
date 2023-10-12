@@ -370,9 +370,9 @@ T FullMatrix<T>::Get(indextype r,indextype c)
     }
     return data[r][c];
 }
-#endif
 
 TEMPLATES_FUNCR(FullMatrix,Get,SINGLE_ARG(indextype r,indextype c))
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -390,9 +390,9 @@ void FullMatrix<T>::Set(indextype r,indextype c,T v)
     }
     data[r][c]=v;
 }
-#endif
 
 TEMPLATES_SETFUNC(void,FullMatrix,Set,SINGLE_ARG(indextype r,indextype c),v)
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -428,7 +428,7 @@ void FullMatrix<T>::GetFullRow(indextype r,unsigned char *m,unsigned char s,T *v
         JMatrixStop(errst.str());
     }
 #endif
-  // Fill the positions in v which are not zero and also sum the value s to those positions in array m
+  // Fill the data and also sum the value s to those positions in array m
   for (indextype c=0;c<this->nc;c++)
   {
      if (data[r][c]!=T(0))
@@ -558,6 +558,8 @@ void FullMatrix<T>::WriteBin(std::string fname)
     this->WriteMetadata();                // Here we must write the metadata at the end of the binary contents of the matrix
 
     this->ofile.write((const char *)&endofbindata,sizeof(unsigned long long));  // This writes the point where binary data ends at the end of the file
+    
+    this->ofile.close();
 }
 
 TEMPLATES_FUNC(void,FullMatrix,WriteBin,std::string fname)
