@@ -598,6 +598,12 @@ void JMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
     std::string err = "Cannot open file "+fname+" to write the matrix.\n";
     JMatrixStop(err);
  }
+ if ((this->nr==0) || (this->nc==0))
+ {
+  JMatrixWarning("This matrix has either 0 rows or 0 columns. The .csv will be just an empty file.\n");
+  return;
+ }
+ 
  if (mdinfo & COL_NAMES)
  {
   if (withquotes)

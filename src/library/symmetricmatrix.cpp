@@ -508,6 +508,12 @@ void SymmetricMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
 {
     ((JMatrix<T> *)this)->WriteCsv(fname,csep,withquotes);
     
+    if ((this->nr==0) || (this->nc==0))
+    {
+     this->ofile.close();
+     return;
+    }
+    
     size_t nch=this->colnames.size();
     if (nch>0 && nch!=this->nc)
        JMatrixWarning("Different size of column headers and matrix. Column Headers will not be written in the .csv file.\n");
