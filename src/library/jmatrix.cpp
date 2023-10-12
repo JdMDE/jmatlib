@@ -462,9 +462,6 @@ JMatrix<T>::JMatrix(std::string fname,unsigned char mtype,unsigned char valuetyp
  }
  if (DEB & DEBJM)
      std::cout << nc << " columns (excluding column of names) in file " << fname << ".\n";
- for (unsigned i=0;i<colnames.size();i++)
-   std::cout << colnames[i] << " ";
- std::cout << std::endl;
 }
 
 TEMPLATES_CONST(JMatrix,SINGLE_ARG(std::string fname,unsigned char mtype,unsigned char valuetype,char csep))
@@ -588,7 +585,7 @@ TEMPLATES_OPERATOR(JMatrix,!=)
 
 /////////////////////////////////////////////////////////////////////
 
-// Function to write the matrix as CSV file. It just opens the file
+// Function to write the matrix as CSV file. It opens the file and write the csv header (first line)
 template <typename T>
 void JMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
 {
@@ -598,44 +595,42 @@ void JMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
     std::string err = "Cannot open file "+fname+" to write the matrix.\n";
     JMatrixStop(err);
  }
- if ((this->nr==0) || (this->nc==0))
+ if (this->nc==0)
  {
-  JMatrixWarning("This matrix has either 0 rows or 0 columns. The .csv will be just an empty file.\n");
+  JMatrixWarning("This matrix has no columns. The .csv will be just an empty file.\n");
   return;
  }
- 
- if (mdinfo & COL_NAMES)
- {
-  if (withquotes)
+
+ if (
+     ((mdinfo & ROW_NAMES) && (nr != rownames.size())) ||
+     ((mdinfo & COL_NAMES) && (nc != colnames.size()))
+    )
+  JMatrixStop("Different size of row headers and matrix rows.\n");
+
+ if (withquotes)
    ofile << "\"\"" << csep;
   else
    ofile << csep;   // Blank empty field at the beginning of first line
-   
+
+ if (mdinfo & COL_NAMES)
+ {
   for (unsigned int i=0; i<colnames.size()-1; i++)
    ofile << FixQuotes(colnames[i],withquotes) << csep;
   ofile << FixQuotes(colnames[colnames.size()-1],withquotes) << std::endl;
  }
  else
-  if (mdinfo & ROW_NAMES)
-  {
+ {
+  for (unsigned int i=0; i<this->nc-1; i++)
    if (withquotes)
-    ofile << "\"\"" << csep;
+    ofile << "\"C" << i+1 << "\"" << csep;
    else
-    ofile << csep;   // Blank empty field at the beginning of first line
-   
-   std::string dummy;
-   std::ostringstream odummy;
-   for (unsigned int i=0; i<this->nc-1; i++)
-   {
-    odummy << "C" << i+1;
-    dummy=odummy.str();
-    ofile << FixQuotes(dummy,withquotes) << csep;
-   }
-   odummy << "C" << this->nc;
-   dummy=odummy.str();
-   ofile << FixQuotes(dummy,withquotes) << std::endl;
-  }
-  // Should the case of no names at all be considered?
+    ofile << "C" << i+1 << csep;
+
+  if (withquotes)
+   ofile << "\"C" << this->nc << "\"" << std::endl;
+  else
+   ofile << "C" << this->nc << std::endl;
+ }
 }
 
 TEMPLATES_FUNC(void,JMatrix,WriteCsv,SINGLE_ARG(std::string fname,char csep,bool withquotes))
@@ -806,16 +801,16 @@ void JMatrix<T>::WriteMetadata()
 {
  if (mdinfo == NO_METADATA)
   return;
-  
- if (mdinfo & ROW_NAMES)
+
+ if ((mdinfo & ROW_NAMES) && (rownames.size()>0))
  {
   if (DEB & DEBJM)
    std::cout << "   Writing row names (" << rownames.size() << " strings written, from " << rownames[0] << " to " << rownames[rownames.size()-1] << ").\n";
   WriteNames(rownames);
   ofile.write((const char *)BLOCKSEP,BLOCKSEP_LEN);
  }
- 
- if (mdinfo & COL_NAMES)
+
+ if ((mdinfo & COL_NAMES) && (colnames.size()>0))
  {
   if (DEB & DEBJM)
    std::cout << "   Writing column names (" << colnames.size() << " strings written, from " << colnames[0] << " to " << colnames[colnames.size()-1] << ").\n";
