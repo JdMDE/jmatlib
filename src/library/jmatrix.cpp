@@ -19,11 +19,14 @@
 #ifndef JMATRIX_CPP
 #define JMATRIX_CPP
 
+#ifdef WITH_CHECKS_MATRIX
+#pragma message "Compiling with matrix bound checks. Your code will be slower but safer"
+#endif
+
 #include "../headers/jmatrix.h"
 #include "../headers/templatemacros.h"
 
 extern unsigned char DEB;
-
 
 // Auxiliary functions to check type of matrix in binary file. These are not templated, since they are equal for all types
 void MatrixType(std::string fname,unsigned char &mtype,unsigned char &ctype,unsigned char &endianness,unsigned char &mdinf,indextype &nrows,indextype &ncols)

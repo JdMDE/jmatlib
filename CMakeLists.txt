@@ -4,11 +4,16 @@ include(CheckCXXCompilerFlag)
 
 #Let's build shared libs (*.so)
 OPTION (BUILD_SHARED_LIBS "Build shared libraries." ON)
+OPTION (CHECK_MATRIX_BOUNDS "Compile with checks for matrix bounds" OFF)
 
 #Detect compiler and act accordingly
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     option(CMAKE_CXX_VERBOSE "Verbose compilation output?" OFF)
     option(CMAKE_LD_VERBOSE "Verbose linking output?" OFF)
+
+    if(CHECK_MATRIX_BOUNDS)
+	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWITH_CHECKS_MATRIX")
+    endif()
 
     if(CMAKE_CXX_VERBOSE)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --verbose")

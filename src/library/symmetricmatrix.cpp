@@ -61,10 +61,6 @@ SymmetricMatrix<T>::SymmetricMatrix(indextype nrows,bool warn) : JMatrix<T>(MTYP
  {
      data[r].resize(r+1);
      data[r].assign(r+1,T(0));
-     /*
-     for (indextype c=0;c<=r;c++)
-         data[r][c]=0;
-     */
  }
 }
 
@@ -312,6 +308,8 @@ SymmetricMatrix<T>::SymmetricMatrix(std::string fname,unsigned char vtype,char c
     getline(this->ifile,line);
     // No need to process first line here, it was done at the parent's class constructor
    
+   if (DEB & DEBJM)
+        std::cout << "Reading line... ";
     while (!this->ifile.eof())
     {
         if ( (DEB & DEBJM) && !(p%1000))
@@ -538,13 +536,10 @@ void SymmetricMatrix<T>::WriteCsv(std::string fname,char csep,bool withquotes)
         for (indextype c=0;c<r+1;c++)
             this->ofile << std::setprecision(p) << data[r][c] << csep;
 
-        // Csv version writes all elements, event those not physically stored.
-        if (r!=this->nr-1)
-        {
-         for (indextype c=r+1;c<this->nr-1;c++)
+        // Csv version writes all elements, even those not physically stored.
+        for (indextype c=r+1;c<this->nr-1;c++)
             this->ofile << std::setprecision(p) << data[c][r] << csep;
-         this->ofile << std::setprecision(p) << data[this->nr-1][r] << std::endl;
-        }
+        this->ofile << std::setprecision(p) << data[this->nr-1][r] << std::endl;
     }
     this->ofile.close();
 }
